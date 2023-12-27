@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,6 +15,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { NavBar } from "@/components/NavBar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -30,11 +32,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Sheet>
-          
+          <NavBar>
             <SheetTrigger asChild>
-              <Button variant="outline">Open</Button>
+              <Button className="p-0 m-0 bg-white text-primary">
+                <GiHamburgerMenu className="text-2xl sm:text-3xl text-text" />
+              </Button>
             </SheetTrigger>
-        
+          </NavBar>
+
           {children}
           <SheetContent>
             <SheetHeader>
