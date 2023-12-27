@@ -34,7 +34,7 @@ export default function RootLayout({
         <Sheet>
           <NavBar>
             <SheetTrigger asChild className="bg-[#F9F9FB]">
-              <Button className="p-0 m-0  text-primary  hover:bg-[#F9F9FB]">
+              <Button className="p-0 m-0  text-primary bg-[#F9F9FB]  hover:bg-[#F9F9FB]">
                 <GiHamburgerMenu className="text-2xl sm:text-3xl text-text hover:text-3xl" />
               </Button>
             </SheetTrigger>

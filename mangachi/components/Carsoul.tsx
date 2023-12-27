@@ -1,13 +1,7 @@
 "use client";
 import * as React from "react";
 import { data } from "@/app/test";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+
 import {
   Carousel,
   CarouselContent,
@@ -19,7 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 export function CarouselDemo() {
   return (
-    <Carousel className="w-9/12 md:w-10/12 xl:w-11/12 my-6">
+    <Carousel className="w-9/12  xl:w-10/12 my-6 shadow-md hidden lg:block">
       <CarouselContent>
         {data.map((data) => (
           <CarouselItem key={data.id}>
@@ -50,10 +44,10 @@ function CarouselCard({
   imagesrc: string;
 }) {
   return (
-    <div className="bg-white shadow-lg rounded-sm">
+    <div className="bg-white ">
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row lg:items-center">
-          <div className="flex-1">
+          <div className="flex-1 ">
             <div className="text-sm font-semibold text-primary mb-1">
               #{spotlight} Spotlight
             </div>
@@ -69,38 +63,23 @@ function CarouselCard({
               <Button variant="ghost">Detail</Button>
             </div>
           </div>
-          <div className="flex-1 mt-8 lg:mt-0">
-            <img
-              alt="The Girl I Like Forgot Her Glasses"
-              className="rounded-lg shadow-lg"
-              height="400"
-              src={imagesrc}
-              style={{
-                aspectRatio: "600/400",
-                objectFit: "cover",
-              }}
-              width="600"
-            />
+          <div className="flex-1   mt-8 lg:mt-0">
+            <div className="flex justify-center items-center">
+              <img
+                alt="The Girl I Like Forgot Her Glasses"
+                className="rounded-lg shadow-lg"
+                height="400"
+                src={imagesrc}
+                style={{
+                  aspectRatio: "600/400",
+                  objectFit: "cover",
+                }}
+                width="600"
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
-}
-
-{
-  /* <Card className="w-full h-[450px] flex flex-row space-y-4">
-<div className="w-1/2">
-  <CardHeader>
-    <p className="text-primary text-lg"></p>
-    <CardTitle>{data.title}</CardTitle>
-    <CardDescription>{data.description}</CardDescription>
-  </CardHeader>
-</div>
-<div className="w-1/2">
-  <CardContent>
-    <div></div>
-  </CardContent>
-</div>
-</Card> */
 }
