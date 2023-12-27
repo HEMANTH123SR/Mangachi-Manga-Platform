@@ -30,11 +30,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-[#F9F9FB]`}>
+      <body className={`${inter.className} bg-white`}>
         <Sheet>
           <NavBar>
-            <SheetTrigger asChild className="bg-[#F9F9FB]">
-              <Button className="p-0 m-0  text-primary bg-[#F9F9FB]  hover:bg-[#F9F9FB]">
+            <SheetTrigger asChild className="bg-white">
+              <Button className="p-0 m-0  text-primary bg-white hover:bg-white">
                 <GiHamburgerMenu className="text-2xl sm:text-3xl text-text hover:text-3xl" />
               </Button>
             </SheetTrigger>
