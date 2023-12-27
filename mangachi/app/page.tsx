@@ -1,9 +1,10 @@
-import Image from "next/image";
-
+import { CarouselDemo } from "@/components/Carsoul";
 export default function Home() {
   return (
-    <div>
-      <h1>hello world</h1>
-    </div>
+    <main>
+      <div className="flex justify-center items-center w-full">
+        <CarouselDemo />
+      </div>
+    </main>
   );
 }
