@@ -1,3 +1,4 @@
+import React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -5,6 +6,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+
 import {
   Sheet,
   SheetClose,
@@ -45,7 +47,7 @@ export default function RootLayout({
             <SheetHeader>
               <SheetTitle>Edit profile</SheetTitle>
               <SheetDescription>
-                Make changes to your profile here. Click save when you're done.
+                {`Make changes to your profile here. Click save when you're done.`}
               </SheetDescription>
             </SheetHeader>
             <div className="grid gap-4 py-4">
