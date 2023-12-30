@@ -6,10 +6,10 @@ export default function Home() {
     <main>
       <div className="flex flex-col items-center mb-60">
         <CarouselDemo />
-        <ScrollAreaHorizontalDemo title="Staff Picks"/>
-        <ScrollAreaHorizontalDemo title="Recently Added"/>
-        <ScrollAreaHorizontalDemo title="Most Readed"/>
-        <ScrollAreaHorizontalDemo title="Latest "/>
+        <ScrollAreaHorizontalDemo title="Staff Picks" routeSegment="staff-picks"/>
+        <ScrollAreaHorizontalDemo title="Recently Added" routeSegment="recently-added"/>
+        <ScrollAreaHorizontalDemo title="Most Readed" routeSegment="most-readed"/>
+        <ScrollAreaHorizontalDemo title="Most Liked" routeSegment="most-liked"/>
       </div>
     </main>
   );
