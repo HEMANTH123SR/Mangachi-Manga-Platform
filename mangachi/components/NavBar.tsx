@@ -9,7 +9,7 @@ export const NavBar = ({ children }: { children: React.ReactNode }) => {
     <header className="w-full py-3 px-2 sm:px-5 flex  border-b-2 ">
       <div className="flex w-1/2 md:w-1/3  items-center space-x-3 sm:space-x-6 justify-start">
         {children}
-        <h1 className="font-mono font-bold text-primary text-2xl">Mangachi</h1>
+        <h1 className="font-mono font-bold text-primary text-2xl">MangaChi</h1>
       </div>
       <div className="hidden  md:w-1/3 md:flex md:justify-center md:items-center md:space-x-12">
         <div className="flex flex-col  justify-center items-center space-y-1">

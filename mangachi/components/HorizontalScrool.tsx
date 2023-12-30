@@ -2,12 +2,12 @@ import * as React from "react";
 import Image from "next/image";
 
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { Mangas } from "@/app/data";
+import { Mangas } from "@/app/data/staff-picks";
 
 export function ScrollAreaHorizontalDemo({ title }: { title: string }) {
   return (
     <div className="w-full">
-      <h2 className="mx-10  lg:my-4 text-lg lg:text-3xl font-semibold text-primary">
+      <h2 className="mx-10  lg:my-4 text-lg lg:text-2xl font-semibold text-primary">
         {title}
       </h2>
       <ScrollArea className="px-6 w-full whitespace-nowrap ">

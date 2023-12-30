@@ -6,7 +6,6 @@ export default function Home() {
     <main>
       <div className="flex flex-col items-center mb-60">
         <CarouselDemo />
-
         <ScrollAreaHorizontalDemo title="Staff Picks"/>
         <ScrollAreaHorizontalDemo title="Recently Added"/>
         <ScrollAreaHorizontalDemo title="Most Readed"/>
