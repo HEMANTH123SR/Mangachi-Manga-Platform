@@ -1,5 +1,4 @@
 import React from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
 import { FaRandom, FaBookmark } from "react-icons/fa";
 import { IoMdChatbubbles } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";

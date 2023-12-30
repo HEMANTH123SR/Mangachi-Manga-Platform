@@ -2,10 +2,13 @@ import React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import Mangachi from "@/public/Mangachi-logos_transparent.png";
+import { MdOutlineMenuBook } from "react-icons/md";
 
 import {
   Sheet,
@@ -41,33 +44,27 @@ export default function RootLayout({
               </Button>
             </SheetTrigger>
           </NavBar>
-
           {children}
           <SheetContent>
-            <SheetHeader>
-              <SheetTitle>Edit profile</SheetTitle>
-              <SheetDescription>
-                {`Make changes to your profile here. Click save when you're done.`}
-              </SheetDescription>
+            <SheetHeader className="border-b-2 border-primary py-4 ">
+              <div className="flex flex-col justify-center items-center space-y-3 ">
+                <div className="flex justify-center items-center">
+                  <MdOutlineMenuBook className="text-2xl lg:text-3xl text-primary" />
+                  <SheetTitle className="text-2xl lg:text-3xl font-semibold text-primary">
+                    Mangachi
+                  </SheetTitle>
+                </div>
+                <SheetDescription className="text-primary text-xs">
+                  Mangachi Your Passport to Boundless Manga Adventures.
+                </SheetDescription>
+              </div>
             </SheetHeader>
-            <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="name" className="text-right">
-                  Name
-                </Label>
-                <Input id="name" value="Pedro Duarte" className="col-span-3" />
-              </div>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="username" className="text-right">
-                  Username
-                </Label>
-                <Input id="username" value="@peduarte" className="col-span-3" />
-              </div>
-            </div>
+            <div></div>
+
             <SheetFooter>
-              <SheetClose asChild>
+              {/* <SheetClose asChild>
                 <Button type="submit">Save changes</Button>
-              </SheetClose>
+              </SheetClose> */}
             </SheetFooter>
           </SheetContent>
         </Sheet>
