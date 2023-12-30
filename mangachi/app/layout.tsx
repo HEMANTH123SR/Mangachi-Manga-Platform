@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import { NavBar } from "@/components/NavBar";
 import { SideMenu } from "@/components/SideMeny";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +35,7 @@ export default function RootLayout({
           {children}
           <SideMenu />
         </Sheet>
+        <Analytics />
       </body>
     </html>
   );
