@@ -33,7 +33,7 @@ export const Mangas: Manga[] =  [
     mangaName: "The Promised Neverland",
   },
   {
-    magaCoverImage: "https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/81r1n+TfLSS._AC_UY327_FMwebp_QL65_.jpg",
+    magaCoverImage: "https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/81xD4QJzGtL._AC_UY327_FMwebp_QL65_.jpg",
     mangaName: "One Punch Man",
   },
   {
