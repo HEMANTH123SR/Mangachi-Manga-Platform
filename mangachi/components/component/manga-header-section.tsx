@@ -2,6 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import OnePiceCoverImage from "@/public/One-Piece.jpg";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import {
+  MessageCircleIcon,
+  MoreVerticalIcon,
+  StarIcon,
+  HeartIcon,
+  GlobeIcon,
+  UsersIcon,
+} from "@/app/Icons";
 export function MangaHeaderSection() {
   return (
     <div className="border-t-2 border-primary">
@@ -50,7 +58,7 @@ export function MangaHeaderSection() {
             <div className="flex space-x-2 mb-4">
               <Badge variant="secondary">SUGGESTIVE</Badge>
               <Badge variant="secondary">GORE</Badge>
-              <Badge variant="secondary">AWARD WINNING</Badge>
+              <Badge variant="secondary">AWARD-WINNING</Badge>
               <Badge variant="secondary">MONSTERS</Badge>
               <Badge variant="secondary">ACTION</Badge>
               <Badge variant="secondary">PSYCHOLOGICAL</Badge>
@@ -102,87 +110,77 @@ export function MangaHeaderSection() {
           </p>
         </div>
       </div>
+      <div className="flex flex-col gap-6 p-6">
+        <div className="flex items-center gap-4">
+          <img
+            alt="Manga cover"
+            className="h-[100px] w-[100px] object-cover"
+            height="100"
+            src={OnePiceCoverImage.src}
+            style={{
+              aspectRatio: "100/100",
+              objectFit: "cover",
+            }}
+            width="100"
+          />
+          <div className="flex flex-col">
+            <span className="text-lg font-bold text-[#E11D48]">#001</span>
+            <h2 className="text-xl font-semibold">{`Page 1: The Boy's Vow`}</h2>
+            <span className="text-sm text-gray-500">JAN 20, 2019</span>
+          </div>
+          <div className="ml-auto">
+            <MoreVerticalIcon className="text-gray-500" />
+          </div>
+          <span className="text-sm font-medium">342</span>
+          <MessageCircleIcon className="text-gray-500" />
+        </div>
+        <div className="flex items-center gap-4">
+          <img
+            alt="Manga cover"
+            className="h-[100px] w-[100px] object-cover"
+            height="100"
+            src={OnePiceCoverImage.src}
+            style={{
+              aspectRatio: "100/100",
+              objectFit: "cover",
+            }}
+            width="100"
+          />
+          <div className="flex flex-col">
+            <span className="text-lg font-bold text-[#E11D48]">#001</span>
+            <h2 className="text-xl font-semibold">{`Page 1: The Boy's Vow`}</h2>
+            <span className="text-sm text-gray-500">JAN 20, 2019</span>
+          </div>
+          <div className="ml-auto">
+            <MoreVerticalIcon className="text-gray-500" />
+          </div>
+          <span className="text-sm font-medium">342</span>
+          <MessageCircleIcon className="text-gray-500" />
+        </div>
+        <div className="flex items-center gap-4">
+          <img
+            alt="Manga cover"
+            className="h-[100px] w-[100px] object-cover"
+            height="100"
+            src={OnePiceCoverImage.src}
+            style={{
+              aspectRatio: "100/100",
+              objectFit: "cover",
+            }}
+            width="100"
+          />
+          <div className="flex flex-col">
+            <span className="text-lg font-bold text-[#E11D48]">#001</span>
+            <h2 className="text-xl font-semibold">{`Page 1: The Boy's Vow`}</h2>
+            <span className="text-sm text-gray-500">JAN 20, 2019</span>
+          </div>
+          <div className="ml-auto">
+            <MoreVerticalIcon className="text-gray-500" />
+          </div>
+          <span className="text-sm font-medium">342</span>
+          <MessageCircleIcon className="text-gray-500" />
+        </div>
+      </div>
     </div>
-  );
-}
-
-function StarIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-    </svg>
-  );
-}
-
-function UsersIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-      <circle cx="9" cy="7" r="4" />
-      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-    </svg>
-  );
-}
-
-function HeartIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-    </svg>
-  );
-}
-
-function GlobeIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <line x1="2" x2="22" y1="12" y2="12" />
-      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-    </svg>
   );
 }
