@@ -36,7 +36,7 @@ export function MangaHeaderSection() {
               <p className="text-xl mt-1">Oda Eiichiro</p>
             </div>
           </div>
-          <div className="absolute top-0 right-0 p-5">
+          <div className="hidden lg:absolute top-0 right-0 p-5 ">
             <Button
               className="bg-[#E11D48] hover:bg-[#ce193f] text-white"
               variant="secondary"
@@ -68,37 +68,37 @@ export function MangaHeaderSection() {
           <div className="flex items-center space-x-2 mb-4">
             <Badge variant="secondary">PUBLICATION: 1997, ONGOING</Badge>
             <div className="flex items-center space-x-1">
-              <StarIcon className="text-[#E11D48] w-5 h-5" />
-              <span className="text-lg font-semibold">9.25</span>
+              <StarIcon className={"text-[#E11D48] w-5 h-5"} />
+              <span className={"text-lg font-semibold"}>9.25</span>
             </div>
             <div className="flex items-center space-x-1">
-              <UsersIcon className="text-gray-600 w-5 h-5" />
-              <span className="text-lg">88K</span>
+              <UsersIcon className={"text-gray-600 w-5 h-5"} />
+              <span className={"text-lg"}>88K</span>
             </div>
             <div className="flex items-center space-x-1">
-              <HeartIcon className="text-[#E11D48] w-5 h-5" />
-              <span className="text-lg">265</span>
+              <HeartIcon className={"text-[#E11D48] w-5 h-5"} />
+              <span className={"text-lg"}>265</span>
             </div>
             <div className="flex items-center space-x-1">
-              <GlobeIcon className="text-gray-600 w-5 h-5" />
-              <span className="text-lg">N/A</span>
+              <GlobeIcon className={"text-gray-600 w-5 h-5"} />
+              <span className={"text-lg"}>N/A</span>
             </div>
           </div>
           <p className="text-gray-700 mb-4">
-            Gol D. Roger, a man referred to as the "Pirate King," is set to be
+            {`Gol D. Roger, a man referred to as the "Pirate King," is set to be
             executed by the World Government. But just before his demise, he
             confirms the existence of a great treasure, One Piece, located
             somewhere within the vast ocean known as the Grand Line. Announcing
             that One Piece can be claimed by anyone worthy enough to reach it,
-            the Pirate King is executed and the Great Age of Pirates begins.
+            the Pirate King is executed and the Great Age of Pirates begins.`}
           </p>
           <p className="text-gray-700">
-            Twenty-two years later, a young man by the name of Monkey D. Luffy
-            is ready to embark on his own adventure, searching for One Piece and
-            striving to become the new Pirate King. Armed with just a straw hat,
-            a small boat, and an elastic body, he sets out on a fantastic
-            journey to gather his own crew and a worthy ship that will take them
-            to the ends of the earth to find the legendary treasure.
+            {` Twenty-two years later, a young man by the name of Monkey D. Luffy
+              is ready to embark on his own adventure, searching for One Piece and
+              striving to become the new Pirate King. Armed with just a straw hat,
+              a small boat, and an elastic body, he sets out on a fantastic
+              journey to gather his own crew and a worthy ship that will take them
+              to the ends of the earth to find the legendary treasure.`}
           </p>
         </div>
       </div>
@@ -106,7 +106,7 @@ export function MangaHeaderSection() {
   );
 }
 
-function StarIcon(props) {
+function StarIcon(props: any) {
   return (
     <svg
       {...props}
@@ -125,7 +125,7 @@ function StarIcon(props) {
   );
 }
 
-function UsersIcon(props) {
+function UsersIcon(props: any) {
   return (
     <svg
       {...props}
@@ -147,7 +147,7 @@ function UsersIcon(props) {
   );
 }
 
-function HeartIcon(props) {
+function HeartIcon(props: any) {
   return (
     <svg
       {...props}
@@ -166,7 +166,7 @@ function HeartIcon(props) {
   );
 }
 
-function GlobeIcon(props) {
+function GlobeIcon(props: any) {
   return (
     <svg
       {...props}
