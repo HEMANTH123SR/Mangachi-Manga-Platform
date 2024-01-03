@@ -67,8 +67,38 @@ const MangaSchema = new mongoose.Schema(
         },
       },
     ],
-    likes: [],
-    dislikes: [],
+    publication: {
+      date: { type: Date, required: true },
+      status: {
+        type: String,
+        enum: ["Ongoing", "Completed", "Cancelled"],
+        default: "Ongoing",
+      },
+    },
+    likes: {
+      likedBy: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+        },
+      ],
+      likeCount: {
+        type: Number,
+        default: 0,
+      },
+    },
+    dislikes: {
+      dislikedBy: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+        },
+      ],
+      dislikeCount: {
+        type: Number,
+        default: 0,
+      },
+    },
     reviews: [],
     description: {
       type: String,
