@@ -133,7 +133,18 @@ const MangaSchema = new mongoose.Schema(
         chapterNumber: { type: Number, required: true },
       },
     ],
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+    views: {
+      type: Number,
+      default: 0,
+    },
+    
+
   },
+ 
   { timestamps: true }
 );
 

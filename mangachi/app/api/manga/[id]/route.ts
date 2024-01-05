@@ -37,11 +37,8 @@ export async function DELETE(req: NextRequest) {
     await connectDB();
     const url = new URL(req.url);
     const id = url.pathname.split("/")[3];
-    const manga = await Manga.findByIdAndDelete(id);
-    return NextResponse.json(
-      { status: "success", data: manga },
-      { status: 204 }
-    );
+    await Manga.findByIdAndDelete(id);
+    return NextResponse.json({ status: 204 });
   } catch (err: any) {
     return NextResponse.json(
       {
