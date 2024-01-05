@@ -2,8 +2,8 @@ import { connectDB } from "@/db/index";
 
 import { NextRequest, NextResponse } from "next/server";
 import { Manga } from "@/db/modules/manga.model";
-import { stat } from "fs";
 
+// post the manga 
 export async function POST(req: NextRequest) {
   try {
     await connectDB();
@@ -24,6 +24,7 @@ export async function POST(req: NextRequest) {
   }
 }
 
+// get all the mangas
 export async function GET() {
   try {
     await connectDB();

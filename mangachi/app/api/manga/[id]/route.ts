@@ -1,29 +1,21 @@
-import { NextResponse, NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { connectDB } from "@/db/index";
+import { Manga } from "@/db/modules/manga.model";
 
-export function GET(req: NextRequest) {
-  return NextResponse.json([
-    {
-      mangaName: "",
-      author: "",
-      backgroundImage: "",
-      coverImage: "",
-      tags: [],
-      publication: {
-        data: "",
-        status: "",
+export async function GET(req: NextRequest) {
+  try {
+    await connectDB();
+    const url = new URL(req.url);
+    const id = url.pathname.split("/")[3];
+    const manga = await Manga.findById(id);
+    return NextResponse.json({ status: "success", data: manga });
+  } catch (err: any) {
+    return NextResponse.json(
+      {
+        status: "unsuccess",
+        message: err?.message || err.message || "internal server error",
       },
-      likes: 0,
-      review: 0,
-      follow: 0,
-      description: "",
-      chapter: [
-        {
-          chapterName: "",
-          chapterPublishedDate: "",
-          chapterNumber: 0,
-          chapterId: "",
-        },
-      ],
-    },
-  ]);
+      { status: 500 }
+    );
+  }
 }
