@@ -1,15 +1,44 @@
-import {connectDB} from "@/db/index"
+import { connectDB } from "@/db/index";
 
-
-import { NextResponse, NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { Manga } from "@/db/modules/manga.model";
+import { stat } from "fs";
 
 export async function POST(req: NextRequest) {
-  const { name } = await req.json();
   try {
     await connectDB();
-    // await Test.create({ name });
-  } catch (err) {
-    console.log(err);
+    const body = await req.json();
+    const manga = await Manga.create(body);
+    return NextResponse.json(
+      { status: "success", data: manga },
+      { status: 201 }
+    );
+  } catch (err: any) {
+    return NextResponse.json(
+      {
+        status: "unsuccess",
+        message: err?.message || err._message || "Internal server error",
+      },
+      { status: 500 }
+    );
   }
-  return NextResponse.json({ msg: "" });
+}
+
+export async function GET() {
+  try {
+    await connectDB();
+    const mangas = await Manga.find({});
+    return NextResponse.json(
+      { status: "success", data: mangas },
+      { status: 200 }
+    );
+  } catch (err: any) {
+    return NextResponse.json(
+      {
+        status: "unsuccess",
+        message: err?.message || err._message || "Internal server error",
+      },
+      { status: 500 }
+    );
+  }
 }
