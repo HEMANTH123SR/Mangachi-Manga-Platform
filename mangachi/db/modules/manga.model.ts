@@ -137,4 +137,4 @@ const MangaSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export const Manga = mongoose.model("Manga", MangaSchema);
+export const Manga = mongoose.models.Manga || mongoose.model("Manga", MangaSchema);
