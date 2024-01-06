@@ -82,8 +82,21 @@ export function AddManga({ children }: { children: React.ReactNode }) {
             >
               Manga Settings
             </Button>
+            <Button
+              className={`mb-4 block  py-2 px-4 text-left text-sm font-medium text-gray-700
+            
+
+               ${
+                 pathname === "/manga/add/analytics"
+                   ? "bg-primary text-white hover:bg-primary "
+                   : "bg-white hover:bg-slate-100 hover:text-black"
+               } `}
+              onClick={() => router.push("/manga/add/analytics")}
+            >
+              Analytics
+            </Button>
           </div>
-          <div className="flex-1 bg-white p-6">{children}</div>
+          <div className="flex-1 bg-white px-6">{children}</div>
         </div>
       </div>
     </div>
