@@ -41,7 +41,7 @@ export default function DrawerDemo() {
             {/* <DrawerDescription>Set your daily activity goal.</DrawerDescription> */}
           </DrawerHeader>
           <DropZone className="p-8 mx-4 my-2 border-dashed border border-primary" />
-          <ScrollAreaHorizontalDemo />
+          {/* <ScrollAreaHorizontalDemo /> */}
           <DrawerFooter>
             <Button>Publish</Button>
             <DrawerClose asChild>
