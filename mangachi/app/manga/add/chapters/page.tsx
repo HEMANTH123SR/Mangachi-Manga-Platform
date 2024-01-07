@@ -1,25 +1,5 @@
-// "use client";
-// import { FaPlus } from "react-icons/fa6";
-// const Page = () => {
-//   return (
-//     <div>
-//       <div className="flex justify-center items-center w-full">
-//         <div className="text-white bg-primary p-3 rounded-full ">
-//           <FaPlus className="text-2xl" />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Page;
-// 3;
 "use client";
 import * as React from "react";
-// import { FaPlus, FaMinus } from "@radix-ui/react-icons";
-import { FaPlus, FaMinus } from "react-icons/fa6";
-
-import { Bar, BarChart, ResponsiveContainer } from "recharts";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -33,114 +13,29 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 
-const data = [
-  {
-    goal: 400,
-  },
-  {
-    goal: 300,
-  },
-  {
-    goal: 200,
-  },
-  {
-    goal: 300,
-  },
-  {
-    goal: 200,
-  },
-  {
-    goal: 278,
-  },
-  {
-    goal: 189,
-  },
-  {
-    goal: 239,
-  },
-  {
-    goal: 300,
-  },
-  {
-    goal: 200,
-  },
-  {
-    goal: 278,
-  },
-  {
-    goal: 189,
-  },
-  {
-    goal: 349,
-  },
-];
-
+import { Input } from "@/components/ui/input";
+import { DropZone } from "@/components/DropZone";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import Image from "next/image";
 export default function DrawerDemo() {
-  const [goal, setGoal] = React.useState(350);
-
-  function onClick(adjustment: number) {
-    setGoal(Math.max(200, Math.min(400, goal + adjustment)));
-  }
-
   return (
     <Drawer>
-      <DrawerTrigger asChild>
-        <Button variant="outline">Open Drawer</Button>
-      </DrawerTrigger>
+      <div className="flex w-full justify-center">
+        <DrawerTrigger asChild>
+          <Button variant="outline" className="bg-primary text-white lg:mr-10">
+            Add Chapter
+          </Button>
+        </DrawerTrigger>
+      </div>
       <DrawerContent>
-        <div className="h-24 w-23 bg-primary"></div>
-        <div className="mx-auto w-full max-w-sm">
+        <div className="px-4 mx-auto w-full max-w-md ">
           <DrawerHeader>
-            <DrawerTitle>Move Goal</DrawerTitle>
+            <DrawerTitle>Chapter Title</DrawerTitle>
+            <Input placeholder="chapter title" className="my-3" />
             <DrawerDescription>Set your daily activity goal.</DrawerDescription>
           </DrawerHeader>
-          <div className="p-4 pb-0">
-            <div className="flex items-center justify-center space-x-2">
-              <Button
-                variant="outline"
-                size="icon"
-                className="h-8 w-8 shrink-0 rounded-full"
-                onClick={() => onClick(-10)}
-                disabled={goal <= 200}
-              >
-                <FaPlus className="h-4 w-4" />
-                <span className="sr-only">Decrease</span>
-              </Button>
-              <div className="flex-1 text-center">
-                <div className="text-7xl font-bold tracking-tighter">
-                  {goal}
-                </div>
-                <div className="text-[0.70rem] uppercase text-muted-foreground">
-                  Calories/day
-                </div>
-              </div>
-              <Button
-                variant="outline"
-                size="icon"
-                className="h-8 w-8 shrink-0 rounded-full"
-                onClick={() => onClick(10)}
-                disabled={goal >= 400}
-              >
-                <FaMinus className="h-4 w-4" />
-                <span className="sr-only">Increase</span>
-              </Button>
-            </div>
-            <div className="mt-3 h-[120px]">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={data}>
-                  <Bar
-                    dataKey="goal"
-                    style={
-                      {
-                        fill: "hsl(var(--foreground))",
-                        opacity: 0.9,
-                      } as React.CSSProperties
-                    }
-                  />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
+          <DropZone className="p-5 mt-2 border border-primary" />
+          <ScrollAreaHorizontalDemo />
           <DrawerFooter>
             <Button>Submit</Button>
             <DrawerClose asChild>
@@ -150,5 +45,54 @@ export default function DrawerDemo() {
         </div>
       </DrawerContent>
     </Drawer>
+  );
+}
+
+export interface Artwork {
+  artist: string;
+  art: string;
+}
+
+export const works: Artwork[] = [
+  {
+    artist: "Ornella Binni",
+    art: "https://images.unsplash.com/photo-1465869185982-5a1a7522cbcb?auto=format&fit=crop&w=300&q=80",
+  },
+  {
+    artist: "Tom Byrom",
+    art: "https://images.unsplash.com/photo-1548516173-3cabfa4607e9?auto=format&fit=crop&w=300&q=80",
+  },
+  {
+    artist: "Vladimir Malyavko",
+    art: "https://images.unsplash.com/photo-1494337480532-3725c85fd2ab?auto=format&fit=crop&w=300&q=80",
+  },
+];
+
+function ScrollAreaHorizontalDemo() {
+  return (
+    <ScrollArea className="w-96 whitespace-nowrap rounded-md border">
+      <div className="flex w-max space-x-4 p-4">
+        {works.map((artwork) => (
+          <figure key={artwork.artist} className="shrink-0">
+            <div className="overflow-hidden rounded-md">
+              <Image
+                src={artwork.art}
+                alt={`Photo by ${artwork.artist}`}
+                className="aspect-[3/4] h-fit w-fit object-cover"
+                width={300}
+                height={400}
+              />
+            </div>
+            <figcaption className="pt-2 text-xs text-muted-foreground">
+              Photo by{" "}
+              <span className="font-semibold text-foreground">
+                {artwork.artist}
+              </span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+      <ScrollBar orientation="horizontal" />
+    </ScrollArea>
   );
 }
