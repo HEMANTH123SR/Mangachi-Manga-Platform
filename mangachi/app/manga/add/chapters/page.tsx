@@ -40,7 +40,7 @@ export default function DrawerDemo() {
             <Input placeholder="chapter title" id="chaptername" />
             {/* <DrawerDescription>Set your daily activity goal.</DrawerDescription> */}
           </DrawerHeader>
-          <DropZone className="p-6 mx-4 my-2 border-dashed border border-primary" />
+          <DropZone className="p-8 mx-4 my-2 border-dashed border border-primary" />
           <ScrollAreaHorizontalDemo />
           <DrawerFooter>
             <Button>Publish</Button>
@@ -54,12 +54,12 @@ export default function DrawerDemo() {
   );
 }
 
-export interface Artwork {
+interface Artwork {
   artist: string;
   art: string;
 }
 
-export const works: Artwork[] = [
+ const works: Artwork[] = [
   {
     artist: "Ornella Binni",
     art: "https://images.unsplash.com/photo-1465869185982-5a1a7522cbcb?auto=format&fit=crop&w=300&q=80",
