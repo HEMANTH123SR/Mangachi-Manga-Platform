@@ -46,7 +46,7 @@ export function DropZone({ className }: DropZoneProps) {
             {files.map((file) => (
               <figure
                 key={file.name}
-                className="relative overflow-hidden rounded-md"
+                className="relative overflow-hidden rounded-md max-h-40"
               >
                 <Image
                   src={file.preview}
