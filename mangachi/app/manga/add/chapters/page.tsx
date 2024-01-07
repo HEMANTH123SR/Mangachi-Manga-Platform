@@ -27,8 +27,7 @@ export default function DrawerDemo() {
       </div>
       <DrawerContent>
         <div className="px-4 mx-auto w-full max-w-md ">
-          <DrawerHeader>
-            {/* <DrawerTitle>Chapter Title</DrawerTitle> */}
+          <DrawerHeader className="py-0">
             <label
               className="block text-sm font-medium text-gray-700"
               htmlFor="chaptername"
@@ -40,7 +39,7 @@ export default function DrawerDemo() {
               Only images are accepted and it should be less than 1mb .
             </DrawerDescription>
           </DrawerHeader>
-          <DropZone className="p-8 mx-4  border-dashed border border-primary" />
+          <DropZone className="p-3 mx-4  border-dashed border border-primary" />
 
           <DrawerFooter>
             <Button>Publish</Button>
