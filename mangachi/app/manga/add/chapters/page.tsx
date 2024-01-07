@@ -36,9 +36,11 @@ export default function DrawerDemo() {
               Chapter Name
             </label>
             <Input placeholder="chapter title" id="chaptername" />
-            {/* <DrawerDescription>Set your daily activity goal.</DrawerDescription> */}
+            <DrawerDescription>
+              Only images are accepted and it should be less than 1mb .
+            </DrawerDescription>
           </DrawerHeader>
-          <DropZone className="p-8 mx-4 my-2 border-dashed border border-primary" />
+          <DropZone className="p-8 mx-4  border-dashed border border-primary" />
 
           <DrawerFooter>
             <Button>Publish</Button>
