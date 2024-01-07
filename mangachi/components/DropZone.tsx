@@ -57,12 +57,12 @@ export function DropZone({ className }: DropZoneProps) {
       {/* {rejectFiles.map((file) => (
         <p key={file.name}>file.name</p>
       ))} */}
-      <ScrollArea>
-        <div className="flex w-max space-x-4 py-4">
+      {/* <ScrollArea className="h-44 mt-5">
+        <div className="flex flex-col justify-center items-center w-max ">
           {files.map((file) => (
             <figure
-              key={file.name}
               className="relative overflow-hidden rounded-md max-h-40"
+              key={file.name}
             >
               <Image
                 src={file.preview}
@@ -84,7 +84,36 @@ export function DropZone({ className }: DropZoneProps) {
           ))}
         </div>
 
-        <ScrollBar orientation="horizontal" />
+        <ScrollBar orientation="vertical" />
+      </ScrollArea> */}
+      <ScrollArea className="h-44 mt-5">
+        <div className="flex flex-col justify-center items-center mx-auto max-w-screen-lg">
+          {files.map((file) => (
+            <figure
+              className="relative overflow-hidden rounded-md max-h-40 mx-2 my-2" // Adjust mx-2 for spacing between images
+              key={file.name}
+            >
+              <Image
+                src={file.preview}
+                alt={file.name}
+                width={300}
+                height={300}
+                onLoad={() => {
+                  URL.revokeObjectURL(file.preview);
+                }}
+              />
+              <button
+                type="button"
+                className="w-7 h-7 border border-secondary-400 bg-secondary-400 rounded-full flex justify-center items-center absolute top-0 right-0  hover:bg-slate-50 bg-white transition-colors"
+                onClick={() => removeFile(file.name)}
+              >
+                <RxCross2 className="w-5 h-5 fill-white hover:fill-secondary-400 transition-colors" />
+              </button>
+            </figure>
+          ))}
+        </div>
+
+        <ScrollBar orientation="vertical" />
       </ScrollArea>
     </form>
   );
