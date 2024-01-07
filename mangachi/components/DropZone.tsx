@@ -14,7 +14,7 @@ export function DropZone({ className }: { className: string }) {
       {isDragActive ? (
         <p>Drop the files here ...</p>
       ) : (
-        <p>{`Drag 'n' drop some files here, or click to select files`}</p>
+        <p>{`Drag 'n' drop image here, or click here`}</p>
       )}
     </form>
   );
