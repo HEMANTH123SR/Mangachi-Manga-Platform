@@ -3,29 +3,25 @@ import React, { useCallback, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
-import { useDropzone, FileRejection } from "react-dropzone";
+import { useDropzone } from "react-dropzone";
 import Image from "next/image";
 interface DropZoneProps {
   className: string;
 }
 
-export function DropZone({ className }: DropZoneProps) {
-  const [files, setFiles] = useState<any[]>([]);
-  const [rejectFiles, setRefectFiles] = useState<any[]>([]);
+export function DropZone() {
+  const { className }: DropZoneProps = {
+    className:
+      "flex-1 border-2 border-primary border-dashed flex justify-center items-center",
+  };
 
-  const onDrop = useCallback((acceptedFile: File[], rejectedFile: any) => {
+  const [files, setFiles] = useState<any[]>([]);
+
+  const onDrop = useCallback((acceptedFile: File[]) => {
     if (acceptedFile?.length) {
       setFiles((previousFiles) => [
         ...previousFiles,
         ...acceptedFile.map((file) =>
-          Object.assign(file, { preview: URL.createObjectURL(file) })
-        ),
-      ]);
-    }
-    if (rejectedFile?.length) {
-      setRefectFiles((previousFiles) => [
-        ...previousFiles,
-        ...rejectedFile.map((file: any) =>
           Object.assign(file, { preview: URL.createObjectURL(file) })
         ),
       ]);
@@ -45,7 +41,7 @@ export function DropZone({ className }: DropZoneProps) {
   };
 
   return (
-    <form>
+    <form className="flex  space-x-3">
       <div {...getRootProps({ className: className })}>
         <input {...getInputProps()} />
         {isDragActive ? (
@@ -55,18 +51,18 @@ export function DropZone({ className }: DropZoneProps) {
         )}
       </div>
 
-      <ScrollArea className="h-52 mt-2">
+      <ScrollArea className="h-64 flex-1  bg-slate-100">
         <div className="flex flex-col justify-center items-center mx-auto max-w-screen-lg">
           {files.map((file) => (
             <figure
-              className="relative overflow-hidden rounded-md max-h-40 mx-2 my-2" // Adjust mx-2 for spacing between images
+              className="relative overflow-hidden rounded-md max-h-40 mx-2 my-2"
               key={file.name}
             >
               <Image
                 src={file.preview}
                 alt={file.name}
-                width={300}
-                height={300}
+                width={500}
+                height={600}
                 onLoad={() => {
                   URL.revokeObjectURL(file.preview);
                 }}

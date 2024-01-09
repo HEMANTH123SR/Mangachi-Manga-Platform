@@ -8,13 +8,16 @@ import {
   Select,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
+
 import { Textarea } from "@/components/ui/textarea";
-import { DropZone } from "@/components/DropZone";
 
 const Page = () => {
   return (
     <div>
-      <div className=" grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6 lg:mx-12">
+      <p className="mt-1 max-w-2xl text-sm text-gray-500">
+        Add all the manga details required to the manga reader
+      </p>
+      <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
         <div className="sm:col-span-6">
           <label
             className="block text-sm font-medium text-gray-700"
@@ -72,29 +75,19 @@ const Page = () => {
             <Textarea
               id="description"
               placeholder="Tell us about your favorite mangas."
-              rows={6}
             />
           </div>
           <p className="mt-2 text-sm text-gray-500">
-            Min 500 words and Maximum 600 words
+            Min 200 words and Maximum 300 words
           </p>
         </div>
         <div className="sm:col-span-6">
-          {/* <div className="p-6 rounded-md bg-slate-50 text-primary my-3">
+          <div className="p-6 rounded-md bg-slate-50 text-primary my-3">
             Upload Cover Image
           </div>
           <div className="p-6 rounded-md bg-slate-50 text-primary">
             Upload Background Image
-          </div> */}
-          <h3 className="text-sm font-medium text-gray-700 my-3">
-            Upload Cover Image
-          </h3>
-          <DropZone />
-          <div className="my-6"></div>
-          <h3 className="text-sm font-medium text-gray-700 my-3">
-            Upload Background Image
-          </h3>
-          <DropZone />
+          </div>
         </div>
         <div className="sm:col-span-6">
           <label
@@ -111,8 +104,17 @@ const Page = () => {
           </p>
         </div>
         <div className="sm:col-span-6">
+          <label
+            className="block text-sm font-medium text-gray-700"
+            htmlFor="urls"
+          >
+            URLs
+          </label>
+          <div className="mt-1">
+            <Input id="urls" placeholder="Link to your manga collection" />
+          </div>
           <div className="flex justify-center items-center w-full">
-            <Button className="mt-10 w-2/5 font-semibold">Create Manga</Button>
+            <Button className="mt-10 w-1/4">Save It</Button>
           </div>
         </div>
       </div>
