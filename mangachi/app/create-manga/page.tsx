@@ -14,10 +14,7 @@ import { Textarea } from "@/components/ui/textarea";
 const Page = () => {
   return (
     <div>
-      <p className="mt-1 max-w-2xl text-sm text-gray-500">
-        Add all the manga details required to the manga reader
-      </p>
-      <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+      <div className=" grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6 lg:mx-12">
         <div className="sm:col-span-6">
           <label
             className="block text-sm font-medium text-gray-700"
@@ -75,10 +72,11 @@ const Page = () => {
             <Textarea
               id="description"
               placeholder="Tell us about your favorite mangas."
+              rows={6}
             />
           </div>
           <p className="mt-2 text-sm text-gray-500">
-            Min 200 words and Maximum 300 words
+            Min 500 words and Maximum 600 words
           </p>
         </div>
         <div className="sm:col-span-6">
@@ -104,17 +102,8 @@ const Page = () => {
           </p>
         </div>
         <div className="sm:col-span-6">
-          <label
-            className="block text-sm font-medium text-gray-700"
-            htmlFor="urls"
-          >
-            URLs
-          </label>
-          <div className="mt-1">
-            <Input id="urls" placeholder="Link to your manga collection" />
-          </div>
           <div className="flex justify-center items-center w-full">
-            <Button className="mt-10 w-1/4">Save It</Button>
+            <Button className="mt-10 w-2/5 font-semibold">Save It</Button>
           </div>
         </div>
       </div>
