@@ -45,13 +45,13 @@ export function DropZone() {
       <div {...getRootProps({ className: className })}>
         <input {...getInputProps()} />
         {isDragActive ? (
-          <p>Drop the files here ...</p>
+          <p className="text-center">Drop the files here ...</p>
         ) : (
-          <p>{`Drag 'n' drop image here, or click here`}</p>
+          <p className="text-center">{`Drag 'n' drop image here, or click here`}</p>
         )}
       </div>
 
-      <ScrollArea className="h-64 flex-1  bg-slate-100">
+      <ScrollArea className="h-40  md:h-64 flex-1  bg-slate-100">
         <div className="flex flex-col justify-center items-center mx-auto max-w-screen-lg">
           {files.map((file) => (
             <figure
