@@ -9,7 +9,7 @@ interface DropZoneProps {
   className: string;
 }
 
-export function DropZone() {
+export function DropZone({ multipleImage }: { multipleImage: boolean }) {
   const { className }: DropZoneProps = {
     className:
       "flex-1 border-2 border-primary border-dashed flex justify-center items-center",
@@ -17,16 +17,29 @@ export function DropZone() {
 
   const [files, setFiles] = useState<any[]>([]);
 
-  const onDrop = useCallback((acceptedFile: File[]) => {
-    if (acceptedFile?.length) {
-      setFiles((previousFiles) => [
-        ...previousFiles,
-        ...acceptedFile.map((file) =>
-          Object.assign(file, { preview: URL.createObjectURL(file) })
-        ),
-      ]);
-    }
-  }, []);
+  const maxf = multipleImage ? 0 : 1;
+
+  const onDrop = useCallback(
+    (acceptedFiles: File[]) => {
+      if (acceptedFiles?.length) {
+        if (multipleImage) {
+          setFiles((prev) => [
+            ...prev,
+            ...acceptedFiles.map((file) =>
+              Object.assign(file, { preview: URL.createObjectURL(file) })
+            ),
+          ]);
+        } else {
+          setFiles([
+            ...acceptedFiles.map((file) =>
+              Object.assign(file, { preview: URL.createObjectURL(file) })
+            ),
+          ]);
+        }
+      }
+    },
+    [multipleImage]
+  );
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
@@ -34,6 +47,7 @@ export function DropZone() {
       "image/*": [],
     },
     maxSize: 1000 * 1024,
+    maxFiles: maxf,
   });
 
   const removeFile = (name: any) => {

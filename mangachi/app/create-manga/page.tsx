@@ -80,21 +80,15 @@ const Page = () => {
           </p>
         </div>
         <div className="sm:col-span-6">
-          {/* <div className="p-6 rounded-md bg-slate-50 text-primary my-3">
-            Upload Cover Image
-          </div>
-          <div className="p-6 rounded-md bg-slate-50 text-primary">
-            Upload Background Image
-          </div> */}
           <h3 className="text-sm font-medium text-gray-700 my-3">
             Upload Cover Image
           </h3>
-          <DropZone />
+          <DropZone multipleImage={false} />
           <div className="my-6"></div>
           <h3 className="text-sm font-medium text-gray-700 my-3">
             Upload Background Image
           </h3>
-          <DropZone />
+          <DropZone multipleImage={false} />
         </div>
         <div className="sm:col-span-6">
           <label
