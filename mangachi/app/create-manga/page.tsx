@@ -1,4 +1,5 @@
 "use client";
+
 import { Input } from "@/components/ui/input";
 import {
   SelectValue,
@@ -10,10 +11,15 @@ import {
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { DropZone } from "@/components/DropZone";
+import { z } from "zod";
+import { MangaDetailsSchema } from "@/app/ZodSchemas";
+import { useState } from "react";
 
 const Page = () => {
+  const [mangaDetails, setMangaDetails] = useState();
+
   return (
-    <div>
+    <form>
       <div className=" grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6 lg:mx-12">
         <div className="sm:col-span-6">
           <label
@@ -106,11 +112,13 @@ const Page = () => {
         </div>
         <div className="sm:col-span-6">
           <div className="flex justify-center items-center w-full">
-            <Button className="mt-10 w-2/5 font-semibold">Create Manga</Button>
+            <Button className="mt-10 w-2/5 font-semibold" type="submit">
+              Create Manga
+            </Button>
           </div>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 
