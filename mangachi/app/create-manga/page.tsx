@@ -74,7 +74,7 @@ const Page = () => {
           Manga Name
         </label>
         {
-          error && <p className="mt-2text-xs text-red-600">{errormessage?.mangaName?.[0]}</p>
+          error && <p className="mt-2 text-xs text-red-600">{errormessage?.mangaName?.[0]}</p>
         }
         <div className="mt-1">
           <Input id="manganame" type="text" placeholder="Your manga name" value={mangaName} onChange={(e) => { setMangaName(e.target.value) }} />
@@ -88,7 +88,7 @@ const Page = () => {
           Author Name
         </label>
         {
-          error && <p className="mt-2text-xs text-red-600">{errormessage?.author?.[0]}</p>
+          error && <p className="mt-2 text-xs text-red-600">{errormessage?.author?.[0]}</p>
         }
         <div className="mt-1">
           <Input id="authorname" placeholder="Add the author name" value={author} onChange={(e) => { setAuthor(e.target.value) }} />
@@ -126,7 +126,7 @@ const Page = () => {
           Description
         </label>
         {
-          error && <p className="mt-2text-xs text-red-600">{errormessage?.description?.[0]}</p>
+          error && <p className="mt-2 text-xs text-red-600">{errormessage?.description?.[0]}</p>
         }
         <div className="mt-1">
           <Textarea
