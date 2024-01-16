@@ -22,6 +22,7 @@
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
     "embla-carousel-react": "^8.0.0-rc17",
+    "formik": "^2.4.5",
     "heroicons": "^2.1.1",
     "lucide-react": "^0.302.0",
     "mongoose": "^8.0.3",

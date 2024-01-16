@@ -22,48 +22,6 @@ const MangaSchema = new mongoose.Schema(
       {
         tag: {
           type: String,
-          enum: [
-            "Action",
-            "Adventure",
-            "Fantasy",
-            "Romance",
-            "Slice of Life",
-            "Comedy",
-            "Drama",
-            "Mystery",
-            "Horror",
-            "Supernatural",
-            "Science Fiction",
-            "School Life",
-            "Historical",
-            "Isekai",
-            "Shounen",
-            "Shoujo",
-            "Seinen",
-            "Josei",
-            "Psychological",
-            "Thriller",
-            "Sports",
-            "Martial Arts",
-            "Superpower",
-            "Space",
-            "Cyberpunk",
-            "Harem",
-            "Ecchi",
-            "Gender Bender",
-            "Mecha",
-            "Post-Apocalyptic",
-            "Music",
-            "Magic",
-            "Vampire",
-            "Demons",
-            "Monsters",
-            "Detective",
-            "Historical",
-            "Military",
-            "Game",
-            "Illuminati",
-          ],
         },
       },
     ],
@@ -141,11 +99,10 @@ const MangaSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
-    
-
   },
- 
+
   { timestamps: true }
 );
 
-export const Manga = mongoose.models.Manga || mongoose.model("Manga", MangaSchema);
+export const Manga =
+  mongoose.models.Manga || mongoose.model("Manga", MangaSchema);
