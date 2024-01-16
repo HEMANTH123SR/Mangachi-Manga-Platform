@@ -81,7 +81,7 @@ const MangaSchema = new mongoose.Schema(
     },
     chapters: [
       {
-        chapterName: { type: String, required: true, unique: true },
+        chapterName: { type: String, required: true, },
         chapterPublishedDate: { type: Date, required: true },
         chapterImage: { type: String, required: true },
         chapterNumber: { type: Number, required: true },

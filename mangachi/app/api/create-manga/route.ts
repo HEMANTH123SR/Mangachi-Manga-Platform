@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
     const data = await req.json();
     const dbResponse = await Manga.create(data);
     console.log("db response", dbResponse);
-  
+    
     return NextResponse.json(
       { message: "success", data: dbResponse },
       { status: 201 }

@@ -11,11 +11,13 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { DropZone } from "@/components/DropZone";
 import { MangaDetailsSchema } from "@/lib/ZodSchemas"
-import {  z } from "zod";
+import { z } from "zod";
 import { useState } from "react";
+import { useRouter } from "next/navigation"
 
 type FormValues = z.infer<typeof MangaDetailsSchema>;
 const Page = () => {
+  const router = useRouter();
   enum Status {
     Ongoing = "Ongoing",
     Completed = "Completed",
@@ -24,8 +26,8 @@ const Page = () => {
   const [mangaName, setMangaName] = useState<string>("");
   const [author, setAuthor] = useState<string>("");
   const [status, setStatus] = useState<Status>(Status.Ongoing);
-  const [backgroundImage, setBackgroundImage] = useState<string>("");
-  const [coverImage, setCoverImage] = useState<string>("");
+  // const [backgroundImage, setBackgroundImage] = useState<string>("");
+  // const [coverImage, setCoverImage] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [tags, setTags] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
@@ -55,9 +57,11 @@ const Page = () => {
           },
           body: JSON.stringify(res.value)
         })
+        const responseData = await response.json();
 
         if (response.status === 201) {
-          console.log("response: ", response)
+          console.log("responseId : ", responseData.data);
+          router.push("/")
         }
         else if (response.status > 500) {
           setApiError("Something went wrong with the server, please try again")
