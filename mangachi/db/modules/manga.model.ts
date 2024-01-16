@@ -18,13 +18,9 @@ const MangaSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    tags: [
-      {
-        tag: {
-          type: String,
-        },
-      },
-    ],
+    tags: {
+      type: String,
+    },
     status: {
       type: String,
       enum: ["Ongoing", "Completed", "Cancelled"],

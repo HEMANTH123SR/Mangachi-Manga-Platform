@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { DropZone } from "@/components/DropZone";
 import { MangaDetailsSchema } from "@/lib/ZodSchemas"
-import { set, z } from "zod";
+import {  z } from "zod";
 import { useState } from "react";
 
 type FormValues = z.infer<typeof MangaDetailsSchema>;
@@ -30,6 +30,7 @@ const Page = () => {
   const [tags, setTags] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
   const [errormessage, setErrorMessage] = useState<any>();
+  const [apiError, setApiError] = useState<string>("");
 
   const validateForm = (value: FormValues) => {
     try {
@@ -45,17 +46,33 @@ const Page = () => {
   const handleCreatManga = async (value: FormValues) => {
     try {
       const res = validateForm(value);
-      console.log("res:", res)
       if (res?.status === "success") {
         setError(false);
-        console.log("error:false")
+        const response = await fetch(`/api/create-manga`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(res.value)
+        })
+
+        if (response.status === 201) {
+          console.log("response: ", response)
+        }
+        else if (response.status > 500) {
+          setApiError("Something went wrong with the server, please try again")
+        }
+        else {
+          setApiError("Something went wrong with the data you entered, please try again")
+        }
+
       } else {
         setError(true);
         setErrorMessage(res);
-        console.log("error:true")
+
       }
     } catch (err) {
-      console.log("err:", err);
+      console.log("handle create manga ,  err:", err);
     }
   }
 
@@ -67,6 +84,10 @@ const Page = () => {
 
 
       <div className="sm:col-span-6">
+        {
+          apiError && <p className="mt-2 text-sm text-red-400">{apiError}</p>
+
+        }
         <label
           className="block text-sm font-medium text-gray-700"
           htmlFor="manganame"
