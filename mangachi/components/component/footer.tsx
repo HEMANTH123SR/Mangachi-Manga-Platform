@@ -64,7 +64,7 @@ export function Footer() {
 }
 
 
-function FlagIcon(props) {
+function FlagIcon(props:any) {
   return (
     <svg
       {...props}
@@ -85,7 +85,7 @@ function FlagIcon(props) {
 }
 
 
-function DiscIcon(props) {
+function DiscIcon(props:any) {
   return (
     <svg
       {...props}
@@ -106,7 +106,7 @@ function DiscIcon(props) {
 }
 
 
-function TwitterIcon(props) {
+function TwitterIcon(props:any) {
   return (
     <svg
       {...props}
@@ -126,7 +126,7 @@ function TwitterIcon(props) {
 }
 
 
-function FacebookIcon(props) {
+function FacebookIcon(props:any) {
   return (
     <svg
       {...props}
@@ -146,7 +146,7 @@ function FacebookIcon(props) {
 }
 
 
-function ArrowUpIcon(props) {
+function ArrowUpIcon(props:any) {
   return (
     <svg
       {...props}
