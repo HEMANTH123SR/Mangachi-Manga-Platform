@@ -33,12 +33,12 @@ const Page = () => {
   const [error, setError] = useState<boolean>(false);
   const [errormessage, setErrorMessage] = useState<any>();
   const [apiError, setApiError] = useState<string>("");
-
-
+  const [call, setCall] = useState<number>(0);
+  const id = pathname?.split("/")[1];
   useEffect(() => {
     async function fetchMangaDetails() {
       try {
-        const id = pathname?.split("/")[1];
+
         const response = await fetch(`/api/manga/${id}`)
         const { data } = await response.json()
         setMangaName(data.mangaName)
@@ -53,8 +53,9 @@ const Page = () => {
         console.log("[id]/dashboard/manga-details : error fetching manga details from api", error);
       }
     }
+    console.log("useEffect called:", call);
     fetchMangaDetails();
-  }, [])
+  }, [call, id])
 
   const validateForm = (value: FormValues) => {
     try {
@@ -72,15 +73,15 @@ const Page = () => {
       const res = validateForm(value);
       if (res?.status === "success") {
         setError(false);
-        const response = await fetch(`/api/create-manga`, {
-          method: "POST",
+        const response = await fetch(`/api/manga/${id}`, {
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(res.value)
         })
         const responseData = await response.json();
-
+        setCall((prev) => prev + 1);
         if (response.status === 201) {
           console.log("responseId : ", responseData.data);
 
@@ -211,7 +212,7 @@ const Page = () => {
         </div>
         <div className="sm:col-span-6">
           <div className="flex justify-center items-center w-full">
-            <Button className="mt-10 w-2/5 font-semibold">Update It</Button>
+            <Button className="mt-10 w-2/5 font-semibold" onClick={() => updateManga({ mangaName, author, status, description, tags, coverImage, backgroundImage })}>Update It</Button>
           </div>
         </div>
       </div>

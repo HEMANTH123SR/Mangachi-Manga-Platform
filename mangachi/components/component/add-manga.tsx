@@ -5,7 +5,7 @@ import { useRouter, usePathname } from "next/navigation";
 export function AddManga({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
-  const id = pathname?.split("/")[1]
+  const id = pathname?.split("/")[1];
   return (
     <div className="min-h-screen bg-white pt-6 pb-12 px-4 sm:px-6 lg:px-8">
       <div className=" w-full">
