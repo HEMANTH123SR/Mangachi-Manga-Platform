@@ -50,7 +50,7 @@ const Page = () => {
         setTags(data.tags)
         console.log(data);
       } catch (error) {
-        console.log("[id]/dashboard/manga-details : error fetcging manga details from api", error);
+        console.log("[id]/dashboard/manga-details : error fetching manga details from api", error);
       }
     }
     fetchMangaDetails();
@@ -110,10 +110,9 @@ const Page = () => {
       </p>
       <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
         <div className="sm:col-span-6">
-        {
-          apiError && <p className="mt-2 text-sm text-red-400">{apiError}</p>
-
-        }
+          {
+            apiError && <p className="mt-2 text-sm text-red-400">{apiError}</p>
+          }
           <label
             className="block text-sm font-medium text-gray-700"
             htmlFor="manganame"
@@ -121,8 +120,8 @@ const Page = () => {
             Manga Name
           </label>
           {
-          error && <p className="mt-2 text-xs text-red-600">{errormessage?.mangaName?.[0]}</p>
-        }
+            error && <p className="mt-2 text-xs text-red-600">{errormessage?.mangaName?.[0]}</p>
+          }
           <div className="mt-1">
             <Input id="manganame" placeholder="Your manga name" value={mangaName} onChange={(e) => setMangaName(e.target.value)} />
           </div>
@@ -135,8 +134,8 @@ const Page = () => {
             Author Name
           </label>
           {
-          error && <p className="mt-2 text-xs text-red-600">{errormessage?.author?.[0]}</p>
-        }
+            error && <p className="mt-2 text-xs text-red-600">{errormessage?.author?.[0]}</p>
+          }
           <div className="mt-1">
             <Input id="authorname" placeholder="Add the author name" value={author} onChange={(e) => setAuthor(e.target.value)} />
           </div>
@@ -173,12 +172,13 @@ const Page = () => {
             Description
           </label>
           {
-          error && <p className="mt-2 text-xs text-red-600">{errormessage?.description?.[0]}</p>
-        }
+            error && <p className="mt-2 text-xs text-red-600">{errormessage?.description?.[0]}</p>
+          }
           <div className="mt-1">
             <Textarea
               id="description"
               placeholder="Tell us about your favorite mangas."
+              rows={7}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
@@ -210,13 +210,6 @@ const Page = () => {
           </p>
         </div>
         <div className="sm:col-span-6">
-          <label
-            className="block text-sm font-medium text-gray-700"
-            htmlFor="urls"
-          >
-            URLs
-          </label>
-
           <div className="flex justify-center items-center w-full">
             <Button className="mt-10 w-2/5 font-semibold">Update It</Button>
           </div>
