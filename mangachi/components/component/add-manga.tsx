@@ -20,7 +20,7 @@ export function AddManga({ children }: { children: React.ReactNode }) {
             <Button
               className={`mb-4 block  py-2 px-4 text-left text-sm font-medium text-gray-700
               
-                ${pathname === "/[id]/dashboard/manga-details"
+                ${pathname === `/${id}/dashboard/manga-details`
                   ? "bg-primary text-white hover:bg-primary "
                   : "bg-white hover:bg-slate-100 hover:text-black"
                 } `}
@@ -31,7 +31,7 @@ export function AddManga({ children }: { children: React.ReactNode }) {
             <Button
               className={`mb-4 block  py-2 px-4 text-left text-sm font-medium text-gray-700
               
-                 ${pathname === "/[id]/dashboard/chapters"
+                 ${pathname === `/${id}/dashboard/chapters`
                   ? "bg-primary text-white hover:bg-primary "
                   : "bg-white hover:bg-slate-100 hover:text-black"
                 } `}
@@ -42,7 +42,7 @@ export function AddManga({ children }: { children: React.ReactNode }) {
             <Button
               className={`mb-4 block  py-2 px-4 text-left text-sm font-medium text-gray-700
             
-                ${pathname === "/[id]/dashboard/preview"
+                ${pathname === `/${id}/dashboard/preview`
                   ? "bg-primary text-white hover:bg-primary "
                   : "bg-white hover:bg-slate-100 hover:text-black"
                 } `}
@@ -54,7 +54,7 @@ export function AddManga({ children }: { children: React.ReactNode }) {
             <Button
               className={`mb-4 block  py-2 px-4 text-left text-sm font-medium text-gray-700
            
-                ${pathname === "/[id]/dashboard/comments"
+                ${pathname === `/${id}/dashboard/comments`
                   ? "bg-primary text-white hover:bg-primary "
                   : "bg-white hover:bg-slate-100 hover:text-black"
                 } `}
@@ -65,7 +65,7 @@ export function AddManga({ children }: { children: React.ReactNode }) {
             <Button
               className={`mb-4 block  py-2 px-4 text-left text-sm font-medium text-gray-700
             
-               ${pathname === "/[id]/dashboard/manga-settings"
+               ${pathname === `/${id}/dashboard/manga-settings`
                   ? "bg-primary text-white hover:bg-primary "
                   : "bg-white hover:bg-slate-100 hover:text-black"
                 } `}
@@ -76,7 +76,7 @@ export function AddManga({ children }: { children: React.ReactNode }) {
             <Button
               className={`mb-4 block  py-2 px-4 text-left text-sm font-medium text-gray-700
             
-               ${pathname === "/[id]/dashboard/analytics"
+               ${pathname === `/${id}/dashboard/analytics`
                   ? "bg-primary text-white hover:bg-primary "
                   : "bg-white hover:bg-slate-100 hover:text-black"
                 } `}
