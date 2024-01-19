@@ -8,10 +8,7 @@ export async function GET(req: NextRequest) {
     const url = new URL(req.url);
     const id = url.pathname.split("/")[3];
     const manga = await Manga.findById(id);
-    return NextResponse.json(
-      { status: "success", data: manga },
-      { status: 201 }
-    );
+    return NextResponse.json({ status: "success", data: manga });
   } catch (err: any) {
     return NextResponse.json(
       {
@@ -29,7 +26,10 @@ export async function PUT(req: NextRequest) {
     const id = req.nextUrl.pathname.split("/")[3];
     const data = await req.json();
     const manga = await Manga.findByIdAndUpdate(id, data);
-    return NextResponse.json({ status: "success", data: manga });
+    return NextResponse.json(
+      { status: "success", data: manga },
+      { status: 201 }
+    );
   } catch (err: any) {
     return NextResponse.json({}, { status: 500 });
   }

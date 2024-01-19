@@ -8,7 +8,7 @@ import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import { NavBar } from "@/components/NavBar";
 import { SideMenu } from "@/components/SideMeny";
 import { Analytics } from "@vercel/analytics/react";
-
+import { Toaster } from "@/components/ui/sonner"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -36,6 +36,7 @@ export default function RootLayout({
           <SideMenu />
         </Sheet>
         <Analytics />
+        <Toaster />
       </body>
     </html>
   );

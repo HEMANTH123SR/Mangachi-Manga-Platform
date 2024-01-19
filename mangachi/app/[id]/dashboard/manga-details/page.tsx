@@ -13,6 +13,8 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { usePathname } from "next/navigation";
 import { MangaDetailsSchema } from "@/lib/ZodSchemas"
+import { toast } from "sonner"
+
 
 type FormValues = z.infer<typeof MangaDetailsSchema>;
 const Page = () => {
@@ -32,7 +34,6 @@ const Page = () => {
   const [tags, setTags] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
   const [errormessage, setErrorMessage] = useState<any>();
-  const [apiError, setApiError] = useState<string>("");
   const [call, setCall] = useState<number>(0);
   const id = pathname?.split("/")[1];
   useEffect(() => {
@@ -85,12 +86,36 @@ const Page = () => {
         if (response.status === 201) {
           console.log("responseId : ", responseData.data);
 
+          toast("Manga updated successfully", {
+            description: "Sunday, December 03, 2023 at 9:00 AM",
+            action: {
+              label: "Cancel",
+              onClick: () => { },
+            },
+          })
+
+
         }
         else if (response.status > 500) {
-          setApiError("Something went wrong with the server, please try again")
+
+          toast("Something went wrong with the server, please try again", {
+            description: "Sunday, December 03, 2023 at 9:00 AM",
+            action: {
+              label: "Cancel",
+              onClick: () => { },
+            },
+          })
+
         }
         else {
-          setApiError("Something went wrong with the data you entered, please try again")
+
+          toast("Something went wrong with the data you entered, please try again", {
+            description: "Sunday, December 03, 2023 at 9:00 AM",
+            action: {
+              label: "Cancel",
+              onClick: () => { },
+            },
+          })
         }
 
       } else {
@@ -111,9 +136,10 @@ const Page = () => {
       </p>
       <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
         <div className="sm:col-span-6">
-          {
+          {/* {
             apiError && <p className="mt-2 text-sm text-red-400">{apiError}</p>
-          }
+          } */}
+
           <label
             className="block text-sm font-medium text-gray-700"
             htmlFor="manganame"
@@ -212,7 +238,9 @@ const Page = () => {
         </div>
         <div className="sm:col-span-6">
           <div className="flex justify-center items-center w-full">
-            <Button className="mt-10 w-2/5 font-semibold" onClick={() => updateManga({ mangaName, author, status, description, tags, coverImage, backgroundImage })}>Update It</Button>
+            <Button className="mt-10 w-2/5 font-semibold" onClick={() => {
+              updateManga({ mangaName, author, status, description, tags, coverImage, backgroundImage })
+            }}>Update It</Button>
           </div>
         </div>
       </div>
