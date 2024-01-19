@@ -24,7 +24,7 @@ export function AddManga({ children }: { children: React.ReactNode }) {
                   ? "bg-primary text-white hover:bg-primary "
                   : "bg-white hover:bg-slate-100 hover:text-black"
                 } `}
-              onClick={() => router.push(`/${id}/dashboard/manga-detail`)}
+              onClick={() => router.push(`/${id}/dashboard/manga-details`)}
             >
               Manga Details
             </Button>
