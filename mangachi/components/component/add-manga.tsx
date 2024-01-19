@@ -5,7 +5,6 @@ import { useRouter, usePathname } from "next/navigation";
 export function AddManga({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
-  console.log(pathname);
   return (
     <div className="min-h-screen bg-white pt-6 pb-12 px-4 sm:px-6 lg:px-8">
       <div className=" w-full">
@@ -21,11 +20,11 @@ export function AddManga({ children }: { children: React.ReactNode }) {
               className={`mb-4 block  py-2 px-4 text-left text-sm font-medium text-gray-700
               
                 ${
-                  pathname === "/manga/add/manga-details"
+                  pathname === "/[id]/dashboard/manga-details"
                     ? "bg-primary text-white hover:bg-primary "
                     : "bg-white hover:bg-slate-100 hover:text-black"
                 } `}
-              onClick={() => router.push("/manga/add/manga-details")}
+              onClick={() => router.push("/[id]/dashboard/manga-details")}
             >
               Manga Details
             </Button>
@@ -33,11 +32,11 @@ export function AddManga({ children }: { children: React.ReactNode }) {
               className={`mb-4 block  py-2 px-4 text-left text-sm font-medium text-gray-700
               
                  ${
-                   pathname === "/manga/add/chapters"
+                   pathname === "/[id]/dashboard/chapters"
                      ? "bg-primary text-white hover:bg-primary "
                      : "bg-white hover:bg-slate-100 hover:text-black"
                  } `}
-              onClick={() => router.push("/manga/add/chapters")}
+              onClick={() => router.push("/[id]/dashboard/chapters")}
             >
               Chapters
             </Button>
@@ -45,11 +44,11 @@ export function AddManga({ children }: { children: React.ReactNode }) {
               className={`mb-4 block  py-2 px-4 text-left text-sm font-medium text-gray-700
             
                 ${
-                  pathname === "/manga/add/preview"
+                  pathname === "/[id]/dashboard/preview"
                     ? "bg-primary text-white hover:bg-primary "
                     : "bg-white hover:bg-slate-100 hover:text-black"
                 } `}
-              onClick={() => router.push("/manga/add/preview")}
+              onClick={() => router.push("/[id]/dashboard/preview")}
             >
               Preview
             </Button>
@@ -58,11 +57,11 @@ export function AddManga({ children }: { children: React.ReactNode }) {
               className={`mb-4 block  py-2 px-4 text-left text-sm font-medium text-gray-700
            
                 ${
-                  pathname === "/manga/add/comments"
+                  pathname === "/[id]/dashboard/comments"
                     ? "bg-primary text-white hover:bg-primary "
                     : "bg-white hover:bg-slate-100 hover:text-black"
                 } `}
-              onClick={() => router.push("/manga/add/comments")}
+              onClick={() => router.push("/[id]/dashboard/comments")}
             >
               Comments
             </Button>
@@ -70,11 +69,11 @@ export function AddManga({ children }: { children: React.ReactNode }) {
               className={`mb-4 block  py-2 px-4 text-left text-sm font-medium text-gray-700
             
                ${
-                 pathname === "/manga/add/manga-settings"
+                 pathname === "/[id]/dashboard/manga-settings"
                    ? "bg-primary text-white hover:bg-primary "
                    : "bg-white hover:bg-slate-100 hover:text-black"
                } `}
-              onClick={() => router.push("/manga/add/manga-settings")}
+              onClick={() => router.push("/[id]/dashboard/manga-settings")}
             >
               Manga Settings
             </Button>
@@ -82,11 +81,11 @@ export function AddManga({ children }: { children: React.ReactNode }) {
               className={`mb-4 block  py-2 px-4 text-left text-sm font-medium text-gray-700
             
                ${
-                 pathname === "/manga/add/analytics"
+                 pathname === "/[id]/dashboard/analytics"
                    ? "bg-primary text-white hover:bg-primary "
                    : "bg-white hover:bg-slate-100 hover:text-black"
                } `}
-              onClick={() => router.push("/manga/add/analytics")}
+              onClick={() => router.push("/[id]/dashboard/analytics")}
             >
               Analytics
             </Button>
