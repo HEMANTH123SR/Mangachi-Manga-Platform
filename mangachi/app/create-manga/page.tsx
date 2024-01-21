@@ -1,4 +1,10 @@
 "use client"
+import { useState } from "react";
+import { useRouter } from "next/navigation"
+import { createImage } from "@/lib/appwrite";
+import { MangaDetailsSchema } from "@/lib/ZodSchemas"
+import { Genre } from "@/lib/types"
+import { z } from "zod";
 import { Input } from "@/components/ui/input";
 import {
   SelectValue,
@@ -10,11 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { DropZone } from "@/components/DropZone";
-import { MangaDetailsSchema } from "@/lib/ZodSchemas"
-import { z } from "zod";
-import { useState } from "react";
-import { useRouter } from "next/navigation"
-import { createImage } from "@/lib/appwrite";
+
 
 type FormValues = z.infer<typeof MangaDetailsSchema>;
 const Page = () => {
@@ -24,6 +26,7 @@ const Page = () => {
     Completed = "Completed",
     Cancelled = "Cancelled",
   }
+
   const [mangaName, setMangaName] = useState<string>("");
   const [author, setAuthor] = useState<string>("");
   const [status, setStatus] = useState<Status>(Status.Ongoing);
@@ -34,6 +37,7 @@ const Page = () => {
   const [error, setError] = useState<boolean>(false);
   const [errormessage, setErrorMessage] = useState<any>();
   const [apiError, setApiError] = useState<string>("");
+  const [genre, setGenre] = useState<Genre>(Genre.Others);
 
   const validateForm = (value: FormValues) => {
     try {
@@ -211,7 +215,7 @@ const Page = () => {
       </div>
       <div className="sm:col-span-6">
         <div className="flex justify-center items-center w-full">
-          <Button className="mt-10 w-2/5 font-semibold" onClick={() => handleCreatManga({ mangaName, author, status, backgroundImage: "https://res.cloudinary.com/dobf3dmic/image/upload/v1705386772/5265_SeriesHeaders_OP_2000x800_wm.0_x6uzj8.jpg", coverImage: "https://res.cloudinary.com/dobf3dmic/image/upload/v1705385862/326439_tuj1lw.jpg", description, tags })}>
+          <Button className="mt-10 w-2/5 font-semibold" onClick={() => handleCreatManga({ mangaName, author, status, backgroundImage: "https://res.cloudinary.com/dobf3dmic/image/upload/v1705386772/5265_SeriesHeaders_OP_2000x800_wm.0_x6uzj8.jpg", coverImage: "https://res.cloudinary.com/dobf3dmic/image/upload/v1705385862/326439_tuj1lw.jpg", description, tags, genre })}>
             Create Manga
           </Button>
           {/* <button className="mt-10 w-2/5 font-semibold" onClick={() => testFun()}>create manga</button> */}

@@ -1,6 +1,8 @@
 "use client";
-import { z } from "zod";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { Genre } from "@/lib/types"
+import { toast } from "sonner"
 import { Input } from "@/components/ui/input";
 import {
   SelectValue,
@@ -11,9 +13,8 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { usePathname } from "next/navigation";
+import { z } from "zod";
 import { MangaDetailsSchema } from "@/lib/ZodSchemas"
-import { toast } from "sonner"
 
 
 type FormValues = z.infer<typeof MangaDetailsSchema>;
@@ -25,6 +26,7 @@ const Page = () => {
     Completed = "Completed",
     Cancelled = "Cancelled",
   }
+
   const [mangaName, setMangaName] = useState<string>("");
   const [author, setAuthor] = useState<string>("");
   const [status, setStatus] = useState<Status>(Status.Ongoing);
@@ -36,6 +38,7 @@ const Page = () => {
   const [errormessage, setErrorMessage] = useState<any>();
   const [call, setCall] = useState<number>(0);
   const id = pathname?.split("/")[1];
+  const [genre, setGenre] = useState<Genre>(Genre.Others);
   useEffect(() => {
     async function fetchMangaDetails() {
       try {
@@ -239,7 +242,7 @@ const Page = () => {
         <div className="sm:col-span-6">
           <div className="flex justify-center items-center w-full">
             <Button className="mt-10 w-2/5 font-semibold" onClick={() => {
-              updateManga({ mangaName, author, status, description, tags, coverImage, backgroundImage })
+              updateManga({ mangaName, author, status, description, tags, coverImage, backgroundImage, genre })
             }}>Update It</Button>
           </div>
         </div>

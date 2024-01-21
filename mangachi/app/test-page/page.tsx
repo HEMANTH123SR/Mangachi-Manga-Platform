@@ -1,27 +1,93 @@
 "use client"
-import React from 'react';
-import { createImage } from "@/lib/appwrite";
 
-const TestPage = () => {
-    const [image, setImage] = React.useState<File | null>(null);
-    const handleCreateImage = async () => {
+import * as React from "react"
+// import { RxCaretSort, IoMdCheckmark } from "@radix-ui/react-icons"
+import { RxCaretSort } from "react-icons/rx";
+import { IoMdCheckmark } from "react-icons/io";
 
-        if (image) {
-            await createImage(image);
-        }
-    }
-    return (
-        <div className=''>
-            <input type='text' />
-            <input type='file' onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                const selectedFile = e.target.files?.[0];
-                if (selectedFile) {
-                    setImage(selectedFile);
-                }
-            }} />
-            <button onClick={() => handleCreateImage()} >submit</button>
-        </div>
-    )
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+} from "@/components/ui/command"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+
+const frameworks = [
+  {
+    value: "next.js",
+    label: "Next.js",
+  },
+  {
+    value: "sveltekit",
+    label: "SvelteKit",
+  },
+  {
+    value: "nuxt.js",
+    label: "Nuxt.js",
+  },
+  {
+    value: "remix",
+    label: "Remix",
+  },
+  {
+    value: "astro",
+    label: "Astro",
+  },
+]
+
+export default function ComboboxDemo() {
+  const [open, setOpen] = React.useState(false)
+  const [value, setValue] = React.useState("")
+
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <Button
+          variant="outline"
+          role="combobox"
+          aria-expanded={open}
+          className="w-[200px] justify-between"
+        >
+          {value
+            ? frameworks.find((framework) => framework.value === value)?.label
+            : "Select framework..."}
+          <RxCaretSort className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-[200px] p-0">
+        <Command>
+          <CommandInput placeholder="Search framework..." className="h-9" />
+          <CommandEmpty>No framework found.</CommandEmpty>
+          <CommandGroup>
+            {frameworks.map((framework) => (
+              <CommandItem
+                key={framework.value}
+                value={framework.value}
+                onSelect={(currentValue) => {
+                  setValue(currentValue === value ? "" : currentValue)
+                  setOpen(false)
+                }}
+              >
+                {framework.label}
+                <IoMdCheckmark
+                  className={cn(
+                    "ml-auto h-4 w-4",
+                    value === framework.value ? "opacity-100" : "opacity-0"
+                  )}
+                />
+              </CommandItem>
+            ))}
+          </CommandGroup>
+        </Command>
+      </PopoverContent>
+    </Popover>
+  )
 }
-
-export default TestPage
