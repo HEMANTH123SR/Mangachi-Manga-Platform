@@ -15,6 +15,7 @@ export async function ScrollAreaHorizontalDemo({
     mangaName: string;
   }
   const res = await fetch(`${process.env.DB_HOST}/api/${routeSegment}`);
+
   const Mangas: Manga[] = await res.json();
   return (
     <div className="w-full">

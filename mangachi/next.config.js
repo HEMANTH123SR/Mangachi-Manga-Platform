@@ -14,6 +14,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "*.google.com",
       },
+      {
+        protocol: "https",
+        hostname: "*.appwrite.io",
+      },
     ],
   },
 };

@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
@@ -9,13 +9,17 @@ interface DropZoneProps {
   className: string;
 }
 
-export function DropZone({ multipleImage }: { multipleImage: boolean }) {
+export function DropZone({ multipleImage, setImage }: { multipleImage: boolean, setImage: (file: File) => void }) {
   const { className }: DropZoneProps = {
     className:
       "flex-1 border-2 border-primary border-dashed flex justify-center items-center",
   };
 
   const [files, setFiles] = useState<any[]>([]);
+
+  useEffect(() => {
+    setImage(files[0])
+  }, [files])
 
   const maxf = multipleImage ? 0 : 1;
 

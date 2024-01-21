@@ -14,6 +14,7 @@ import { MangaDetailsSchema } from "@/lib/ZodSchemas"
 import { z } from "zod";
 import { useState } from "react";
 import { useRouter } from "next/navigation"
+import { createImage } from "@/lib/appwrite";
 
 type FormValues = z.infer<typeof MangaDetailsSchema>;
 const Page = () => {
@@ -26,8 +27,8 @@ const Page = () => {
   const [mangaName, setMangaName] = useState<string>("");
   const [author, setAuthor] = useState<string>("");
   const [status, setStatus] = useState<Status>(Status.Ongoing);
-  // const [backgroundImage, setBackgroundImage] = useState<string>("");
-  // const [coverImage, setCoverImage] = useState<string>("");
+  const [backgroundImage, setBackgroundImage] = useState<File | null>(null);
+  const [coverImage, setCoverImage] = useState<File | null>(null);
   const [description, setDescription] = useState<string>("");
   const [tags, setTags] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
@@ -47,6 +48,19 @@ const Page = () => {
 
   const handleCreatManga = async (value: FormValues) => {
     try {
+      if (backgroundImage) {
+        const res = await createImage(backgroundImage as File)
+        if (res.status == "success") {
+          value.backgroundImage = res.id as string
+        }
+      }
+      if (coverImage) {
+        const res = await createImage(coverImage as File)
+        if (res.status == "success") {
+          value.coverImage = res.id as string
+        }
+
+      }
       const res = validateForm(value);
       if (res?.status === "success") {
         setError(false);
@@ -79,6 +93,10 @@ const Page = () => {
       console.log("handle create manga ,  err:", err);
     }
   }
+
+
+
+
 
 
   return (
@@ -170,12 +188,12 @@ const Page = () => {
         <h3 className="text-sm font-medium text-gray-700 my-3">
           Upload Cover Image
         </h3>
-        <DropZone multipleImage={false} />
+        <DropZone multipleImage={false} setImage={setBackgroundImage} />
         <div className="my-6"></div>
         <h3 className="text-sm font-medium text-gray-700 my-3">
           Upload Background Image
         </h3>
-        <DropZone multipleImage={false} />
+        <DropZone multipleImage={false} setImage={setCoverImage} />
       </div>
       <div className="sm:col-span-6">
         <label
@@ -196,12 +214,13 @@ const Page = () => {
           <Button className="mt-10 w-2/5 font-semibold" onClick={() => handleCreatManga({ mangaName, author, status, backgroundImage: "https://res.cloudinary.com/dobf3dmic/image/upload/v1705386772/5265_SeriesHeaders_OP_2000x800_wm.0_x6uzj8.jpg", coverImage: "https://res.cloudinary.com/dobf3dmic/image/upload/v1705385862/326439_tuj1lw.jpg", description, tags })}>
             Create Manga
           </Button>
+          {/* <button className="mt-10 w-2/5 font-semibold" onClick={() => testFun()}>create manga</button> */}
         </div>
       </div>
     </div>
 
-  );
-};
+  )
+}
 
 
 
@@ -209,3 +228,17 @@ const Page = () => {
 export default Page;
 
 
+
+// const testFun = async () => {
+//   console.log("author", author);
+//   console.log("mangaName", mangaName);
+//   console.log("status", status);
+//   console.log("backgroundImage", backgroundImage);
+//   console.log("coverImage", coverImage);
+//   console.log("description", description);
+//   console.log("tags", tags);
+//   const res = await createImage(backgroundImage as File);
+//   console.log("res 1", res);
+//   const res2 = await createImage(coverImage as File);
+//   console.log("res 2", res2);
+// }
