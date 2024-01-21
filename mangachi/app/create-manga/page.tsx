@@ -188,12 +188,12 @@ const Page = () => {
         <h3 className="text-sm font-medium text-gray-700 my-3">
           Upload Cover Image
         </h3>
-        <DropZone multipleImage={false} setImage={setBackgroundImage} />
+        <DropZone multipleImage={false} setImage={setBackgroundImage} setMultipleImage={null} />
         <div className="my-6"></div>
         <h3 className="text-sm font-medium text-gray-700 my-3">
           Upload Background Image
         </h3>
-        <DropZone multipleImage={false} setImage={setCoverImage} />
+        <DropZone multipleImage={false} setImage={setCoverImage} setMultipleImage={null} />
       </div>
       <div className="sm:col-span-6">
         <label

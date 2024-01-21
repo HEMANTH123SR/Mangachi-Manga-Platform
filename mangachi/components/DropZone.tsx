@@ -9,7 +9,7 @@ interface DropZoneProps {
   className: string;
 }
 
-export function DropZone({ multipleImage, setImage }: { multipleImage: boolean, setImage: (file: File) => void }) {
+export function DropZone({ multipleImage, setImage, setMultipleImage }: { multipleImage: boolean, setImage: ((file: File) => void) | null, setMultipleImage: ((file: File[]) => void) | null }) {
   const { className }: DropZoneProps = {
     className:
       "flex-1 border-2 border-primary border-dashed flex justify-center items-center",
@@ -18,8 +18,11 @@ export function DropZone({ multipleImage, setImage }: { multipleImage: boolean, 
   const [files, setFiles] = useState<any[]>([]);
 
   useEffect(() => {
-    setImage(files[0])
-  }, [files])
+    if (setImage != null) {
+      setImage(files[0])
+    }
+    
+  }, [files, setImage])
 
   const maxf = multipleImage ? 0 : 1;
 

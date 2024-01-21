@@ -39,7 +39,7 @@ export default function DrawerDemo() {
               Only images are accepted and it should be less than 1mb .
             </DrawerDescription>
           </DrawerHeader>
-          <DropZone multipleImage={true} />
+          <DropZone multipleImage={true} setImage={null} setMultipleImage={null} />
 
           <DrawerFooter>
             <Button>Publish</Button>
