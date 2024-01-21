@@ -2,9 +2,10 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation"
 import { createImage } from "@/lib/appwrite";
-import { MangaDetailsSchema } from "@/lib/ZodSchemas"
-import { Genre } from "@/lib/types"
+import { MangaDetailsSchema } from "@/lib/ZodSchemas";
+import { Genre } from "@/lib/types";
 import { z } from "zod";
+import { ComboboxDemo } from "@/components/ComboBoxComonents";
 import { Input } from "@/components/ui/input";
 import {
   SelectValue,
@@ -37,7 +38,7 @@ const Page = () => {
   const [error, setError] = useState<boolean>(false);
   const [errormessage, setErrorMessage] = useState<any>();
   const [apiError, setApiError] = useState<string>("");
-  const [genre, setGenre] = useState<Genre>(Genre.Others);
+  const [genre, setGenre] = useState<Genre>();
 
   const validateForm = (value: FormValues) => {
     try {
@@ -144,6 +145,17 @@ const Page = () => {
       <div className="sm:col-span-6">
         <label
           className="block text-sm font-medium text-gray-700"
+
+        >
+          Genre
+        </label>
+        <div className="mt-1">
+          <ComboboxDemo mangaGenre={genre} setMangaGenre={setGenre} />
+        </div>
+      </div>
+      <div className="sm:col-span-6">
+        <label
+          className="block text-sm font-medium text-gray-700"
           htmlFor="status"
         >
           Status
@@ -215,10 +227,10 @@ const Page = () => {
       </div>
       <div className="sm:col-span-6">
         <div className="flex justify-center items-center w-full">
-          <Button className="mt-10 w-2/5 font-semibold" onClick={() => handleCreatManga({ mangaName, author, status, backgroundImage: "https://res.cloudinary.com/dobf3dmic/image/upload/v1705386772/5265_SeriesHeaders_OP_2000x800_wm.0_x6uzj8.jpg", coverImage: "https://res.cloudinary.com/dobf3dmic/image/upload/v1705385862/326439_tuj1lw.jpg", description, tags, genre })}>
+          <Button className="mt-10 w-2/5 font-semibold" onClick={() => handleCreatManga({ mangaName, author, status, backgroundImage: "https://res.cloudinary.com/dobf3dmic/image/upload/v1705386772/5265_SeriesHeaders_OP_2000x800_wm.0_x6uzj8.jpg", coverImage: "https://res.cloudinary.com/dobf3dmic/image/upload/v1705385862/326439_tuj1lw.jpg", description, tags, genre: genre ? genre : Genre.Others })}>
             Create Manga
           </Button>
-          {/* <button className="mt-10 w-2/5 font-semibold" onClick={() => testFun()}>create manga</button> */}
+
         </div>
       </div>
     </div>
@@ -232,17 +244,3 @@ const Page = () => {
 export default Page;
 
 
-
-// const testFun = async () => {
-//   console.log("author", author);
-//   console.log("mangaName", mangaName);
-//   console.log("status", status);
-//   console.log("backgroundImage", backgroundImage);
-//   console.log("coverImage", coverImage);
-//   console.log("description", description);
-//   console.log("tags", tags);
-//   const res = await createImage(backgroundImage as File);
-//   console.log("res 1", res);
-//   const res2 = await createImage(coverImage as File);
-//   console.log("res 2", res2);
-// }

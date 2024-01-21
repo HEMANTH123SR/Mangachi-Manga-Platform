@@ -131,7 +131,7 @@ const MangaGenre = [
 ];
 
 
-export default function ComboboxDemo({ mangaGenre, setMangaGenre }: { mangaGenre: Genre, setMangaGenre: (genre: Genre) => void }) {
+export function ComboboxDemo({ mangaGenre, setMangaGenre }: { mangaGenre: Genre | undefined, setMangaGenre: (genre: Genre | undefined) => void }) {
     const [open, setOpen] = React.useState(false)
 
 
