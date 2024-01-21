@@ -26,6 +26,40 @@ const MangaSchema = new mongoose.Schema(
       enum: ["Ongoing", "Completed", "Cancelled"],
       default: "Ongoing",
     },
+    genre: {
+      type: String,
+      enum: [
+        "Shonen",
+        "Shojo",
+        "Seinen",
+        "Josei",
+        "Kodomomuke",
+        "Isekai",
+        "Harem",
+        "Mecha",
+        "Slice of Life",
+        "Fantasy",
+        "Science Fiction",
+        "Horror",
+        "Mystery",
+        "Sports",
+        "Historical",
+        "Romance",
+        "Comedy",
+        "Drama",
+        "Adventure",
+        "Supernatural",
+        "Psychological",
+        "Thriller",
+        "Ecchi",
+        "Action",
+        "School Life",
+        "Tragedy",
+        "Others",
+      ],
+
+      default: "Others",
+    },
 
     likes: {
       likedBy: [
@@ -81,7 +115,7 @@ const MangaSchema = new mongoose.Schema(
     },
     chapters: [
       {
-        chapterName: { type: String, required: true, },
+        chapterName: { type: String, required: true },
         chapterPublishedDate: { type: Date, required: true },
         chapterImage: { type: String, required: true },
         chapterNumber: { type: Number, required: true },
