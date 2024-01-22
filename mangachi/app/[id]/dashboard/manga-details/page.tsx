@@ -31,8 +31,10 @@ const Page = () => {
   const [mangaName, setMangaName] = useState<string>("");
   const [author, setAuthor] = useState<string>("");
   const [status, setStatus] = useState<Status>(Status.Ongoing);
-  const [backgroundImage, setBackgroundImage] = useState<File>();
-  const [coverImage, setCoverImage] = useState<File>();
+  const [backgroundImageFile, setBackgroundImageFile] = useState<File>();
+  const [coverImageFile, setCoverImageFile] = useState<File>();
+  const [backgroundImage, setBackgroundImage] = useState<string>("");
+  const [coverImage, setCoverImage] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [tags, setTags] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
@@ -78,18 +80,30 @@ const Page = () => {
   const updateManga = async (value: FormValues) => {
     try {
       if (backgroundImage) {
-        const res = await createImage(backgroundImage as File);
+        const res = await createImage(backgroundImageFile as File);
         if (res.status == "success") {
           value.backgroundImage = res.id as string;
+        } else {
+          if (res.status == "failed") {
+            toast("Failed to upload image", {
+              description: "Sunday, December 03, 2023 at 9:00 AM",
+              action: {
+                label: "Cancel",
+                onClick: () => { },
+              },
+            });
+          }
         }
+
       }
       if (coverImage) {
-        const res = await createImage(coverImage as File);
+        const res = await createImage(coverImageFile as File);
         if (res.status == "success") {
           value.coverImage = res.id as string;
         }
       }
       const res = validateForm(value);
+      console.log(res)
       if (res?.status === "success") {
         setError(false);
         const response = await fetch(`/api/manga/${id}`, {
@@ -255,12 +269,12 @@ const Page = () => {
           <h3 className="text-sm font-medium text-gray-700 my-3">
             Update Cover Image
           </h3>
-          <DropZone multipleImage={false} setImage={setBackgroundImage} setMultipleImage={null} />
+          <DropZone multipleImage={false} setImage={setBackgroundImageFile} setMultipleImage={null} />
           <div className="my-6"></div>
           <h3 className="text-sm font-medium text-gray-700 my-3">
             Update Background Image
           </h3>
-          <DropZone multipleImage={false} setImage={setCoverImage} setMultipleImage={null} />
+          <DropZone multipleImage={false} setImage={setCoverImageFile} setMultipleImage={null} />
         </div>
         <div className="sm:col-span-6">
           <label
@@ -292,8 +306,8 @@ const Page = () => {
                   status,
                   description,
                   tags,
-                  coverImage: "",
-                  backgroundImage: "",
+                  coverImage,
+                  backgroundImage,
                   genre: genre ? genre : Genre.Others,
                 });
               }}

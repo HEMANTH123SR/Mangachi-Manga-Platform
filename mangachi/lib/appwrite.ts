@@ -16,10 +16,10 @@ export const createImage = async (image: File) => {
     if (response.$id) {
       return { status: "success", id: response.$id };
     } else {
-      return { status: "error" };
+      return { status: "failes" };
     }
-  } catch (err) {
-    console.log("appwrite :: createImage :: error :: ", err);
-    return { status: "error" };
+  } catch (err: any) {
+    console.log("appwrite :: createImage :: error :: ", err.message);
+    return { status: "error", err: err.message };
   }
 };
