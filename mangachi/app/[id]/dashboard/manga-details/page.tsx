@@ -1,8 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { Genre } from "@/lib/types"
-import { toast } from "sonner"
+import { Genre } from "@/lib/types";
+import { MangaDetailsSchema } from "@/lib/ZodSchemas";
+import { createImage } from "@/lib/appwrite"
+import { ComboboxDemo } from "@/components/ComboBoxComonents";
+import { DropZone } from "@/components/DropZone"
+import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import {
   SelectValue,
@@ -14,12 +18,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { z } from "zod";
-import { MangaDetailsSchema } from "@/lib/ZodSchemas"
-
 
 type FormValues = z.infer<typeof MangaDetailsSchema>;
 const Page = () => {
-
   const pathname = usePathname();
   enum Status {
     Ongoing = "Ongoing",
@@ -30,50 +31,64 @@ const Page = () => {
   const [mangaName, setMangaName] = useState<string>("");
   const [author, setAuthor] = useState<string>("");
   const [status, setStatus] = useState<Status>(Status.Ongoing);
-  const [backgroundImage, setBackgroundImage] = useState<string>("");
-  const [coverImage, setCoverImage] = useState<string>("");
+  const [backgroundImage, setBackgroundImage] = useState<File>();
+  const [coverImage, setCoverImage] = useState<File>();
   const [description, setDescription] = useState<string>("");
   const [tags, setTags] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
   const [errormessage, setErrorMessage] = useState<any>();
   const [call, setCall] = useState<number>(0);
   const id = pathname?.split("/")[1];
-  const [genre, setGenre] = useState<Genre>(Genre.Others);
+  const [genre, setGenre] = useState<Genre>();
   useEffect(() => {
     async function fetchMangaDetails() {
       try {
-
-        const response = await fetch(`/api/manga/${id}`)
-        const { data } = await response.json()
-        setMangaName(data.mangaName)
-        setAuthor(data.author)
-        setStatus(data.status)
-        setBackgroundImage(data.backgroundImage)
-        setCoverImage(data.coverImage)
-        setDescription(data.description)
-        setTags(data.tags)
+        const response = await fetch(`/api/manga/${id}`);
+        const { data } = await response.json();
+        setMangaName(data.mangaName);
+        setAuthor(data.author);
+        setStatus(data.status);
+        setBackgroundImage(data.backgroundImage);
+        setCoverImage(data.coverImage);
+        setDescription(data.description);
+        setTags(data.tags);
+        setGenre(data.genre);
         console.log(data);
       } catch (error) {
-        console.log("[id]/dashboard/manga-details : error fetching manga details from api", error);
+        console.log(
+          "[id]/dashboard/manga-details : error fetching manga details from api",
+          error
+        );
       }
     }
     console.log("useEffect called:", call);
     fetchMangaDetails();
-  }, [call, id])
+  }, [call, id]);
 
   const validateForm = (value: FormValues) => {
     try {
-      return { value: MangaDetailsSchema.parse(value), status: "success" }
-    }
-    catch (err) {
+      return { value: MangaDetailsSchema.parse(value), status: "success" };
+    } catch (err) {
       if (err instanceof z.ZodError) {
-        return err.formErrors.fieldErrors
+        return err.formErrors.fieldErrors;
       }
     }
-  }
+  };
 
   const updateManga = async (value: FormValues) => {
     try {
+      if (backgroundImage) {
+        const res = await createImage(backgroundImage as File);
+        if (res.status == "success") {
+          value.backgroundImage = res.id as string;
+        }
+      }
+      if (coverImage) {
+        const res = await createImage(coverImage as File);
+        if (res.status == "success") {
+          value.coverImage = res.id as string;
+        }
+      }
       const res = validateForm(value);
       if (res?.status === "success") {
         setError(false);
@@ -82,8 +97,8 @@ const Page = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(res.value)
-        })
+          body: JSON.stringify(res.value),
+        });
         const responseData = await response.json();
         setCall((prev) => prev + 1);
         if (response.status === 201) {
@@ -95,42 +110,35 @@ const Page = () => {
               label: "Cancel",
               onClick: () => { },
             },
-          })
-
-
-        }
-        else if (response.status > 500) {
-
+          });
+        } else if (response.status > 500) {
           toast("Something went wrong with the server, please try again", {
             description: "Sunday, December 03, 2023 at 9:00 AM",
             action: {
               label: "Cancel",
               onClick: () => { },
             },
-          })
-
+          });
+        } else {
+          toast(
+            "Something went wrong with the data you entered, please try again",
+            {
+              description: "Sunday, December 03, 2023 at 9:00 AM",
+              action: {
+                label: "Cancel",
+                onClick: () => { },
+              },
+            }
+          );
         }
-        else {
-
-          toast("Something went wrong with the data you entered, please try again", {
-            description: "Sunday, December 03, 2023 at 9:00 AM",
-            action: {
-              label: "Cancel",
-              onClick: () => { },
-            },
-          })
-        }
-
       } else {
         setError(true);
         setErrorMessage(res);
-
       }
     } catch (err) {
       console.log("handle create manga ,  err:", err);
     }
-  }
-
+  };
 
   return (
     <div>
@@ -139,21 +147,24 @@ const Page = () => {
       </p>
       <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
         <div className="sm:col-span-6">
-          {/* {
-            apiError && <p className="mt-2 text-sm text-red-400">{apiError}</p>
-          } */}
-
           <label
             className="block text-sm font-medium text-gray-700"
             htmlFor="manganame"
           >
             Manga Name
           </label>
-          {
-            error && <p className="mt-2 text-xs text-red-600">{errormessage?.mangaName?.[0]}</p>
-          }
+          {error && (
+            <p className="mt-2 text-xs text-red-600">
+              {errormessage?.mangaName?.[0]}
+            </p>
+          )}
           <div className="mt-1">
-            <Input id="manganame" placeholder="Your manga name" value={mangaName} onChange={(e) => setMangaName(e.target.value)} />
+            <Input
+              id="manganame"
+              placeholder="Your manga name"
+              value={mangaName}
+              onChange={(e) => setMangaName(e.target.value)}
+            />
           </div>
         </div>
         <div className="sm:col-span-6">
@@ -163,11 +174,29 @@ const Page = () => {
           >
             Author Name
           </label>
-          {
-            error && <p className="mt-2 text-xs text-red-600">{errormessage?.author?.[0]}</p>
-          }
+          {error && (
+            <p className="mt-2 text-xs text-red-600">
+              {errormessage?.author?.[0]}
+            </p>
+          )}
           <div className="mt-1">
-            <Input id="authorname" placeholder="Add the author name" value={author} onChange={(e) => setAuthor(e.target.value)} />
+            <Input
+              id="authorname"
+              placeholder="Add the author name"
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+            />
+          </div>
+        </div>
+        <div className="sm:col-span-6">
+          <label
+            className="block text-sm font-medium text-gray-700"
+
+          >
+            Genre
+          </label>
+          <div className="mt-1">
+            <ComboboxDemo mangaGenre={genre} setMangaGenre={setGenre} />
           </div>
         </div>
         <div className="sm:col-span-6">
@@ -178,8 +207,11 @@ const Page = () => {
             Status
           </label>
           <div className="mt-1">
-            <Select value={status} onValueChange={(value) => setStatus(value as Status)}>
-              <SelectTrigger id="status"  >
+            <Select
+              value={status}
+              onValueChange={(value) => setStatus(value as Status)}
+            >
+              <SelectTrigger id="status">
                 <SelectValue placeholder="Select the current status of manga " />
               </SelectTrigger>
               <SelectContent position="popper">
@@ -201,9 +233,11 @@ const Page = () => {
           >
             Description
           </label>
-          {
-            error && <p className="mt-2 text-xs text-red-600">{errormessage?.description?.[0]}</p>
-          }
+          {error && (
+            <p className="mt-2 text-xs text-red-600">
+              {errormessage?.description?.[0]}
+            </p>
+          )}
           <div className="mt-1">
             <Textarea
               id="description"
@@ -218,12 +252,15 @@ const Page = () => {
           </p>
         </div>
         <div className="sm:col-span-6">
-          <div className="p-6 rounded-md bg-slate-50 text-primary my-3">
-            Upload Cover Image
-          </div>
-          <div className="p-6 rounded-md bg-slate-50 text-primary">
-            Upload Background Image
-          </div>
+          <h3 className="text-sm font-medium text-gray-700 my-3">
+            Update Cover Image
+          </h3>
+          <DropZone multipleImage={false} setImage={setBackgroundImage} setMultipleImage={null} />
+          <div className="my-6"></div>
+          <h3 className="text-sm font-medium text-gray-700 my-3">
+            Update Background Image
+          </h3>
+          <DropZone multipleImage={false} setImage={setCoverImage} setMultipleImage={null} />
         </div>
         <div className="sm:col-span-6">
           <label
@@ -233,7 +270,12 @@ const Page = () => {
             Tags
           </label>
           <div className="mt-1">
-            <Textarea id="tags" placeholder="#shonen #sword #demon" value={tags} onChange={(e) => setTags(e.target.value)} />
+            <Textarea
+              id="tags"
+              placeholder="#shonen #sword #demon"
+              value={tags}
+              onChange={(e) => setTags(e.target.value)}
+            />
           </div>
           <p className="mt-2 text-sm text-gray-500">
             Use # to add tags example #pirate #superhero
@@ -241,9 +283,23 @@ const Page = () => {
         </div>
         <div className="sm:col-span-6">
           <div className="flex justify-center items-center w-full">
-            <Button className="mt-10 w-2/5 font-semibold" onClick={() => {
-              updateManga({ mangaName, author, status, description, tags, coverImage, backgroundImage, genre })
-            }}>Update It</Button>
+            <Button
+              className="mt-10 w-2/5 font-semibold"
+              onClick={() => {
+                updateManga({
+                  mangaName,
+                  author,
+                  status,
+                  description,
+                  tags,
+                  coverImage: "",
+                  backgroundImage: "",
+                  genre: genre ? genre : Genre.Others,
+                });
+              }}
+            >
+              Update It
+            </Button>
           </div>
         </div>
       </div>
