@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -33,10 +34,12 @@ export default function RootLayout({
             </SheetTrigger>
           </NavBar>
           {children}
+
           <SideMenu />
         </Sheet>
         <Analytics />
         <Toaster />
+        <SpeedInsights />
       </body>
     </html>
   );
