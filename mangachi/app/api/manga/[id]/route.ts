@@ -25,6 +25,8 @@ export async function PUT(req: NextRequest) {
     await connectDB();
     const id = req.nextUrl.pathname.split("/")[3];
     const data = await req.json();
+    console.clear();
+    console.log(data);
     const manga = await Manga.findByIdAndUpdate(id, data);
     return NextResponse.json(
       { status: "success", data: manga },
