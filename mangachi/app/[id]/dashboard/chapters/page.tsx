@@ -18,7 +18,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { DropZone } from "@/components/DropZone";
 
-export default function DrawerDemo() {
+export default function ChapterPage() {
   type Chapter = {
     chapterName: string;
     chapterImages: string[];
@@ -27,6 +27,7 @@ export default function DrawerDemo() {
     _id?: string | undefined;
   };
   const pathname = usePathname();
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const id = pathname?.split("/")[1];
   const date = getFormattedDate();
   const [chapters, setChapters] = useState<Chapter[]>([]);
@@ -80,7 +81,7 @@ export default function DrawerDemo() {
         });
         return;
       }
-
+      // chapter type
       const chapter: Chapter = {
         chapterName,
         chapterImages: await getImages(),
@@ -98,7 +99,25 @@ export default function DrawerDemo() {
         body: JSON.stringify({ chapters: [...chapters, chapter] }),
       });
       const data = await res.json();
-      console.log(data);
+      console.log(data.status);
+      if (data.status === "success") {
+        toast("Chapter added successfully", {
+          description: "Sunday, December 03, 2023 at 9:00 AM",
+          action: {
+            label: "Cancel",
+            onClick: () => { },
+          },
+        });
+        setIsDrawerOpen(false);
+      } else {
+        toast("Failed to add chapter", {
+          description: "Sunday, December 03, 2023 at 9:00 AM",
+          action: {
+            label: "Cancel",
+            onClick: () => { },
+          },
+        });
+      }
     } else {
       toast(
         `${chapterName.length > 0
@@ -137,7 +156,7 @@ export default function DrawerDemo() {
   };
 
   return (
-    <Drawer>
+    <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen} >
       <div className="flex w-full justify-center">
         <DrawerTrigger asChild>
           <Button variant="outline" className="bg-primary text-white lg:mr-10">
@@ -173,7 +192,7 @@ export default function DrawerDemo() {
           <DrawerFooter>
             <Button onClick={() => addChapter()}>Publish</Button>
             <DrawerClose asChild>
-              <Button variant="outline">Cancel</Button>
+              <Button variant="outline" >Cancel</Button>
             </DrawerClose>
           </DrawerFooter>
         </div>
