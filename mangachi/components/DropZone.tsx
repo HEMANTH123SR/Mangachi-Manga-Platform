@@ -21,8 +21,11 @@ export function DropZone({ multipleImage, setImage, setMultipleImage }: { multip
     if (setImage != null) {
       setImage(files[0])
     }
-    
-  }, [files, setImage])
+    if (setMultipleImage != null) {
+      setMultipleImage(files)
+    }
+
+  }, [files, setImage, setMultipleImage])
 
   const maxf = multipleImage ? 0 : 1;
 

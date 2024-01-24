@@ -1,7 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { usePathname } from "next/navigation"
-import { getFormattedDate } from "@/lib/index"
+import { usePathname } from "next/navigation";
+import { getFormattedDate } from "@/lib/index";
+import { createImage } from "@/lib/appwrite";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import {
   Drawer,
@@ -22,46 +24,117 @@ export default function DrawerDemo() {
     chapterImages: string[];
     chapterPublishedDate: string;
     chapterNumber: number;
-  }
+    _id?: string | undefined;
+  };
   const pathname = usePathname();
   const id = pathname?.split("/")[1];
   const date = getFormattedDate();
-  const [chapters, setChapters] = useState<Chapter[]>([
-
-  ]);
+  const [chapters, setChapters] = useState<Chapter[]>([]);
+  const [chapterName, setChapterName] = useState<string>("");
+  const [chapterImages, setChapterImages] = useState<File[]>([]);
 
   useEffect(() => {
     const asynchFunc = async () => {
       const res = await fetch(`/api/manga/${id}`);
       const { data } = await res.json();
       setChapters(data.chapters);
-    }
+      console.log(data.chapters);
+    };
     asynchFunc();
+  }, []);
 
-  }, [id])
 
   const addChapter = async () => {
-
-    console.log("addchapters :: ", chapters)
-    console.log("chapters length :: ", chapters.length)
-    const res = await fetch(`/api/manga/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        chapters: [{
-          chapterName: "finding nemo",
-          chapterImages: ["89998829", "990097", "999908", "899009"],
-          chapterPublishedDate: date.fullyFormatedTime,
-          chapterNumber: 0
-        }]
+    if (chapterName && chapterImages.length > 0) {
+      for (let i of chapters) {
+        if (chapterName == i.chapterName) {
+          toast("Chapter already exists", {
+            description: "Sunday, December 03, 2023 at 9:00 AM",
+            action: {
+              label: "Cancel",
+              onClick: () => { },
+            },
+          });
+          return;
+        }
       }
-      )
-    })
-    const data = await res.json();
-    console.log("addchapters response :: ", data);
-  }
+
+      if (chapterName.length < 4 && chapterName.length > 60) {
+        toast("Chapter name must be between 4 and 60 characters", {
+          description: "Sunday, December 03, 2023 at 9:00 AM",
+          action: {
+            label: "Cancel",
+            onClick: () => { },
+          },
+        });
+        return;
+      }
+
+      if (chapterImages.length > 14 || chapterImages.length < 1) {
+        toast("Chapter images must be between 1 and 14 images", {
+          description: "Sunday, December 03, 2023 at 9:00 AM",
+          action: {
+            label: "Cancel",
+            onClick: () => { },
+          },
+        });
+        return;
+      }
+
+      const chapter: Chapter = {
+        chapterName,
+        chapterImages: await getImages(),
+        chapterPublishedDate: date.fullyFormatedTime,
+        chapterNumber: chapters.length + 1,
+      };
+
+      setChapters([]);
+      console.log("chapters ", chapters)
+      const res = await fetch(`/api/manga/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ chapters: [...chapters, chapter] }),
+      });
+      const data = await res.json();
+      console.log(data);
+    } else {
+      toast(
+        `${chapterName.length > 0
+          ? "Images are required"
+          : "Chapter Name is required"
+        }`,
+        {
+          description: "Sunday, December 03, 2023 at 9:00 AM",
+          action: {
+            label: "Cancel",
+            onClick: () => { },
+          },
+        }
+      );
+    }
+  };
+
+  const getImages = async () => {
+    const ids = [];
+    for (let file of chapterImages) {
+      const res = await createImage(file);
+      if (res.status === "success") {
+        console.log("wait wait");
+        ids.push(res.id);
+      } else {
+        toast(`Failed to upload image ${file.name}`, {
+          description: "Sunday, December 03, 2023 at 9:00 AM",
+          action: {
+            label: "Cancel",
+            onClick: () => { },
+          },
+        });
+      }
+    }
+    return ids as string[];
+  };
 
   return (
     <Drawer>
@@ -81,15 +154,24 @@ export default function DrawerDemo() {
             >
               Chapter Name
             </label>
-            <Input placeholder="chapter title" id="chaptername" />
+            <Input
+              placeholder="chapter title"
+              id="chaptername"
+              value={chapterName}
+              onChange={(e) => setChapterName(e.target.value)}
+            />
             <DrawerDescription>
               Only images are accepted and it should be less than 1mb .
             </DrawerDescription>
           </DrawerHeader>
-          <DropZone multipleImage={true} setImage={null} setMultipleImage={null} />
+          <DropZone
+            multipleImage={true}
+            setImage={null}
+            setMultipleImage={setChapterImages}
+          />
 
           <DrawerFooter>
-            <Button onClick={() => addChapter()}>Publish</Button >
+            <Button onClick={() => addChapter()}>Publish</Button>
             <DrawerClose asChild>
               <Button variant="outline">Cancel</Button>
             </DrawerClose>
