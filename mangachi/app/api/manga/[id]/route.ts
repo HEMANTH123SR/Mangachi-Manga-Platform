@@ -26,9 +26,7 @@ export async function PUT(req: NextRequest) {
     const id = req.nextUrl.pathname.split("/")[3];
     const data = await req.json();
     console.clear();
-    console.log(data.chapters[0]);
-    console.log("------");
-    console.log(data.chapters[0].chapterImages);
+    console.log(data.chapters);
     const manga = await Manga.findByIdAndUpdate(id, data);
     return NextResponse.json(
       { status: "success", data: manga },
