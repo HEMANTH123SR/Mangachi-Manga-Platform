@@ -23,3 +23,25 @@ export const createImage = async (image: File) => {
     return { status: "error", err: err.message };
   }
 };
+
+export const deleteAllTheImagesInTheBucket = async () => {
+  try {
+    const data = await storage.listFiles(
+      process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID as string
+    );
+    const imagesId = await data.files.map((file: any) => file.$id);
+    console.log(imagesId);
+    for (let id of imagesId) {
+      const res = await storage.deleteFile(
+        process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID as string,
+        id
+      );
+      console.log(`${id} deleted :: res :: `, res);
+    }
+  } catch (err: any) {
+    console.log(
+      "appwrite :: deleteAllTheImagesInTheBucket :: error :: ",
+      err.message
+    );
+  }
+};

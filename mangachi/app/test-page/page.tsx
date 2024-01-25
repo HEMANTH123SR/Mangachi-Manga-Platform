@@ -1,18 +1,17 @@
-"use client"
-import React, { useEffect, useState } from 'react'
-import { Genre } from "@/lib/types"
-import { ComboboxDemo } from "@/components/ComboBoxComonents"
+"use client";
+import React from "react";
+import { deleteAllTheImagesInTheBucket } from "@/lib/appwrite";
 const TestPage = () => {
-  const [genre, setGenre] = useState<Genre>();
-  useEffect(() => {
-    console.log("genre : ", genre)
-  }, [genre])
   return (
-    <div>
-      <ComboboxDemo mangaGenre={genre} setMangaGenre={setGenre} />
+    <div className="h-full w-full flex justify-center items-center">
+      <button
+        className="bg-primary text-white px-8 py-4 font-sans"
+        onClick={() => deleteAllTheImagesInTheBucket()}
+      >
+        delte all the images
+      </button>
     </div>
+  );
+};
 
-  )
-}
-
-export default TestPage
+export default TestPage;
