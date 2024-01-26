@@ -22,7 +22,7 @@ import {
   SettingsIcon,
   ShareIcon,
   SignalIcon,
-} from "@/app/Icons";
+} from "@/lib/Icons";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 export const SideMenu = () => {
   return (

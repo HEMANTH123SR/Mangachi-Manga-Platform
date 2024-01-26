@@ -14,7 +14,7 @@ export async function ScrollAreaHorizontalDemo({
     magaCoverImage: string;
     mangaName: string;
   }
-  const res = await fetch(`${process.env.DB_HOST}/api/${routeSegment}`);
+  const res = await fetch(`/api/${routeSegment}`);
 
   const Mangas: Manga[] = await res.json();
   return (

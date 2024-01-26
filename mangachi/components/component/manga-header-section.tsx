@@ -9,7 +9,7 @@ import {
   HeartIcon,
   GlobeIcon,
   UsersIcon,
-} from "@/app/Icons";
+} from "@/lib/Icons";
 export function MangaHeaderSection() {
   return (
     <div className="border-t-2 border-primary">

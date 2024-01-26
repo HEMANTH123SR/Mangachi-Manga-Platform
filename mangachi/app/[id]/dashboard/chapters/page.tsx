@@ -3,10 +3,11 @@ import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { getFormattedDate } from "@/lib/index";
 import { createImage } from "@/lib/appwrite";
+import { Chapter } from "@/lib/types";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { FaTrash } from "react-icons/fa";
-import Image from "next/image";
+
 import {
   Drawer,
   DrawerClose,
@@ -21,13 +22,7 @@ import { Input } from "@/components/ui/input";
 import { DropZone } from "@/components/DropZone";
 
 export default function ChapterPage() {
-  type Chapter = {
-    chapterName: string;
-    chapterImages: string[];
-    chapterPublishedDate: string;
-    chapterNumber: number;
-    _id?: string;
-  };
+
   const pathname = usePathname();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const id = pathname?.split("/")[1];
