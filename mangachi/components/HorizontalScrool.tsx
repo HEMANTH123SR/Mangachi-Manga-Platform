@@ -1,23 +1,29 @@
-import * as React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
-export async function ScrollAreaHorizontalDemo({
+export function ScrollAreaHorizontalDemo({
   title,
   routeSegment,
 }: {
   title: string;
   routeSegment: string;
 }) {
-  const route = `${
-    process.env.DB_HOST as string
-  }/api/categories/${routeSegment}`;
-  console.log("route :: ", route);
-  const res = await fetch(route);
+  const router = useRouter();
+  const [data, setData] = useState<any>([]);
 
-  const { data } = await res.json();
-  console.log(`${routeSegment} :: `, data);
+  useEffect(() => {
+    (async () => {
+      const res = await fetch(`/api/categories/${routeSegment}`);
+      const { data } = await res.json();
+      console.log(`${routeSegment} :: `, data);
+      setData(data);
+    })();
+  }, []);
+
   return (
     <div className="w-full">
       <h2 className="mx-10  lg:my-4 text-lg lg:text-2xl font-semibold text-primary">
@@ -26,7 +32,7 @@ export async function ScrollAreaHorizontalDemo({
       <ScrollArea className="px-6 w-full whitespace-nowrap ">
         <div className="flex w-max space-x-4 p-4 pt-1">
           {data.map((manga: any) => (
-            <figure key={manga._id} className="shrink-0">
+            <figure key={manga._id} className="shrink-0" onClick={() => router.push(`/manga/${manga._id}`)}>
               <div className="overflow-hidden rounded-md">
                 <Image
                   src={manga.coverImage}

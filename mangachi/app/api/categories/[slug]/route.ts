@@ -37,11 +37,9 @@ export async function GET(req: NextRequest) {
       const filtredMangas = mangas.map((manga) => {
         let coverImage = manga.coverImage;
         if (coverImage.includes("http")) {
-          coverImage ===
-            `https://cloud.appwrite.io/v1/storage/buckets/65ab31d194c87473caab/files/65b3d2b132ccbf5ea6de/view?project=65ab3113d00c39e45407&mode=admin`;
+          coverImage = `https://cloud.appwrite.io/v1/storage/buckets/65ab31d194c87473caab/files/65b3d2b132ccbf5ea6de/view?project=65ab3113d00c39e45407&mode=admin`;
         } else {
-          coverImage ===
-            `https://cloud.appwrite.io/v1/storage/buckets/65ab31d194c87473caab/files/${manga.coverImage}/view?project=65ab3113d00c39e45407&mode=admin`;
+          coverImage = `https://cloud.appwrite.io/v1/storage/buckets/65ab31d194c87473caab/files/${manga.coverImage}/view?project=65ab3113d00c39e45407&mode=admin`;
         }
 
         return {
@@ -63,11 +61,9 @@ export async function GET(req: NextRequest) {
       const filtredMangas = mangas.map((manga) => {
         let coverImage = manga.coverImage;
         if (coverImage.includes("http")) {
-          coverImage ===
-            `https://cloud.appwrite.io/v1/storage/buckets/65ab31d194c87473caab/files/65b3d2b132ccbf5ea6de/view?project=65ab3113d00c39e45407&mode=admin`;
+          coverImage = `https://cloud.appwrite.io/v1/storage/buckets/65ab31d194c87473caab/files/65b3d2b132ccbf5ea6de/view?project=65ab3113d00c39e45407&mode=admin`;
         } else {
-          coverImage ===
-            `https://cloud.appwrite.io/v1/storage/buckets/65ab31d194c87473caab/files/${manga.coverImage}/view?project=65ab3113d00c39e45407&mode=admin`;
+          coverImage = `https://cloud.appwrite.io/v1/storage/buckets/65ab31d194c87473caab/files/${manga.coverImage}/view?project=65ab3113d00c39e45407&mode=admin`;
         }
 
         return {
@@ -89,11 +85,9 @@ export async function GET(req: NextRequest) {
       const filtredMangas = mangas.map((manga) => {
         let coverImage = manga.coverImage;
         if (coverImage.includes("http")) {
-          coverImage ===
-            `https://cloud.appwrite.io/v1/storage/buckets/65ab31d194c87473caab/files/65b3d2b132ccbf5ea6de/view?project=65ab3113d00c39e45407&mode=admin`;
+          coverImage = `https://cloud.appwrite.io/v1/storage/buckets/65ab31d194c87473caab/files/65b3d2b132ccbf5ea6de/view?project=65ab3113d00c39e45407&mode=admin`;
         } else {
-          coverImage ===
-            `https://cloud.appwrite.io/v1/storage/buckets/65ab31d194c87473caab/files/${manga.coverImage}/view?project=65ab3113d00c39e45407&mode=admin`;
+          coverImage = `https://cloud.appwrite.io/v1/storage/buckets/65ab31d194c87473caab/files/${manga.coverImage}/view?project=65ab3113d00c39e45407&mode=admin`;
         }
 
         return {
