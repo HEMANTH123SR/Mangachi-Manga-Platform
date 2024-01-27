@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { MangaType } from "@/lib/types"
+import { MangaType } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import OnePiceCoverImage from "@/public/One-Piece.jpg";
@@ -25,34 +25,44 @@ function Page({ params }: { params: { id: string } }) {
         setSomethingWentFrong(true);
         return;
       }
-      setManga(data);
-    })()
-  }, [])
+      setManga(data.data);
+    })();
+  }, []);
   console.log("manga :: ", manga);
   console.log("somethingWentWrong :: ", somethingWentWrong);
-if (somethingWentWrong) {
+
+
+
+  if (somethingWentWrong) {
     return (
       <div className="flex flex-col items-center justify-center h-screen">
         <h1 className="text-4xl font-bold">Something went wrong</h1>
-        <Button
-          className="mt-4"
-          onClick={() => window.location.href = "/"}
-        >
+        <Button className="mt-4" onClick={() => (window.location.href = "/")}>
           Go back
         </Button>
       </div>
     );
   }
-  return (
 
+  const mangaTags = manga?.tags.split("#").filter((tag: string) => {
+    tag = tag.trim();
+    if (tag.length > 1) {
+      return true;
+    }
+    else {
+      return false
+    }
+  });
+
+  return (
     <div className="border-t-2 border-primary">
       <div className="bg-white  overflow-hidden">
         <div className="relative">
           <img
-            alt="One Piece background"
+            alt={manga?.mangaName}
             className="w-full h-[300px] object-cover"
             height="300"
-            src={OnePiceCoverImage.src}
+            src={`https://cloud.appwrite.io/v1/storage/buckets/65ab31d194c87473caab/files/${manga?.backgroundImage}/view?project=65ab3113d00c39e45407&mode=admin`}
             style={{
               aspectRatio: "1829/300",
               objectFit: "cover",
@@ -61,10 +71,10 @@ if (somethingWentWrong) {
           />
           <div className="absolute top-0 left-0 p-5 flex items-start space-x-4">
             <img
-              alt="One Piece cover"
+              alt={manga?.mangaName}
               className="w-[154px] h-[220px] object-cover"
               height="220"
-              src={OnePiceCoverImage.src}
+              src={`https://cloud.appwrite.io/v1/storage/buckets/65ab31d194c87473caab/files/${manga?.coverImage}/view?project=65ab3113d00c39e45407&mode=admin`}
               style={{
                 aspectRatio: "154/220",
                 objectFit: "cover",
@@ -72,9 +82,9 @@ if (somethingWentWrong) {
               width="154"
             />
             <div className="text-white">
-              <h1 className="text-6xl font-bold">One Piece</h1>
+              <h1 className="text-6xl font-bold ">{`${manga?.mangaName}`}</h1>
               <p className="text-2xl">ウォンピース</p>
-              <p className="text-xl mt-1">Oda Eiichiro</p>
+              <p className="text-xl mt-1">{`${manga?.author}`}</p>
             </div>
           </div>
           <div className="hidden lg:absolute top-0 right-0 p-5 ">
@@ -89,36 +99,30 @@ if (somethingWentWrong) {
         <div className="p-5">
           <ScrollArea>
             <div className="flex space-x-2 mb-4">
-              <Badge variant="secondary">SUGGESTIVE</Badge>
-              <Badge variant="secondary">GORE</Badge>
-              <Badge variant="secondary">AWARD-WINNING</Badge>
-              <Badge variant="secondary">MONSTERS</Badge>
-              <Badge variant="secondary">ACTION</Badge>
-              <Badge variant="secondary">PSYCHOLOGICAL</Badge>
-              <Badge variant="secondary">ANIMALS</Badge>
-              <Badge variant="secondary">COMEDY</Badge>
-              <Badge variant="secondary">CRIME</Badge>
-              <Badge variant="secondary">ADVENTURE</Badge>
-              <Badge variant="secondary">MAGIC</Badge>
-              <Badge variant="secondary">MILITARY</Badge>
-              <Badge variant="secondary">FANTASY</Badge>
+              {
+                mangaTags?.map(tag => {
+                  return (
+                    <Badge variant="outline" key={tag}>{`#${tag}`}</Badge>
+                  )
+                })
+              }
               <ScrollBar orientation="horizontal" />
             </div>
           </ScrollArea>
 
           <div className="flex items-center space-x-2 mb-4">
-            <Badge variant="secondary">PUBLICATION: 1997, ONGOING</Badge>
+            <Badge variant="secondary">{`PUBLICATION: ${manga?.createdAt.substring(0, 10)}, ${manga?.status.toUpperCase()}`}</Badge>
             <div className="flex items-center space-x-1">
               <StarIcon className={"text-[#E11D48] w-5 h-5"} />
               <span className={"text-lg font-semibold"}>9.25</span>
             </div>
             <div className="flex items-center space-x-1">
               <UsersIcon className={"text-gray-600 w-5 h-5"} />
-              <span className={"text-lg"}>88K</span>
+              <span className={"text-lg"}>{`${manga?.views}`}</span>
             </div>
             <div className="flex items-center space-x-1">
               <HeartIcon className={"text-[#E11D48] w-5 h-5"} />
-              <span className={"text-lg"}>265</span>
+              <span className={"text-lg"}>{`${manga?.likes.likeCount}`}</span>
             </div>
             <div className="flex items-center space-x-1">
               <GlobeIcon className={"text-gray-600 w-5 h-5"} />
@@ -126,20 +130,15 @@ if (somethingWentWrong) {
             </div>
           </div>
           <p className="text-gray-700 mb-4">
-            {`Gol D. Roger, a man referred to as the "Pirate King," is set to be
-            executed by the World Government. But just before his demise, he
-            confirms the existence of a great treasure, One Piece, located
-            somewhere within the vast ocean known as the Grand Line. Announcing
-            that One Piece can be claimed by anyone worthy enough to reach it,
-            the Pirate King is executed and the Great Age of Pirates begins.`}
+            {
+              manga?.description
+            }
+
           </p>
           <p className="text-gray-700">
-            {` Twenty-two years later, a young man by the name of Monkey D. Luffy
-              is ready to embark on his own adventure, searching for One Piece and
-              striving to become the new Pirate King. Armed with just a straw hat,
-              a small boat, and an elastic body, he sets out on a fantastic
-              journey to gather his own crew and a worthy ship that will take them
-              to the ends of the earth to find the legendary treasure.`}
+            {
+              manga?.description
+            }
           </p>
         </div>
       </div>
@@ -218,5 +217,4 @@ if (somethingWentWrong) {
   );
 }
 
-
-export default Page
+export default Page;

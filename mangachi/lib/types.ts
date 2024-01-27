@@ -101,7 +101,7 @@ export interface MangaType {
     createdAt: Date;
   }[];
   chapters: Chapter;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
   __v: number;
 }
