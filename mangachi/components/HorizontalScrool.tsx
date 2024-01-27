@@ -10,13 +10,14 @@ export async function ScrollAreaHorizontalDemo({
   title: string;
   routeSegment: string;
 }) {
-  interface Manga {
-    magaCoverImage: string;
-    mangaName: string;
-  }
-  const res = await fetch(`/api/${routeSegment}`);
+  const route = `${
+    process.env.DB_HOST as string
+  }/api/categories/${routeSegment}`;
+  console.log("route :: ", route);
+  const res = await fetch(route);
 
-  const Mangas: Manga[] = await res.json();
+  const { data } = await res.json();
+  console.log(`${routeSegment} :: `, data);
   return (
     <div className="w-full">
       <h2 className="mx-10  lg:my-4 text-lg lg:text-2xl font-semibold text-primary">
@@ -24,12 +25,12 @@ export async function ScrollAreaHorizontalDemo({
       </h2>
       <ScrollArea className="px-6 w-full whitespace-nowrap ">
         <div className="flex w-max space-x-4 p-4 pt-1">
-          {Mangas.map((manga) => (
-            <figure key={manga.mangaName} className="shrink-0">
+          {data.map((manga: any) => (
+            <figure key={manga._id} className="shrink-0">
               <div className="overflow-hidden rounded-md">
                 <Image
-                  src={manga.magaCoverImage}
-                  alt={` manga ${manga.mangaName}`}
+                  src={manga.coverImage}
+                  alt={` manga ${manga.title}`}
                   className="aspect-[3/4] h-fit w-fit object-cover md:w-60 shadow-lg"
                   width={300}
                   height={400}
@@ -37,7 +38,7 @@ export async function ScrollAreaHorizontalDemo({
               </div>
               <figcaption className="pt-2 text-xs text-muted-foreground">
                 <span className="font-semibold text-foreground">
-                  {manga.mangaName}
+                  {manga.title}
                 </span>
               </figcaption>
             </figure>

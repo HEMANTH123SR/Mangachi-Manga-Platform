@@ -72,24 +72,7 @@ export type Chapter = {
   _id?: string;
 };
 
-type Manga = {
-  _id: string;
-  mangaName: string;
-  author: string;
-  backgroundImage: string;
-  coverImage: string;
-  tags: string;
-  status: Status;
-  description: string;
-  genre: Genres;
-  staffPicks: boolean;
-  chapters: Chapter[];
-
-  createdAt: string;
-  updatedAt: string;
-};
-
-interface MangaTest {
+export interface MangaType {
   likes: {
     likedBy: string[];
     likeCount: number;
