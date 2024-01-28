@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { MangaType } from "@/lib/types";
+import { MangaType, Chapter } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import OnePiceCoverImage from "@/public/One-Piece.jpg";
@@ -31,8 +31,6 @@ function Page({ params }: { params: { id: string } }) {
   console.log("manga :: ", manga);
   console.log("somethingWentWrong :: ", somethingWentWrong);
 
-
-
   if (somethingWentWrong) {
     return (
       <div className="flex flex-col items-center justify-center h-screen">
@@ -48,9 +46,8 @@ function Page({ params }: { params: { id: string } }) {
     tag = tag.trim();
     if (tag.length > 1) {
       return true;
-    }
-    else {
-      return false
+    } else {
+      return false;
     }
   });
 
@@ -99,19 +96,18 @@ function Page({ params }: { params: { id: string } }) {
         <div className="p-5">
           <ScrollArea>
             <div className="flex space-x-2 mb-4">
-              {
-                mangaTags?.map(tag => {
-                  return (
-                    <Badge variant="outline" key={tag}>{`#${tag}`}</Badge>
-                  )
-                })
-              }
+              {mangaTags?.map((tag) => {
+                return <Badge variant="outline" key={tag}>{`#${tag}`}</Badge>;
+              })}
               <ScrollBar orientation="horizontal" />
             </div>
           </ScrollArea>
 
           <div className="flex items-center space-x-2 mb-4">
-            <Badge variant="secondary">{`PUBLICATION: ${manga?.createdAt.substring(0, 10)}, ${manga?.status.toUpperCase()}`}</Badge>
+            <Badge variant="secondary">{`PUBLICATION: ${manga?.createdAt.substring(
+              0,
+              10
+            )}, ${manga?.status.toUpperCase()}`}</Badge>
             <div className="flex items-center space-x-1">
               <StarIcon className={"text-[#E11D48] w-5 h-5"} />
               <span className={"text-lg font-semibold"}>9.25</span>
@@ -129,90 +125,42 @@ function Page({ params }: { params: { id: string } }) {
               <span className={"text-lg"}>N/A</span>
             </div>
           </div>
-          <p className="text-gray-700 mb-4">
-            {
-              manga?.description
-            }
-
-          </p>
-          <p className="text-gray-700">
-            {
-              manga?.description
-            }
-          </p>
+          <p className="text-gray-700 mb-4">{manga?.description}</p>
+          <p className="text-gray-700">{manga?.description}</p>
         </div>
       </div>
-      <div className="flex flex-col gap-6 p-6">
-        <div className="flex items-center gap-4">
-          <img
-            alt="Manga cover"
-            className="h-[100px] w-[100px] object-cover"
-            height="100"
-            src={OnePiceCoverImage.src}
-            style={{
-              aspectRatio: "100/100",
-              objectFit: "cover",
-            }}
-            width="100"
-          />
-          <div className="flex flex-col">
-            <span className="text-lg font-bold text-[#E11D48]">#001</span>
-            <h2 className="text-xl font-semibold">{`Page 1: The Boy's Vow`}</h2>
-            <span className="text-sm text-gray-500">JAN 20, 2019</span>
-          </div>
-          <div className="ml-auto">
-            <MoreVerticalIcon className="text-gray-500" />
-          </div>
-          <span className="text-sm font-medium">342</span>
-          <MessageCircleIcon className="text-gray-500" />
+      <div className="my-5"></div>
+      <ScrollArea>
+        <div className="flex flex-col space-y-6 px-4 lg:px-8 h-96">
+          {manga?.chapters.map((chapter: Chapter) => (
+            <div className="flex items-center gap-4 " key={chapter._id}>
+              <img
+                alt={chapter.chapterName}
+                className="h-[100px] w-[100px] object-cover"
+                height="100"
+                src={`https://cloud.appwrite.io/v1/storage/buckets/65ab31d194c87473caab/files/${chapter.chapterImages[0]}/view?project=65ab3113d00c39e45407&mode=admin`}
+                style={{
+                  aspectRatio: "100/100",
+                  objectFit: "cover",
+                }}
+                width="100"
+              />
+              <div className="flex flex-col justify-start items-start">
+                <span className="text-lg font-mono text-[#E11D48]">{`#0${chapter.chapterNumber}`}</span>
+                <h2 className=" font-semibold font-sans">{`Chapter ${chapter.chapterNumber}: ${chapter.chapterName}`}</h2>
+                <span className="text-xs text-gray-500 font-mono ">{`${chapter.chapterPublishedDate}`}</span>
+              </div>
+              <div className="ml-auto">
+                <MoreVerticalIcon className="text-gray-500" />
+              </div>
+              <span className="text-sm font-medium">342</span>
+              <MessageCircleIcon className="text-gray-500" />
+            </div>
+          ))}
+          <ScrollBar orientation="vertical" />
         </div>
-        <div className="flex items-center gap-4">
-          <img
-            alt="Manga cover"
-            className="h-[100px] w-[100px] object-cover"
-            height="100"
-            src={OnePiceCoverImage.src}
-            style={{
-              aspectRatio: "100/100",
-              objectFit: "cover",
-            }}
-            width="100"
-          />
-          <div className="flex flex-col">
-            <span className="text-lg font-bold text-[#E11D48]">#001</span>
-            <h2 className="text-xl font-semibold">{`Page 1: The Boy's Vow`}</h2>
-            <span className="text-sm text-gray-500">JAN 20, 2019</span>
-          </div>
-          <div className="ml-auto">
-            <MoreVerticalIcon className="text-gray-500" />
-          </div>
-          <span className="text-sm font-medium">342</span>
-          <MessageCircleIcon className="text-gray-500" />
-        </div>
-        <div className="flex items-center gap-4">
-          <img
-            alt="Manga cover"
-            className="h-[100px] w-[100px] object-cover"
-            height="100"
-            src={OnePiceCoverImage.src}
-            style={{
-              aspectRatio: "100/100",
-              objectFit: "cover",
-            }}
-            width="100"
-          />
-          <div className="flex flex-col">
-            <span className="text-lg font-bold text-[#E11D48]">#001</span>
-            <h2 className="text-xl font-semibold">{`Page 1: The Boy's Vow`}</h2>
-            <span className="text-sm text-gray-500">JAN 20, 2019</span>
-          </div>
-          <div className="ml-auto">
-            <MoreVerticalIcon className="text-gray-500" />
-          </div>
-          <span className="text-sm font-medium">342</span>
-          <MessageCircleIcon className="text-gray-500" />
-        </div>
-      </div>
+      </ScrollArea>
+      <div className="my-10"></div>
     </div>
   );
 }

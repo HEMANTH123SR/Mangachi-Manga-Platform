@@ -100,7 +100,7 @@ export interface MangaType {
     commentBy: string;
     createdAt: Date;
   }[];
-  chapters: Chapter;
+  chapters: Chapter[];
   createdAt: string;
   updatedAt: string;
   __v: number;
