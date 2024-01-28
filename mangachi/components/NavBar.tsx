@@ -29,9 +29,7 @@ export const NavBar = ({ children }: { children: React.ReactNode }) => {
       </div>
       <div className="flex w-1/2 md:w-1/3 justify-end items-center space-x-3 sm:space-x-6 ">
         <IoSearch className="text-2xl sm:text-3xl text-text" />
-        {/* <div className="bg-primary text-white  font-semibold py-2 px-3 rounded-md text-sm sm:text-base">
-          Login
-        </div> */}
+
         {isLoaded && user && (
           <UserButton afterMultiSessionSingleSignOutUrl="/" />
         )}
