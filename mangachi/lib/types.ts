@@ -1,62 +1,3 @@
-export enum Genre {
-  Shonen = "Shonen",
-  Shojo = "Shojo",
-  Seinen = "Seinen",
-  Josei = "Josei",
-  Kodomomuke = "Kodomomuke",
-  Isekai = "Isekai",
-  Harem = "Harem",
-  Mecha = "Mecha",
-  SliceOfLife = "Slice of Life",
-  Fantasy = "Fantasy",
-  ScienceFiction = "Science Fiction",
-  Horror = "Horror",
-  Mystery = "Mystery",
-  Sports = "Sports",
-  Historical = "Historical",
-  Romance = "Romance",
-  Comedy = "Comedy",
-  Drama = "Drama",
-  Adventure = "Adventure",
-  Supernatural = "Supernatural",
-  Psychological = "Psychological",
-  Thriller = "Thriller",
-  Ecchi = "Ecchi",
-  Action = "Action",
-  SchoolLife = "School Life",
-  Tragedy = "Tragedy",
-  Others = "Others",
-}
-
-enum Genres {
-  "Shonen",
-  "Shojo",
-  "Seinen",
-  "Josei",
-  "Kodomomuke",
-  "Isekai",
-  "Harem",
-  "Mecha",
-  "Slice of Life",
-  "Fantasy",
-  "Science Fiction",
-  "Horror",
-  "Mystery",
-  "Sports",
-  "Historical",
-  "Romance",
-  "Comedy",
-  "Drama",
-  "Adventure",
-  "Supernatural",
-  "Psychological",
-  "Thriller",
-  "Ecchi",
-  "Action",
-  "School Life",
-  "Tragedy",
-  "Others",
-}
 
 export type Chapter = {
   chapterName: string;
@@ -90,7 +31,6 @@ export interface MangaType {
   coverImage: string;
   tags: string;
   status: "Ongoing" | "Completed" | "Cancelled";
-  genre: Genres;
   description: string;
   views: number;
   reviews: {

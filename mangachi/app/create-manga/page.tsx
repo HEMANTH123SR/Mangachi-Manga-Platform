@@ -1,12 +1,11 @@
 "use client";
-import { use, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
 import { createImage } from "@/lib/appwrite";
 import { MangaDetailsSchema } from "@/lib/ZodSchemas";
-import { Genre } from "@/lib/types";
+
 import { z } from "zod";
-import { ComboboxDemo } from "@/components/ComboBoxComonents";
 import { Input } from "@/components/ui/input";
 import {
   SelectValue,
@@ -52,7 +51,7 @@ const Page = () => {
   const [error, setError] = useState<boolean>(false);
   const [errormessage, setErrorMessage] = useState<any>();
   const [apiError, setApiError] = useState<string>("");
-  const [genre, setGenre] = useState<Genre>();
+
 
   const validateForm = (value: FormValues) => {
     try {
@@ -86,7 +85,7 @@ const Page = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ ...res.value }),
+          body: JSON.stringify({ ...res.value, createdBy: UserInfo }),
         });
         const responseData = await response.json();
 
@@ -159,12 +158,7 @@ const Page = () => {
           />
         </div>
       </div>
-      <div className="sm:col-span-6">
-        <label className="block text-sm font-medium text-gray-700">Genre</label>
-        <div className="mt-1">
-          <ComboboxDemo mangaGenre={genre} setMangaGenre={setGenre} />
-        </div>
-      </div>
+
       <div className="sm:col-span-6">
         <label
           className="block text-sm font-medium text-gray-700"
@@ -274,8 +268,7 @@ const Page = () => {
                 coverImage:
                   "https://res.cloudinary.com/dobf3dmic/image/upload/v1705385862/326439_tuj1lw.jpg",
                 description,
-                tags,
-                genre: genre ? genre : Genre.Others,
+                tags
               })
             }
           >

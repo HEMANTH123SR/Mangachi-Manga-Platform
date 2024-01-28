@@ -1,10 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { Genre } from "@/lib/types";
 import { MangaDetailsSchema } from "@/lib/ZodSchemas";
 import { createImage } from "@/lib/appwrite"
-import { ComboboxDemo } from "@/components/ComboBoxComonents";
 import { DropZone } from "@/components/DropZone"
 import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
@@ -41,7 +39,7 @@ const Page = () => {
   const [errormessage, setErrorMessage] = useState<any>();
   const [call, setCall] = useState<number>(0);
   const id = pathname?.split("/")[1];
-  const [genre, setGenre] = useState<Genre>();
+
   useEffect(() => {
     async function fetchMangaDetails() {
       try {
@@ -54,7 +52,7 @@ const Page = () => {
         setCoverImage(data.coverImage);
         setDescription(data.description);
         setTags(data.tags);
-        setGenre(data.genre);
+
         console.log(data);
       } catch (error) {
         console.log(
@@ -202,17 +200,7 @@ const Page = () => {
             />
           </div>
         </div>
-        <div className="sm:col-span-6">
-          <label
-            className="block text-sm font-medium text-gray-700"
 
-          >
-            Genre
-          </label>
-          <div className="mt-1">
-            <ComboboxDemo mangaGenre={genre} setMangaGenre={setGenre} />
-          </div>
-        </div>
         <div className="sm:col-span-6">
           <label
             className="block text-sm font-medium text-gray-700"
@@ -308,7 +296,6 @@ const Page = () => {
                   tags,
                   coverImage,
                   backgroundImage,
-                  genre: genre ? genre : Genre.Others,
                 });
               }}
             >
