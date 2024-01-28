@@ -1,6 +1,7 @@
 import React from "react";
-import type { Metadata } from "next";
+import { ClerkProvider } from '@clerk/nextjs'
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -23,24 +24,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} bg-white`}>
-        <Sheet>
-          <NavBar>
-            <SheetTrigger asChild className="bg-white">
-              <Button className="p-0 m-0  text-primary bg-white hover:bg-white">
-                <GiHamburgerMenu className="text-2xl sm:text-3xl text-text hover:text-3xl" />
-              </Button>
-            </SheetTrigger>
-          </NavBar>
-          {children}
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${inter.className} bg-white`}>
+          <Sheet>
+            <NavBar>
+              <SheetTrigger asChild className="bg-white">
+                <Button className="p-0 m-0  text-primary bg-white hover:bg-white">
+                  <GiHamburgerMenu className="text-2xl sm:text-3xl text-text hover:text-3xl" />
+                </Button>
+              </SheetTrigger>
+            </NavBar>
+            {children}
 
-          <SideMenu />
-        </Sheet>
-        <Analytics />
-        <Toaster />
-        <SpeedInsights />
-      </body>
-    </html>
+            <SideMenu />
+          </Sheet>
+          <Analytics />
+          <Toaster />
+          <SpeedInsights />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
