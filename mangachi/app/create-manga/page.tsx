@@ -1,6 +1,7 @@
-"use client"
-import { useState } from "react";
-import { useRouter } from "next/navigation"
+"use client";
+import { use, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useUser } from "@clerk/nextjs";
 import { createImage } from "@/lib/appwrite";
 import { MangaDetailsSchema } from "@/lib/ZodSchemas";
 import { Genre } from "@/lib/types";
@@ -17,16 +18,29 @@ import {
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { DropZone } from "@/components/DropZone";
-
-
+import { UserType } from "@/lib/types";
 type FormValues = z.infer<typeof MangaDetailsSchema>;
+
 const Page = () => {
+  const { user } = useUser();
+
   const router = useRouter();
+
   enum Status {
     Ongoing = "Ongoing",
     Completed = "Completed",
     Cancelled = "Cancelled",
   }
+
+  const UserInfo: UserType = {
+    userName: user?.fullName as string,
+    userBio: "",
+    userEmail: user?.primaryEmailAddress?.emailAddress as string,
+    userId: user?.id as string,
+    UserProfileImage: user?.imageUrl as string,
+  };
+
+
 
   const [mangaName, setMangaName] = useState<string>("");
   const [author, setAuthor] = useState<string>("");
@@ -42,29 +56,27 @@ const Page = () => {
 
   const validateForm = (value: FormValues) => {
     try {
-      return { value: MangaDetailsSchema.parse(value), status: "success" }
-    }
-    catch (err) {
+      return { value: MangaDetailsSchema.parse(value), status: "success" };
+    } catch (err) {
       if (err instanceof z.ZodError) {
-        return err.formErrors.fieldErrors
+        return err.formErrors.fieldErrors;
       }
     }
-  }
+  };
 
   const handleCreatManga = async (value: FormValues) => {
     try {
       if (backgroundImage) {
-        const res = await createImage(backgroundImage as File)
+        const res = await createImage(backgroundImage as File);
         if (res.status == "success") {
-          value.backgroundImage = res.id as string
+          value.backgroundImage = res.id as string;
         }
       }
       if (coverImage) {
-        const res = await createImage(coverImage as File)
+        const res = await createImage(coverImage as File);
         if (res.status == "success") {
-          value.coverImage = res.id as string
+          value.coverImage = res.id as string;
         }
-
       }
       const res = validateForm(value);
       if (res?.status === "success") {
@@ -74,58 +86,54 @@ const Page = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(res.value)
-        })
+          body: JSON.stringify({ ...res.value }),
+        });
         const responseData = await response.json();
 
         if (response.status === 201) {
           console.log("responseId : ", responseData.data);
-          router.push("/")
+          router.push("/");
+        } else if (response.status > 500) {
+          setApiError("Something went wrong with the server, please try again");
+        } else {
+          setApiError(
+            "Something went wrong with the data you entered, please try again"
+          );
         }
-        else if (response.status > 500) {
-          setApiError("Something went wrong with the server, please try again")
-        }
-        else {
-          setApiError("Something went wrong with the data you entered, please try again")
-        }
-
       } else {
         setError(true);
         setErrorMessage(res);
-
       }
     } catch (err) {
       console.log("handle create manga ,  err:", err);
     }
-  }
-
-
-
-
-
+  };
 
   return (
-
     <div className=" grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6 lg:mx-12">
-
-
-
       <div className="sm:col-span-6">
-        {
-          apiError && <p className="mt-2 text-sm text-red-400">{apiError}</p>
-
-        }
+        {apiError && <p className="mt-2 text-sm text-red-400">{apiError}</p>}
         <label
           className="block text-sm font-medium text-gray-700"
           htmlFor="manganame"
         >
           Manga Name
         </label>
-        {
-          error && <p className="mt-2 text-xs text-red-600">{errormessage?.mangaName?.[0]}</p>
-        }
+        {error && (
+          <p className="mt-2 text-xs text-red-600">
+            {errormessage?.mangaName?.[0]}
+          </p>
+        )}
         <div className="mt-1">
-          <Input id="manganame" type="text" placeholder="Your manga name" value={mangaName} onChange={(e) => { setMangaName(e.target.value) }} />
+          <Input
+            id="manganame"
+            type="text"
+            placeholder="Your manga name"
+            value={mangaName}
+            onChange={(e) => {
+              setMangaName(e.target.value);
+            }}
+          />
         </div>
       </div>
       <div className="sm:col-span-6">
@@ -135,20 +143,24 @@ const Page = () => {
         >
           Author Name
         </label>
-        {
-          error && <p className="mt-2 text-xs text-red-600">{errormessage?.author?.[0]}</p>
-        }
+        {error && (
+          <p className="mt-2 text-xs text-red-600">
+            {errormessage?.author?.[0]}
+          </p>
+        )}
         <div className="mt-1">
-          <Input id="authorname" placeholder="Add the author name" value={author} onChange={(e) => { setAuthor(e.target.value) }} />
+          <Input
+            id="authorname"
+            placeholder="Add the author name"
+            value={author}
+            onChange={(e) => {
+              setAuthor(e.target.value);
+            }}
+          />
         </div>
       </div>
       <div className="sm:col-span-6">
-        <label
-          className="block text-sm font-medium text-gray-700"
-
-        >
-          Genre
-        </label>
+        <label className="block text-sm font-medium text-gray-700">Genre</label>
         <div className="mt-1">
           <ComboboxDemo mangaGenre={genre} setMangaGenre={setGenre} />
         </div>
@@ -161,12 +173,16 @@ const Page = () => {
           Status
         </label>
         <div className="mt-1">
-          <Select onValueChange={(value) => { setStatus(value as Status) }}>
+          <Select
+            onValueChange={(value) => {
+              setStatus(value as Status);
+            }}
+          >
             <SelectTrigger id="status">
               <SelectValue placeholder="Select the current status of manga " />
             </SelectTrigger>
             <SelectContent position="popper">
-              <SelectItem value="Ongoing" >Ongoing</SelectItem>
+              <SelectItem value="Ongoing">Ongoing</SelectItem>
               <SelectItem value="Completed">Completed</SelectItem>
               <SelectItem value="Cancelled">Cancelled</SelectItem>
             </SelectContent>
@@ -184,16 +200,20 @@ const Page = () => {
         >
           Description
         </label>
-        {
-          error && <p className="mt-2 text-xs text-red-600">{errormessage?.description?.[0]}</p>
-        }
+        {error && (
+          <p className="mt-2 text-xs text-red-600">
+            {errormessage?.description?.[0]}
+          </p>
+        )}
         <div className="mt-1">
           <Textarea
             id="description"
             placeholder="Tell us about your favorite mangas."
             rows={6}
             value={description}
-            onChange={(e) => { setDescription(e.target.value) }}
+            onChange={(e) => {
+              setDescription(e.target.value);
+            }}
           />
         </div>
         <p className="mt-2 text-sm text-gray-500">
@@ -204,12 +224,20 @@ const Page = () => {
         <h3 className="text-sm font-medium text-gray-700 my-3">
           Upload Cover Image
         </h3>
-        <DropZone multipleImage={false} setImage={setBackgroundImage} setMultipleImage={null} />
+        <DropZone
+          multipleImage={false}
+          setImage={setBackgroundImage}
+          setMultipleImage={null}
+        />
         <div className="my-6"></div>
         <h3 className="text-sm font-medium text-gray-700 my-3">
           Upload Background Image
         </h3>
-        <DropZone multipleImage={false} setImage={setCoverImage} setMultipleImage={null} />
+        <DropZone
+          multipleImage={false}
+          setImage={setCoverImage}
+          setMultipleImage={null}
+        />
       </div>
       <div className="sm:col-span-6">
         <label
@@ -219,7 +247,14 @@ const Page = () => {
           Tags
         </label>
         <div className="mt-1">
-          <Textarea id="tags" placeholder="#shonen #sword #demon" value={tags} onChange={(e) => { setTags(e.target.value) }} />
+          <Textarea
+            id="tags"
+            placeholder="#shonen #sword #demon"
+            value={tags}
+            onChange={(e) => {
+              setTags(e.target.value);
+            }}
+          />
         </div>
         <p className="mt-2 text-sm text-gray-500">
           Use # to add tags example #pirate #superhero
@@ -227,20 +262,29 @@ const Page = () => {
       </div>
       <div className="sm:col-span-6">
         <div className="flex justify-center items-center w-full">
-          <Button className="mt-10 w-2/5 font-semibold" onClick={() => handleCreatManga({ mangaName, author, status, backgroundImage: "https://res.cloudinary.com/dobf3dmic/image/upload/v1705386772/5265_SeriesHeaders_OP_2000x800_wm.0_x6uzj8.jpg", coverImage: "https://res.cloudinary.com/dobf3dmic/image/upload/v1705385862/326439_tuj1lw.jpg", description, tags, genre: genre ? genre : Genre.Others })}>
+          <Button
+            className="mt-10 w-2/5 font-semibold"
+            onClick={() =>
+              handleCreatManga({
+                mangaName,
+                author,
+                status,
+                backgroundImage:
+                  "https://res.cloudinary.com/dobf3dmic/image/upload/v1705386772/5265_SeriesHeaders_OP_2000x800_wm.0_x6uzj8.jpg",
+                coverImage:
+                  "https://res.cloudinary.com/dobf3dmic/image/upload/v1705385862/326439_tuj1lw.jpg",
+                description,
+                tags,
+                genre: genre ? genre : Genre.Others,
+              })
+            }
+          >
             Create Manga
           </Button>
-
         </div>
       </div>
     </div>
-
-  )
-}
-
-
-
+  );
+};
 
 export default Page;
-
-

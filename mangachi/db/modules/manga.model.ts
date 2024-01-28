@@ -122,8 +122,28 @@ const MangaSchema = new mongoose.Schema(
       },
     ],
     createdBy: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      userName: {
+        type: String,
+        required: true,
+      },
+      userEmail: {
+        type: String,
+        required: true,
+      },
+      userBio: {
+        type: String,
+        max: 300,
+        default: "",
+      },
+      UserProfileImage: {
+        type: String,
+        required: true,
+      },
+      userId: {
+        type: String,
+        required: true,
+        unique: true,
+      },
     },
     views: {
       type: Number,

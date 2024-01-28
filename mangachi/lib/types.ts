@@ -28,12 +28,6 @@ export enum Genre {
   Others = "Others",
 }
 
-enum Status {
-  "Ongoing",
-  "Completed",
-  "Cancelled",
-}
-
 enum Genres {
   "Shonen",
   "Shojo",
@@ -72,6 +66,14 @@ export type Chapter = {
   _id?: string;
 };
 
+export type UserType = {
+  userName: String;
+  userEmail: String;
+  userBio: String;
+  userId: String;
+  UserProfileImage: String;
+};
+
 export interface MangaType {
   likes: {
     likedBy: string[];
@@ -103,5 +105,6 @@ export interface MangaType {
   chapters: Chapter[];
   createdAt: string;
   updatedAt: string;
+  createdBy: UserType;
   __v: number;
 }
