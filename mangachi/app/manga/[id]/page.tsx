@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { MangaType, Chapter } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import OnePiceCoverImage from "@/public/One-Piece.jpg";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import {
   MessageCircleIcon,
