@@ -12,36 +12,62 @@ const DashBoardPage = () => {
     const [somethingWentWrong, setSomethingWentWrong] = useState(false);
     useEffect(() => {
         (async () => {
-            const res = await fetch("/api");
-            const data = await res.json();
-            if (data.status !== "success") {
-                setSomethingWentWrong(true);
-                return;
+            if (isLoaded) {
+                const res = await fetch("/api");
+                const data = await res.json();
+                if (data.status !== "success") {
+                    setSomethingWentWrong(true);
+                    return;
+                }
+                console.log("ohhhh ");
+                console.log(data.data);
+                setMangas(
+                    data.data.filter((manga: MangaType) => {
+                        if (manga.createdBy.userId === user?.id) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    })
+                );
             }
-            console.log("ohhhh ");
-            console.log(data.data);
-            //   setMangas(
-            //     data.data.filter((manga: MangaType) => {
-            //       if (manga.createdBy.userId === user?.id) {
-            //         return true;
-            //       } else {
-            //         return false;
-            //       }
-            //     })
-            //   );
-            setMangas(data.data);
         })();
     }, [user?.id]);
+    if (somethingWentWrong) {
+        return (
+            <div className="flex flex-col items-center justify-center h-screen">
+                <h1 className="text-4xl font-bold">Something went wrong</h1>
+                <Button className="mt-4" onClick={() => router.push("/")}>
+                    Go back
+                </Button>
+            </div>
+        );
+    }
+    if (!(isLoaded && user)) {
+        return (
+            <div className="flex flex-col items-center justify-center h-screen">
+                <h1 className="text-4xl font-bold">Loading...</h1>
+            </div>
+        );
+    }
     return (
         <div>
             <div className="flex justify-center items-center  my-14">
-                <Button variant="outline" className="bg-primary text-white ">
+                <Button
+                    variant="outline"
+                    className="bg-primary text-white "
+                    onClick={() => router.push("/create-manga")}
+                >
                     Create New Manga
                 </Button>
             </div>
             <div className=" grid grid-cols-1 lg:grid-cols-2 gap-6 mx-12 bg-white">
                 {mangas.map((manga: MangaType) => (
-                    <div key={manga._id} className="flex items-center gap-4 ">
+                    <div
+                        key={manga._id}
+                        className="flex items-center gap-4 cursor-pointer"
+                        onClick={() => router.push(`/manga/${manga._id}`)}
+                    >
                         <img
                             alt={`${manga.mangaName} manga image`}
                             className="h-[100px] w-[100px] object-cover"
