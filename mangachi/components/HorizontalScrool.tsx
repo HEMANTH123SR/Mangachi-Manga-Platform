@@ -30,7 +30,7 @@ export function ScrollAreaHorizontalDemo({
         {title}
       </h2>
       <ScrollArea className="px-6 w-full whitespace-nowrap ">
-        <div className="flex w-max space-x-4 p-4 pt-1">
+        <div className="flex w-max space-x-4 p-4 pt-1 cursor-pointer">
           {data.map((manga: any) => (
             <figure key={manga._id} className="shrink-0" onClick={() => router.push(`/manga/${manga._id}`)}>
               <div className="overflow-hidden rounded-md">

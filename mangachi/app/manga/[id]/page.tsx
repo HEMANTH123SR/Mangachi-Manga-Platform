@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { MangaType, Chapter } from "@/lib/types";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
@@ -13,7 +14,7 @@ import {
   UsersIcon,
 } from "@/lib/Icons";
 function Page({ params }: { params: { id: string } }) {
-  console.log("params", params);
+  const router = useRouter();
   const [manga, setManga] = useState<MangaType>();
   const [somethingWentWrong, setSomethingWentFrong] = useState<boolean>(false);
   useEffect(() => {
@@ -132,7 +133,13 @@ function Page({ params }: { params: { id: string } }) {
       <ScrollArea>
         <div className="flex flex-col space-y-6 px-4 lg:px-8 h-96">
           {manga?.chapters.map((chapter: Chapter) => (
-            <div className="flex items-center gap-4 " key={chapter._id}>
+            <div
+              className="flex items-center gap-4 cursor-pointer"
+              key={chapter._id}
+              onClick={() =>
+                router.push(`${manga?._id}/chapter/${chapter._id}`)
+              }
+            >
               <img
                 alt={chapter.chapterName}
                 className="h-[100px] w-[100px] object-cover"
