@@ -39,8 +39,6 @@ const Page = () => {
     UserProfileImage: user?.imageUrl as string,
   };
 
-
-
   const [mangaName, setMangaName] = useState<string>("");
   const [author, setAuthor] = useState<string>("");
   const [status, setStatus] = useState<Status>(Status.Ongoing);
