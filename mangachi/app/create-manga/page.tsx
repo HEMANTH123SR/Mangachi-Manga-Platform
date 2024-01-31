@@ -2,9 +2,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
-import { createImage } from "@/lib/appwrite";
+import { createImage, deleteImage } from "@/lib/appwrite";
 import { MangaDetailsSchema } from "@/lib/ZodSchemas";
-
 import { z } from "zod";
 import { Input } from "@/components/ui/input";
 import {
@@ -50,7 +49,6 @@ const Page = () => {
   const [errormessage, setErrorMessage] = useState<any>();
   const [apiError, setApiError] = useState<string>("");
 
-
   const validateForm = (value: FormValues) => {
     try {
       return { value: MangaDetailsSchema.parse(value), status: "success" };
@@ -76,7 +74,11 @@ const Page = () => {
         }
       }
       const res = validateForm(value);
-      if (res?.status === "success") {
+      if (
+        res?.status === "success" &&
+        value.backgroundImage.length > 0 &&
+        value.coverImage.length > 0
+      ) {
         setError(false);
         const response = await fetch(`/api/create-manga`, {
           method: "POST",
@@ -98,6 +100,20 @@ const Page = () => {
           );
         }
       } else {
+        if (value.backgroundImage.length == 0) {
+          setErrorMessage({
+            backgroundImage: ["Background Image is required"],
+          });
+        } else {
+          await deleteImage(value.backgroundImage as string);
+        }
+        if (value.coverImage.length == 0) {
+          setErrorMessage({
+            coverImage: ["Cover Image is required"],
+          });
+        } else {
+          await deleteImage(value.coverImage as string);
+        }
         setError(true);
         setErrorMessage(res);
       }
@@ -213,6 +229,11 @@ const Page = () => {
         </p>
       </div>
       <div className="sm:col-span-6">
+        {error && (
+          <p className="mt-2 text-xs text-red-600">
+            {errormessage?.coverImage?.[0]}
+          </p>
+        )}
         <h3 className="text-sm font-medium text-gray-700 my-3">
           Upload Cover Image
         </h3>
@@ -222,6 +243,11 @@ const Page = () => {
           setMultipleImage={null}
         />
         <div className="my-6"></div>
+        {error && (
+          <p className="mt-2 text-xs text-red-600">
+            {errormessage?.backgroundImage?.[0]}
+          </p>
+        )}
         <h3 className="text-sm font-medium text-gray-700 my-3">
           Upload Background Image
         </h3>
@@ -261,12 +287,10 @@ const Page = () => {
                 mangaName,
                 author,
                 status,
-                backgroundImage:
-                  "https://res.cloudinary.com/dobf3dmic/image/upload/v1705386772/5265_SeriesHeaders_OP_2000x800_wm.0_x6uzj8.jpg",
-                coverImage:
-                  "https://res.cloudinary.com/dobf3dmic/image/upload/v1705385862/326439_tuj1lw.jpg",
+                backgroundImage: "",
+                coverImage: "",
                 description,
-                tags
+                tags,
               })
             }
           >
