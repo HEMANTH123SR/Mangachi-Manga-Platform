@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { MangaType } from "@/lib/types";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+
 import {
   Carousel,
   CarouselContent,
