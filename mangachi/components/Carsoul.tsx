@@ -130,14 +130,13 @@ function CarouselCard({
               </div>
               <div className=" space-x-4 h-6 mt-2 mx-4 sm:hidden md:flex">
                 <Badge
-                  className={`${mangaName.length <= 10 ? "" : " hidden sm:flex justify-center items-center"
-                    }`}
+                  className={`hidden sm:flex justify-center items-center`}
                   variant="secondary"
                 >
                   {getFormatedDate({ date })}
                 </Badge>
                 <Badge
-                  className={`${mangaName.length <= 10 ? "" : "hidden sm:flex justify-center items-center"}`}
+                  className={`hidden sm:flex justify-center items-center`}
                   variant="secondary"
                 >
                   {status}
