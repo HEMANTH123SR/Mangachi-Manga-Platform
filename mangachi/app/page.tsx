@@ -1,5 +1,6 @@
 import { CarouselDemo } from "@/components/Carsoul";
-import { HomePageShonenContent } from "@/components/HomePageShonenContent"
+import { HomePageShonenContent } from "@/components/HomePageShonenContent";
+import { ScrollAreaHorizontalDemo } from "@/components/HorizontalScrool";
 export default function Home() {
   return (
     <main className="w-full h-full">
@@ -8,6 +9,18 @@ export default function Home() {
       </div>
       <HomePageShonenContent />
       <div className="my-20"></div>
+      <ScrollAreaHorizontalDemo
+        title="Recently Added"
+        routeSegment="recently-added"
+      />
+      <ScrollAreaHorizontalDemo
+        title="Most Readed"
+        routeSegment="most-readed"
+      />
+      <ScrollAreaHorizontalDemo
+        title="Staff Picks"
+        routeSegment="staff-picks"
+      />
     </main>
   );
 }

@@ -15,7 +15,7 @@ export const HomePageShonenContent = () => {
     })();
   }, []);
   return (
-    <section className="flex flex-col mx-6">
+    <section className="flex flex-col mx-3 sm:mx-6">
       <h2 className="font-header sm:text-3xl text-xl font-semibold font-sans">
         Latest Shonen Manga
       </h2>
