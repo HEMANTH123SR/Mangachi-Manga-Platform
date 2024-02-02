@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
     const url = new URL(req.url);
     const id = url.pathname.split("/")[3];
     if (id == "staff-picks") {
-      const res = await Manga.find({});
+      const res = await Manga.find({}).limit(10);
       const mangas: MangaType[] = res;
       const filtredMangas = mangas.map((manga) => {
         let coverImage = manga.coverImage;
@@ -32,7 +32,7 @@ export async function GET(req: NextRequest) {
         { status: 200 }
       );
     } else if (id == "recently-added") {
-      const res = await Manga.find({});
+      const res = await Manga.find({}).sort({ createdAt: -1 }).limit(10);
       const mangas: MangaType[] = res;
       const filtredMangas = mangas.map((manga) => {
         let coverImage = manga.coverImage;
@@ -56,7 +56,7 @@ export async function GET(req: NextRequest) {
         { status: 200 }
       );
     } else if (id == "most-readed") {
-      const res = await Manga.find({});
+      const res = await Manga.find().sort({ views: -1 }).limit(10);
       const mangas: MangaType[] = res;
       const filtredMangas = mangas.map((manga) => {
         let coverImage = manga.coverImage;
