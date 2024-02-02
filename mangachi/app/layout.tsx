@@ -9,7 +9,7 @@ import { Fotter } from "@/components/component/fotter"
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import { NavBar } from "@/components/NavBar";
-import { SideMenu } from "@/components/SideMeny";
+import { SideMenu } from "@/components/SideMenu";
 import { Toaster } from "@/components/ui/sonner"
 import { GiHamburgerMenu } from "react-icons/gi";
 const inter = Inter({ subsets: ["latin"] });
