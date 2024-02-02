@@ -10,22 +10,30 @@ export function Fotter() {
             <ul className="space-y-2">
               <li>
                 <Link className="hover:text-gray-300" href="#">
-                  About Us
+                  <span className="text-white text-sm font-sans font-semibold">
+                    About Us
+                  </span>
+                </Link>
+              </li>
+              {/* <li>
+                <Link className="hover:text-gray-300" href="#">
+                  <span className="text-white text-sm font-sans font-semibold">
+                    Contact Us
+                  </span>
+                </Link>
+              </li> */}
+              <li>
+                <Link className="hover:text-gray-300" href="#">
+                  <span className="text-white text-sm font-sans font-semibold">
+                    Terms of Service
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link className="hover:text-gray-300" href="#">
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-gray-300" href="#">
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-gray-300" href="#">
-                  Privacy Policy
+                  <span className="text-white text-sm font-sans font-semibold">
+                    Privacy Policy
+                  </span>
                 </Link>
               </li>
             </ul>
@@ -35,22 +43,30 @@ export function Fotter() {
             <ul className="space-y-2">
               <li>
                 <Link className="hover:text-gray-300" href="#">
-                  Latest Releases
+                  <span className="text-white text-sm font-sans font-semibold">
+                    Latest Releases
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link className="hover:text-gray-300" href="#">
-                  Popular Manga
+                  <span className="text-white text-sm font-sans font-semibold">
+                    Popular Manga
+                  </span>
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link className="hover:text-gray-300" href="#">
-                  Upcoming Releases
+                  <span className="text-white text-sm font-sans font-semibold">
+                    Upcoming Releases
+                  </span>
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link className="hover:text-gray-300" href="#">
-                  Manga Genres
+                  <span className="text-white text-sm font-sans font-semibold">
+                    Manga Genres
+                  </span>
                 </Link>
               </li>
             </ul>
@@ -60,22 +76,30 @@ export function Fotter() {
             <ul className="space-y-2">
               <li>
                 <Link className="hover:text-gray-300" href="#">
-                  Forums
+                  <span className="text-white text-sm font-sans font-semibold">
+                    Forums
+                  </span>
+                </Link>
+              </li>
+              {/* <li>
+                <Link className="hover:text-gray-300" href="#">
+                  <span className="text-white text-sm font-sans font-semibold">
+                    Leaderboard
+                  </span>
+                </Link>
+              </li> */}
+              <li>
+                <Link className="hover:text-gray-300" href="#">
+                  <span className="text-white text-sm font-sans font-semibold">
+                    User Guide
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link className="hover:text-gray-300" href="#">
-                  Leaderboard
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-gray-300" href="#">
-                  User Guide
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-gray-300" href="#">
-                  Support
+                  <span className="text-white text-sm font-sans font-semibold">
+                    Support
+                  </span>
                 </Link>
               </li>
             </ul>

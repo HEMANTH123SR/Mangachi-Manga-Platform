@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
