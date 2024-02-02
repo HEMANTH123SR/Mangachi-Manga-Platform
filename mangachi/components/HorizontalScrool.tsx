@@ -26,11 +26,11 @@ export function ScrollAreaHorizontalDemo({
 
   return (
     <div className="w-full  ">
-      <h2 className="font-header sm:text-1xl text-xl font-semibold font-sans my-4 text-foreground">
+      <h2 className="font-header  text-lg sm:text-xl lg:text-1xl font-semibold font-sans m-4 text-foreground ">
         {title}
       </h2>
       <ScrollArea className=" w-full whitespace-nowrap ">
-        <div className="flex w-max space-x-6 p-4 pt-1 cursor-pointer">
+        <div className="flex w-max space-x-6 lg:space-x-8 p-4 pt-1 cursor-pointer">
           {data.map((manga: any) => (
             <figure
               key={manga._id}

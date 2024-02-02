@@ -1,16 +1,17 @@
 import React from "react";
 import { ClerkProvider } from '@clerk/nextjs'
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { Fotter } from "@/components/component/fotter"
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import { NavBar } from "@/components/NavBar";
 import { SideMenu } from "@/components/SideMeny";
-import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "@/components/ui/sonner"
+import { GiHamburgerMenu } from "react-icons/gi";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -36,7 +37,7 @@ export default function RootLayout({
               </SheetTrigger>
             </NavBar>
             {children}
-
+            <Fotter />
             <SideMenu />
           </Sheet>
           <Analytics />
