@@ -12,9 +12,9 @@ import {
 } from "@/components/ui/carousel";
 
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 
-export function CarouselDemo() {
+
+export function SpotLightCarsoul() {
   const [spotlightMangas, setSpotlightMangas] = useState<
     MangaType[] | undefined
   >();
@@ -22,7 +22,7 @@ export function CarouselDemo() {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch("/api");
+      const res = await fetch("/api/spotlight");
       const data = await res.json();
       setSpotlightMangas(data.data);
       setIsLoading(false);

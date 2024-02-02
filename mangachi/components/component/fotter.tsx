@@ -6,8 +6,10 @@ export function Fotter() {
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div>
-            <h5 className="text-xl font-bold mb-3">MangaChi</h5>
-            <ul className="space-y-2">
+            <h5 className="font-header  text-lg sm:text-xl lg:text-1xl font-semibold font-sans my-3 ">
+              MangaChi
+            </h5>
+            <ul className="space-y-1 sm:space-y-2">
               <li>
                 <Link className="hover:text-gray-300" href="#">
                   <span className="text-white text-sm font-sans font-semibold">
@@ -15,13 +17,7 @@ export function Fotter() {
                   </span>
                 </Link>
               </li>
-              {/* <li>
-                <Link className="hover:text-gray-300" href="#">
-                  <span className="text-white text-sm font-sans font-semibold">
-                    Contact Us
-                  </span>
-                </Link>
-              </li> */}
+
               <li>
                 <Link className="hover:text-gray-300" href="#">
                   <span className="text-white text-sm font-sans font-semibold">
@@ -39,8 +35,10 @@ export function Fotter() {
             </ul>
           </div>
           <div>
-            <h5 className="text-xl font-bold mb-3">Explore</h5>
-            <ul className="space-y-2">
+            <h5 className="font-header  text-lg sm:text-xl lg:text-1xl font-semibold font-sans my-3">
+              Explore
+            </h5>
+            <ul className="space-y-1 sm:space-y-2">
               <li>
                 <Link className="hover:text-gray-300" href="#">
                   <span className="text-white text-sm font-sans font-semibold">
@@ -55,13 +53,7 @@ export function Fotter() {
                   </span>
                 </Link>
               </li>
-              {/* <li>
-                <Link className="hover:text-gray-300" href="#">
-                  <span className="text-white text-sm font-sans font-semibold">
-                    Upcoming Releases
-                  </span>
-                </Link>
-              </li> */}
+
               <li>
                 <Link className="hover:text-gray-300" href="#">
                   <span className="text-white text-sm font-sans font-semibold">
@@ -72,8 +64,10 @@ export function Fotter() {
             </ul>
           </div>
           <div>
-            <h5 className="text-xl font-bold mb-3">Community</h5>
-            <ul className="space-y-2">
+            <h5 className="font-header  text-lg sm:text-xl lg:text-1xl font-semibold font-sans my-3">
+              Community
+            </h5>
+            <ul className="space-y-1 sm:space-y-2">
               <li>
                 <Link className="hover:text-gray-300" href="#">
                   <span className="text-white text-sm font-sans font-semibold">
@@ -81,13 +75,7 @@ export function Fotter() {
                   </span>
                 </Link>
               </li>
-              {/* <li>
-                <Link className="hover:text-gray-300" href="#">
-                  <span className="text-white text-sm font-sans font-semibold">
-                    Leaderboard
-                  </span>
-                </Link>
-              </li> */}
+
               <li>
                 <Link className="hover:text-gray-300" href="#">
                   <span className="text-white text-sm font-sans font-semibold">
@@ -105,7 +93,9 @@ export function Fotter() {
             </ul>
           </div>
           <div>
-            <h5 className="text-xl font-bold mb-3">Follow Us</h5>
+            <h5 className="font-header  text-lg sm:text-xl lg:text-1xl font-semibold font-sans my-3">
+              Follow Us
+            </h5>
             <div className="flex space-x-4">
               <Link className="hover:text-gray-300" href="#">
                 <FacebookIcon className="h-6 w-6" />
