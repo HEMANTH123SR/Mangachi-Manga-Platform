@@ -1,124 +1,126 @@
 import Link from "next/link";
-
+//font-semibold text-foreground text-xs text-muted-foreground
 export function Fotter() {
   return (
-    <footer className="bg-gray-900 text-white mt-20">
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div>
-            <h5 className="font-header  text-lg sm:text-xl lg:text-1xl font-semibold font-sans my-3 ">
-              MangaChi
-            </h5>
-            <ul className="space-y-1 sm:space-y-2">
-              <li>
-                <Link className="hover:text-gray-300" href="#">
-                  <span className="text-white text-sm font-sans font-semibold">
-                    About Us
-                  </span>
-                </Link>
-              </li>
+    <div className="w-full mt-14">
+      <footer className="bg-white text-black border-t-2 border-primary">
+        <div className="container mx-auto px-4 py-4 pb-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div>
+              <h5 className="font-header  text-lg sm:text-xl lg:text-1xl font-semibold font-sans my-3 underline">
+                MangaChi
+              </h5>
+              <ul className="space-y-1 sm:space-y-2">
+                <li>
+                  <Link className="hover:text-gray-300" href="#">
+                    <span className="font-semibold text-foreground text-xs ">
+                      About Us
+                    </span>
+                  </Link>
+                </li>
 
-              <li>
-                <Link className="hover:text-gray-300" href="#">
-                  <span className="text-white text-sm font-sans font-semibold">
-                    Terms of Service
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-gray-300" href="#">
-                  <span className="text-white text-sm font-sans font-semibold">
-                    Privacy Policy
-                  </span>
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h5 className="font-header  text-lg sm:text-xl lg:text-1xl font-semibold font-sans my-3">
-              Explore
-            </h5>
-            <ul className="space-y-1 sm:space-y-2">
-              <li>
-                <Link className="hover:text-gray-300" href="#">
-                  <span className="text-white text-sm font-sans font-semibold">
-                    Latest Releases
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-gray-300" href="#">
-                  <span className="text-white text-sm font-sans font-semibold">
-                    Popular Manga
-                  </span>
-                </Link>
-              </li>
+                <li>
+                  <Link className="hover:text-gray-300" href="#">
+                    <span className="font-semibold text-foreground text-xs ">
+                      Terms of Service
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link className="hover:text-gray-300" href="#">
+                    <span className="font-semibold text-foreground text-xs  ">
+                      Privacy Policy
+                    </span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-header  text-lg sm:text-xl lg:text-1xl font-semibold font-sans my-3 underline">
+                Explore
+              </h5>
+              <ul className="space-y-1 sm:space-y-2">
+                <li>
+                  <Link className="hover:text-gray-300" href="#">
+                    <span className="font-semibold text-foreground text-xs  ">
+                      Latest Releases
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link className="hover:text-gray-300" href="#">
+                    <span className="font-semibold text-foreground text-xs  ">
+                      Popular Manga
+                    </span>
+                  </Link>
+                </li>
 
-              <li>
-                <Link className="hover:text-gray-300" href="#">
-                  <span className="text-white text-sm font-sans font-semibold">
-                    Manga Genres
-                  </span>
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h5 className="font-header  text-lg sm:text-xl lg:text-1xl font-semibold font-sans my-3">
-              Community
-            </h5>
-            <ul className="space-y-1 sm:space-y-2">
-              <li>
-                <Link className="hover:text-gray-300" href="#">
-                  <span className="text-white text-sm font-sans font-semibold">
-                    Forums
-                  </span>
-                </Link>
-              </li>
+                <li>
+                  <Link className="hover:text-gray-300" href="#">
+                    <span className="font-semibold text-foreground text-xs ">
+                      Manga Genres
+                    </span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-header  text-lg sm:text-xl lg:text-1xl font-semibold font-sans my-3 underline">
+                Community
+              </h5>
+              <ul className="space-y-1 sm:space-y-2">
+                <li>
+                  <Link className="hover:text-gray-300" href="#">
+                    <span className="font-semibold text-foreground text-xs  ">
+                      Forums
+                    </span>
+                  </Link>
+                </li>
 
-              <li>
+                <li>
+                  <Link className="hover:text-gray-300" href="#">
+                    <span className="font-semibold text-foreground text-xs ">
+                      User Guide
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link className="hover:text-gray-300" href="#">
+                    <span className="font-semibold text-foreground text-xs  ">
+                      Support
+                    </span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-header  text-lg sm:text-xl lg:text-1xl font-semibold font-sans my-3 underline">
+                Follow Us
+              </h5>
+              <div className="flex space-x-4">
+                {/* <Link className="hover:text-gray-300" href="#">
+                  <FacebookIcon className="h-6 w-6" />
+                </Link> */}
                 <Link className="hover:text-gray-300" href="#">
-                  <span className="text-white text-sm font-sans font-semibold">
-                    User Guide
-                  </span>
+                  <TwitterIcon className="h-6 w-6" />
                 </Link>
-              </li>
-              <li>
                 <Link className="hover:text-gray-300" href="#">
-                  <span className="text-white text-sm font-sans font-semibold">
-                    Support
-                  </span>
+                  <InstagramIcon className="h-6 w-6" />
                 </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h5 className="font-header  text-lg sm:text-xl lg:text-1xl font-semibold font-sans my-3">
-              Follow Us
-            </h5>
-            <div className="flex space-x-4">
-              <Link className="hover:text-gray-300" href="#">
-                <FacebookIcon className="h-6 w-6" />
-              </Link>
-              <Link className="hover:text-gray-300" href="#">
-                <TwitterIcon className="h-6 w-6" />
-              </Link>
-              <Link className="hover:text-gray-300" href="#">
-                <InstagramIcon className="h-6 w-6" />
-              </Link>
-              <Link className="hover:text-gray-300" href="#">
-                <YoutubeIcon className="h-6 w-6" />
-              </Link>
+                <Link className="hover:text-gray-300" href="#">
+                  <YoutubeIcon className="h-6 w-6" />
+                </Link>
+              </div>
             </div>
           </div>
+          <div className="border-t border-gray-700 mt-8 pt-4">
+            <p className="text-center text-sm">
+              © 2024 MangaChi. All rights reserved.
+            </p>
+          </div>
         </div>
-        <div className="border-t border-gray-700 mt-8 pt-4">
-          <p className="text-center text-sm">
-            © 2024 MangaChi. All rights reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   );
 }
 
