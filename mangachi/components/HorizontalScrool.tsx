@@ -1,9 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-
+import { HorizontalScrollComponentSkelton } from "@/components/Skelton";
 export function ScrollAreaHorizontalDemo({
   title,
   routeSegment,
@@ -13,6 +12,7 @@ export function ScrollAreaHorizontalDemo({
 }) {
   const router = useRouter();
   const [data, setData] = useState<any>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     (async () => {
@@ -20,9 +20,13 @@ export function ScrollAreaHorizontalDemo({
       const { data } = await res.json();
       console.log(`${routeSegment} :: `, data);
       setData(data);
+      setIsLoading(false);
     })();
   }, []);
 
+  if (isLoading) {
+    return <HorizontalScrollComponentSkelton />;
+  }
   return (
     <div className="w-full  ">
       <h2 className="font-header  text-lg sm:text-xl lg:text-1xl font-semibold font-sans m-4 text-foreground ">
