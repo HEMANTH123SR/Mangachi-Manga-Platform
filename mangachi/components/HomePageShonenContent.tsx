@@ -2,8 +2,10 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { MangaType } from "@/lib/types";
+import { HomePageShonenContentSkelton } from "@/components/Skelton";
 export const HomePageShonenContent = () => {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [shonenMangasFirst, setShonenMangasFirst] = useState<MangaType[]>();
   const [shonenMangasSecond, setShonenMangasSecond] = useState<MangaType[]>();
   useEffect(() => {
@@ -12,8 +14,11 @@ export const HomePageShonenContent = () => {
       const { data } = await res.json();
       setShonenMangasFirst([data[0], data[1], data[2], data[3], data[4]]);
       setShonenMangasSecond([data[5], data[6], data[7], data[8], data[9], ,]);
+      setIsLoading(false);
     })();
   }, []);
+  if (isLoading) return <HomePageShonenContentSkelton />;
+
   return (
     <section className="flex flex-col mx-3 sm:mx-6">
       <h2 className="font-header sm:text-3xl text-xl font-semibold font-sans">
