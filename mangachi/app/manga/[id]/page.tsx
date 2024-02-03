@@ -2,9 +2,11 @@
 import React, { useState, useEffect } from "react";
 import { MangaType, Chapter } from "@/lib/types";
 import { useRouter } from "next/navigation";
+import { MangaPageSkeleton } from "@/components/Skelton";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+
 import {
   MessageCircleIcon,
   MoreVerticalIcon,
@@ -17,15 +19,18 @@ function Page({ params }: { params: { id: string } }) {
   const router = useRouter();
   const [manga, setManga] = useState<MangaType>();
   const [somethingWentWrong, setSomethingWentFrong] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   useEffect(() => {
     (async () => {
       const res = await fetch(`/api/manga/${params.id}`);
       const data = await res.json();
       if (data.status !== "success") {
         setSomethingWentFrong(true);
+
         return;
       }
       setManga(data.data);
+      setIsLoading(false);
     })();
   }, []);
   console.log("manga :: ", manga);
@@ -40,6 +45,9 @@ function Page({ params }: { params: { id: string } }) {
         </Button>
       </div>
     );
+  }
+  if (isLoading) {
+    return <MangaPageSkeleton />;
   }
 
   const mangaTags = manga?.tags.split("#").filter((tag: string) => {

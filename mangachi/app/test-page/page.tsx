@@ -4,53 +4,62 @@ import React from "react";
 
 const TestPage = () => {
   return (
-    <div className="w-full">
-      <Skeleton className="h-6 lg:h-7 w-6/12 sm:w-4/12 lg:w-3/12 rounded-xl m-4" />
-      <ScrollArea className="w-full whitespace-nowrap ">
-        <div className="flex w-max space-x-6 lg:space-x-8 p-4 pt-1 cursor-pointer">
-          <div className="flex flex-col space-y-3">
-            <Skeleton className="w-28 h-40 sm:w-36 sm:h-48 lg:w-44 lg:h-56 rounded-md object-cover" />
-            <Skeleton className="h-5 w-16 rounded-full " />
+    <div className="border-t-2 border-primary">
+      <div className="overflow-hidden">
+        <div className="relative">
+          <Skeleton className="w-full h-[300px] object-cover border" />
+          <div className="absolute top-0 left-0 p-5 flex items-start space-x-4">
+            <Skeleton className="w-[154px] h-[220px] object-cover border" />
+            <div className="flex flex-col space-y-3">
+              <Skeleton className="h-10 w-40 lg:w-64  border " />
+              <Skeleton className="h-5 w-4/6 border " />
+              <Skeleton className="h-4 w-3/6 border" />
+            </div>
           </div>
-          <div className="flex flex-col space-y-3">
-            <Skeleton className="w-28 h-40 sm:w-36 sm:h-48 lg:w-44 lg:h-56 rounded-md object-cover" />
-            <Skeleton className="h-5 w-16 rounded-full " />
+        </div>
+      </div>
+      <div className="my-5"></div>
+      <ScrollArea>
+        <div className="flex flex-col space-y-6 px-4 lg:px-8 h-96">
+          <div className="flex items-center gap-4 ">
+            <Skeleton className="h-[100px] w-[100px] object-cover rounded-lg border" />
+            <div className="flex flex-col justify-start items-start space-y-3">
+              <Skeleton className="h-6 w-7 rounded-lg border" />
+              <Skeleton className="h-6 w-40 rounded-lg border" />
+              <Skeleton className="h-4 w-28 rounded-lg border" />
+            </div>
           </div>
-          <div className="flex flex-col space-y-3">
-            <Skeleton className="w-28 h-40 sm:w-36 sm:h-48 lg:w-44 lg:h-56 rounded-md object-cover" />
-            <Skeleton className="h-5 w-16 rounded-full " />
+          <div className="flex items-center gap-4 ">
+            <Skeleton className="h-[100px] w-[100px] object-cover rounded-lg border" />
+            <div className="flex flex-col justify-start items-start space-y-3">
+              <Skeleton className="h-6 w-7 rounded-lg border" />
+              <Skeleton className="h-6 w-40 rounded-lg border" />
+              <Skeleton className="h-4 w-28 rounded-lg border" />
+            </div>
           </div>
-          <div className="flex flex-col space-y-3">
-            <Skeleton className="w-28 h-40 sm:w-36 sm:h-48 lg:w-44 lg:h-56 rounded-md object-cover" />
-            <Skeleton className="h-5 w-16 rounded-full " />
+          <div className="flex items-center gap-4 ">
+            <Skeleton className="h-[100px] w-[100px] object-cover rounded-lg border" />
+            <div className="flex flex-col justify-start items-start space-y-3">
+              <Skeleton className="h-6 w-7 rounded-lg border" />
+              <Skeleton className="h-6 w-40 rounded-lg border" />
+              <Skeleton className="h-4 w-28 rounded-lg border" />
+            </div>
           </div>
-          <div className="flex flex-col space-y-3">
-            <Skeleton className="w-28 h-40 sm:w-36 sm:h-48 lg:w-44 lg:h-56 rounded-md object-cover" />
-            <Skeleton className="h-5 w-16 rounded-full " />
+          <div className="flex items-center gap-4 ">
+            <Skeleton className="h-[100px] w-[100px] object-cover rounded-lg border" />
+            <div className="flex flex-col justify-start items-start space-y-3">
+              <Skeleton className="h-6 w-7 rounded-lg border" />
+              <Skeleton className="h-6 w-40 rounded-lg border" />
+              <Skeleton className="h-4 w-28 rounded-lg border" />
+            </div>
           </div>
-          <div className="flex flex-col space-y-3">
-            <Skeleton className="w-28 h-40 sm:w-36 sm:h-48 lg:w-44 lg:h-56 rounded-md object-cover" />
-            <Skeleton className="h-5 w-16 rounded-full " />
-          </div>
-          <div className="flex flex-col space-y-3">
-            <Skeleton className="w-28 h-40 sm:w-36 sm:h-48 lg:w-44 lg:h-56 rounded-md object-cover" />
-            <Skeleton className="h-5 w-16 rounded-full " />
-          </div>
-          <div className="flex flex-col space-y-3">
-            <Skeleton className="w-28 h-40 sm:w-36 sm:h-48 lg:w-44 lg:h-56 rounded-md object-cover" />
-            <Skeleton className="h-5 w-16 rounded-full " />
-          </div>
-          <div className="flex flex-col space-y-3">
-            <Skeleton className="w-28 h-40 sm:w-36 sm:h-48 lg:w-44 lg:h-56 rounded-md object-cover" />
-            <Skeleton className="h-5 w-16 rounded-full " />
-          </div>
-          <div className="flex flex-col space-y-3">
-            <Skeleton className="w-28 h-40 sm:w-36 sm:h-48 lg:w-44 lg:h-56 rounded-md object-cover" />
-            <Skeleton className="h-5 w-16 rounded-full " />
-          </div>
-          <div className="flex flex-col space-y-3">
-            <Skeleton className="w-28 h-40 sm:w-36 sm:h-48 lg:w-44 lg:h-56 rounded-md object-cover" />
-            <Skeleton className="h-5 w-16 rounded-full " />
+          <div className="flex items-center gap-4 ">
+            <Skeleton className="h-[100px] w-[100px] object-cover rounded-lg border" />
+            <div className="flex flex-col justify-start items-start space-y-3">
+              <Skeleton className="h-6 w-7 rounded-lg border" />
+              <Skeleton className="h-6 w-40 rounded-lg border" />
+              <Skeleton className="h-4 w-28 rounded-lg border" />
+            </div>
           </div>
         </div>
       </ScrollArea>

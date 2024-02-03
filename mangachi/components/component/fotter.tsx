@@ -1,8 +1,8 @@
 import Link from "next/link";
-//font-semibold text-foreground text-xs text-muted-foreground
+
 export function Fotter() {
   return (
-    <div className="w-full mt-14">
+    <div className="w-full mt-24">
       <footer className="bg-white text-black border-t-2 border-primary">
         <div className="container mx-auto px-4 py-4 pb-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
