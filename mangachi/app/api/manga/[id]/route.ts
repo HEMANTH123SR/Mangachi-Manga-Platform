@@ -7,6 +7,7 @@ export async function GET(req: NextRequest) {
     await connectDB();
     const url = new URL(req.url);
     const id = url.pathname.split("/")[3];
+    console.log("id :: ", id);
     const manga = await Manga.findById(id);
     return NextResponse.json({ status: "success", data: manga });
   } catch (err: any) {
@@ -25,8 +26,6 @@ export async function PUT(req: NextRequest) {
     await connectDB();
     const id = req.nextUrl.pathname.split("/")[3];
     const data = await req.json();
-    console.clear();
-    console.log(data.chapters);
     const manga = await Manga.findByIdAndUpdate(id, data);
     return NextResponse.json(
       { status: "success", data: manga },

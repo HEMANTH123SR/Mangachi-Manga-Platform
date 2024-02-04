@@ -1,4 +1,3 @@
-
 export type Chapter = {
   chapterName: string;
   chapterImages: string[];
@@ -32,7 +31,14 @@ export interface MangaType {
   tags: string;
   status: "Ongoing" | "Completed" | "Cancelled";
   description: string;
-  views: number;
+  views: {
+    count: number;
+    viewedBy: string[];
+  };
+  rating: {
+    rating: number;
+    ratingBy: string[];
+  };
   reviews: {
     review: number;
     reviewBy: string;

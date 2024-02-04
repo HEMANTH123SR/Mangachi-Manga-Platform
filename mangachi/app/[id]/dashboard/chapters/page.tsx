@@ -6,7 +6,7 @@ import { createImage } from "@/lib/appwrite";
 import { Chapter } from "@/lib/types";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-;
+
 
 import {
   Drawer,

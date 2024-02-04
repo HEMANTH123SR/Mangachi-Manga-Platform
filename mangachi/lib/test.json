@@ -1,0 +1,755 @@
+[
+  {
+    "likes": {
+      "likedBy": [],
+      "likeCount": 0
+    },
+    "dislikes": {
+      "dislikedBy": [],
+      "dislikeCount": 0
+    },
+    "createdBy": {
+      "userName": "Computer Application",
+      "userEmail": "applicationcomputer257@gmail.com",
+      "userBio": "",
+      "UserProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yYlpURUFFZkdKa2lrUlVaVHZxOFl2UVl2R2wifQ",
+      "userId": "user_2bZTECWQS9Gw98DlxoCqaSmZURg"
+    },
+
+    "mangaName": "One piece ",
+    "author": "Eiichiro Oda",
+    "backgroundImage": "65b1e0c6f2d1aa3fbca5",
+    "coverImage": "65b1e0c80778be88d3d6",
+    "tags": "#pirate #zoro #luffy #pirateking #sogeking #fishman #luffy",
+    "status": "Ongoing",
+    "genre": "Shonen",
+    "description": "One Piece (stylized in all caps) is a Japanese manga series written and illustrated by Eiichiro Oda. It has been serialized in Shueisha's shōnen manga magazine Weekly Shōnen Jump since July 1997, with its individual chapters compiled in 107 tankōbon volumes as of November 2023. The story follows the adventures of Monkey D. Luffy and his crew, the Straw Hat Pirates, where he explores the Grand Line in search of the mythical treasure known as the \\\"One Piece\\\" in order to become the next King of the Pirates.",
+    "views": { "count": 0, "viewedBy": [] },
+    "reviews": [],
+    "comments": [],
+    "chapters": [
+      {
+        "chapterName": "The Pirate Guy ",
+        "chapterPublishedDate": "25/1/2024 12:09:00",
+        "chapterImages": [
+          "65b2020cedaf7ba25814",
+          "65b2020f76a247ca2152",
+          "65b2021308f86160ca03",
+          "65b2021601ddfa9f36de"
+        ],
+        "chapterNumber": 1,
+        "_id": "65b20216aa9fa127b3bd4407"
+      },
+      {
+        "chapterName": "Zoro bounty hunter",
+        "chapterPublishedDate": "25/1/2024 12:13:28",
+        "chapterImages": [
+          "65b2031878fc9aab1a52",
+          "65b2031b4d6053db3160",
+          "65b2031e4b88c5795547",
+          "65b203211d04c5a8ca4e"
+        ],
+        "chapterNumber": 2,
+        "_id": "65b20321aa9fa127b3bd4419"
+      },
+      {
+        "chapterName": "Cat Burgler Nami",
+        "chapterPublishedDate": "25/1/2024 12:33:57",
+        "chapterImages": [
+          "65b207ed69702ca6f6bb",
+          "65b207f036912bc62452",
+          "65b207f264ebffb288ee",
+          "65b207f418597e7a23b6"
+        ],
+        "chapterNumber": 3,
+        "_id": "65b207f4aa9fa127b3bd442f"
+      },
+      {
+        "chapterName": "Strongest Swords Man",
+        "chapterPublishedDate": "25/1/2024 12:42:17",
+        "chapterImages": [
+          "65b209de187bb75adb1e",
+          "65b209e5ad288905d5bd",
+          "65b209e98dedf51916de",
+          "65b209ee196eb665760d"
+        ],
+        "chapterNumber": 4,
+        "_id": "65b209eeaa9fa127b3bd446c"
+      },
+      {
+        "chapterName": "Cheff Sanji",
+        "chapterPublishedDate": "25/1/2024 13:09:47",
+        "chapterImages": [
+          "65b2104b641822cffca7",
+          "65b2104f95f722add141",
+          "65b210528fc61f052648",
+          "65b21056e1be3454ce13"
+        ],
+        "chapterNumber": 5,
+        "_id": "65b21057aa9fa127b3bd44a5"
+      },
+      {
+        "chapterName": "finding zolo",
+        "chapterPublishedDate": "25/1/2024 19:10:45",
+        "chapterImages": [
+          "65b264efe5c8e2ec96bf",
+          "65b264fede1273d0a45c",
+          "65b26509ec3b93258a35",
+          "65b26514bd89eaba4aa9"
+        ],
+        "chapterNumber": 6,
+        "_id": "65b26516aa9fa127b3bd44ff"
+      },
+      {
+        "chapterName": "oni gashi",
+        "chapterPublishedDate": "25/1/2024 19:14:25",
+        "chapterImages": [
+          "65b265beae95c3ca0e82",
+          "65b265c08a7ad31a6861",
+          "65b265c23e36b216b0b2",
+          "65b265c3f23e39009aea"
+        ],
+        "chapterNumber": 7,
+        "_id": "65b265c5aa9fa127b3bd4536"
+      }
+    ],
+    "createdAt": "2024-01-25T04:17:16.183Z",
+    "updatedAt": "2024-02-02T06:02:01.374Z",
+    "__v": 0
+  },
+
+  {
+    "likes": {
+      "likedBy": [],
+      "likeCount": 0
+    },
+    "dislikes": {
+      "dislikedBy": [],
+      "dislikeCount": 0
+    },
+    "createdBy": {
+      "userName": "Computer Application",
+      "userEmail": "applicationcomputer257@gmail.com",
+      "userBio": "",
+      "UserProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yYlpURUFFZkdKa2lrUlVaVHZxOFl2UVl2R2wifQ",
+      "userId": "user_2bZTECWQS9Gw98DlxoCqaSmZURg"
+    },
+
+    "mangaName": "Vinland Saga",
+    "author": "Shūhei Yabuta",
+    "backgroundImage": "65b4d456561a997b353d",
+    "coverImage": "65b26ef18bd7d6a87e64",
+    "tags": "#shone #sword #piece #inspire",
+    "status": "Ongoing",
+    "genre": "Shonen",
+    "description": "Vinland Saga (Japanese: ヴィンランド・サガ, Hepburn: Vinrando Saga) is a Japanese anime television series based on Makoto Yukimura's manga of the same name. The first season was produced by Wit Studio in 2019 and the second one by MAPPA in 2023. They follow the life of a child named Thorfinn who becomes involved with Vikings following his father's death. The first season follows his exploits as a revenge-driven Viking, while in the second season, the story shifts to his life as a stoic slave who finds no reason to live.\n\nVinland Saga By Shuhei Yabuta",
+    "views": { "count": 0, "viewedBy": [] },
+    "reviews": [],
+    "comments": [],
+    "chapters": [
+      {
+        "chapterName": "Great War",
+        "chapterPublishedDate": "25/1/2024 19:54:33",
+        "chapterImages": [
+          "65b26f2b701e577676c9",
+          "65b26f30b772157b2584",
+          "65b26f37a0c0276de04c",
+          "65b26f3c7727a749fa4a"
+        ],
+        "chapterNumber": 1,
+        "_id": "65b26f3daa9fa127b3bd4551"
+      },
+      {
+        "chapterName": "birth of the son",
+        "chapterPublishedDate": "25/1/2024 19:59:22",
+        "chapterImages": [
+          "65b270599886baa89a3b",
+          "65b2706418142240e300",
+          "65b27071676de3518d96",
+          "65b2707b2c48bcd4eef0"
+        ],
+        "chapterNumber": 2,
+        "_id": "65b2707caa9fa127b3bd455d"
+      },
+      {
+        "chapterName": "Romance Dawn",
+        "chapterPublishedDate": "25/1/2024 20:04:05",
+        "chapterImages": [
+          "65b27168c80b9dc08dfe",
+          "65b2716f3d35321aca15",
+          "65b271752c682e4ac8ce",
+          "65b2717a4d08909a8928"
+        ],
+        "chapterNumber": 3,
+        "_id": "65b2717baa9fa127b3bd456e"
+      }
+    ],
+    "createdAt": "2024-01-25T14:20:54.649Z",
+    "updatedAt": "2024-02-02T06:02:01.374Z",
+    "__v": 0
+  },
+  {
+    "likes": {
+      "likedBy": [],
+      "likeCount": 0
+    },
+    "dislikes": {
+      "dislikedBy": [],
+      "dislikeCount": 0
+    },
+    "createdBy": {
+      "userName": "Computer Application",
+      "userEmail": "applicationcomputer257@gmail.com",
+      "userBio": "",
+      "UserProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yYlpURUFFZkdKa2lrUlVaVHZxOFl2UVl2R2wifQ",
+      "userId": "user_2bZTECWQS9Gw98DlxoCqaSmZURg"
+    },
+
+    "mangaName": "Mashle: Magic and Muscle",
+    "author": " Hajime Kōmoto ",
+    "backgroundImage": "65b328b5cebc60c028d4",
+    "coverImage": "65b328b729554786f20a",
+    "tags": "#school #magic #musle #hero #superpower #harrypotter",
+    "status": "Ongoing",
+    "genre": "Shonen",
+    "description": "Mashle: Magic and Muscles (Japanese: マッシュル-MASHLE-, Hepburn: Masshuru) is a Japanese manga series written and illustrated by Hajime Kōmoto [ja]. It was serialized in Shueisha's shōnen manga magazine Weekly Shōnen Jump from January 2020 to July 2023, with its chapters collected in 18 tankōbon volumes. An anime television series adaptation produced by A-1 Pictures aired from April to July 2023. A second season premiered in January 2024.\n\nMashle: Magic and Muscles, written and illustrated by Hajime Kōmoto [ja]",
+    "views": { "count": 0, "viewedBy": [] },
+    "reviews": [],
+    "comments": [],
+    "chapters": [],
+    "createdAt": "2024-01-26T03:36:27.649Z",
+    "updatedAt": "2024-02-02T06:02:01.374Z",
+    "__v": 0
+  },
+  {
+    "likes": {
+      "likedBy": [],
+      "likeCount": 0
+    },
+    "dislikes": {
+      "dislikedBy": [],
+      "dislikeCount": 0
+    },
+    "createdBy": {
+      "userName": "Computer Application",
+      "userEmail": "applicationcomputer257@gmail.com",
+      "userBio": "",
+      "UserProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yYlpURUFFZkdKa2lrUlVaVHZxOFl2UVl2R2wifQ",
+      "userId": "user_2bZTECWQS9Gw98DlxoCqaSmZURg"
+    },
+
+    "mangaName": "My Hero Academia",
+    "author": "Kōhei Horikoshi",
+    "backgroundImage": "65b32ab15115f385080d",
+    "coverImage": "65b32ac09720895d07b7",
+    "tags": "#school #superpowser #qwirk #highschool #villian #supervilland",
+    "status": "Ongoing",
+    "genre": "Shonen",
+    "description": "My Hero Academia (Japanese: 僕のヒーローアカデミア, Hepburn: Boku no Hīrō Akademia) is a Japanese manga series written and illustrated by Kōhei Horikoshi. It has been serialized in Shueisha's shōnen manga magazine Weekly Shōnen Jump since July 2014, with its chapters additionally collected into 39 tankōbon volumes as of November 2023. Set in a world where superpowers (called \"Quirks\") have become commonplace, the story follows Izuku Midoriya, a boy who was born without a Quirk but still dreams of becoming a superhero himself. He is scouted by the world's greatest",
+    "views": { "count": 0, "viewedBy": [] },
+    "reviews": [],
+    "comments": [],
+    "chapters": [],
+    "createdAt": "2024-01-26T03:45:08.559Z",
+    "updatedAt": "2024-02-02T06:02:01.374Z",
+    "__v": 0
+  },
+  {
+    "likes": {
+      "likedBy": [],
+      "likeCount": 0
+    },
+    "dislikes": {
+      "dislikedBy": [],
+      "dislikeCount": 0
+    },
+    "createdBy": {
+      "userName": "Computer Application",
+      "userEmail": "applicationcomputer257@gmail.com",
+      "userBio": "",
+      "UserProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yYlpURUFFZkdKa2lrUlVaVHZxOFl2UVl2R2wifQ",
+      "userId": "user_2bZTECWQS9Gw98DlxoCqaSmZURg"
+    },
+
+    "mangaName": "Death Note",
+    "author": "Tsugumi Ohba",
+    "backgroundImage": "65b32c75e69ab58ef1f8",
+    "coverImage": "65b4d5a084a9f71dd729",
+    "tags": "#highschool #mystery #death #god #shikigami #iq #detective",
+    "status": "Ongoing",
+    "genre": "School Life",
+    "description": "Death Note (stylized in all caps) is a Japanese manga series written by Tsugumi Ohba and illustrated by Takeshi Obata. It was serialized in Shueisha's shōnen manga magazine Weekly Shōnen Jump from December 2003 to May 2006, with its chapters collected in 12 tankōbon volumes. The story follows Light Yagami, a genius high school student who discovers a mysterious notebook: the \"Death Note\", which belonged to the shinigami Ryuk, and grants the user the supernatural ability to kill anyone whose name is written in its pages",
+    "views": { "count": 0, "viewedBy": [] },
+    "reviews": [],
+    "comments": [],
+    "chapters": [],
+    "createdAt": "2024-01-26T03:52:26.160Z",
+    "updatedAt": "2024-02-02T06:02:01.374Z",
+    "__v": 0
+  },
+  {
+    "likes": {
+      "likedBy": [],
+      "likeCount": 0
+    },
+    "dislikes": {
+      "dislikedBy": [],
+      "dislikeCount": 0
+    },
+    "createdBy": {
+      "userName": "Computer Application",
+      "userEmail": "applicationcomputer257@gmail.com",
+      "userBio": "",
+      "UserProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yYlpURUFFZkdKa2lrUlVaVHZxOFl2UVl2R2wifQ",
+      "userId": "user_2bZTECWQS9Gw98DlxoCqaSmZURg"
+    },
+
+    "mangaName": "Attack on Titan",
+    "author": "Yasuko Kobayashi ",
+    "backgroundImage": "65b4d63b51df0959217d",
+    "coverImage": "65b32dcb55beb40d45ac",
+    "tags": "#devil #oldschool #dark #monster #rummble",
+    "status": "Ongoing",
+    "genre": "Others",
+    "description": "Attack on Titan (Japanese: 進撃の巨人, Hepburn: Shingeki no Kyojin, lit. 'The Advancing Giant') is a Japanese dark fantasy anime television series, adapted from the manga series of the same name by Hajime Isayama. The series premiered on April 7, 2013, and concluded on November 5, 2023. It has aired on MBS TV (first two seasons) and NHK General TV (third season onwards). In North America, the series has been streamed on Crunchyroll, Funimation and Hulu. Attack on Titan has also aired on Adult Swim's Toonami programming block in the United States.",
+    "views": { "count": 0, "viewedBy": [] },
+    "reviews": [],
+    "comments": [],
+    "chapters": [],
+    "createdAt": "2024-01-26T03:58:04.338Z",
+    "updatedAt": "2024-02-02T06:02:01.374Z",
+    "__v": 0
+  },
+  {
+    "likes": {
+      "likedBy": [],
+      "likeCount": 0
+    },
+    "dislikes": {
+      "dislikedBy": [],
+      "dislikeCount": 0
+    },
+    "createdBy": {
+      "userName": "Computer Application",
+      "userEmail": "applicationcomputer257@gmail.com",
+      "userBio": "",
+      "UserProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yYlpURUFFZkdKa2lrUlVaVHZxOFl2UVl2R2wifQ",
+      "userId": "user_2bZTECWQS9Gw98DlxoCqaSmZURg"
+    },
+
+    "mangaName": "Demon Slayer: Kimetsu no Yaiba",
+    "author": "\tKoyoharu Gotouge",
+    "backgroundImage": "65b3346db45c673146a1",
+    "coverImage": "65b3346f60802f0de0d0",
+    "tags": "#sword #fire",
+    "status": "Ongoing",
+    "genre": "Others",
+    "description": "Demon Slayer: Kimetsu no Yaiba (鬼滅の刃, Kimetsu no Yaiba, rgh. \"Blade of Demon Destruction\")[4] is a Japanese manga series written and illustrated by Koyoharu Gotouge. It was serialized in Shueisha's shōnen manga magazine Weekly Shōnen Jump from February 2016 to May 2020, with its chapters collected in 23 tankōbon volumes. It has been published in English by Viz Media and simultaneously on the Manga Plus platform by Shueisha. It follows teenage Tanjiro Kamado, who strives to become a Demon Slayer after his family was slaughtered and his younger sister, Nezuko, is turned into a demon.",
+    "views": { "count": 0, "viewedBy": [] },
+    "reviews": [],
+    "comments": [],
+    "chapters": [],
+    "createdAt": "2024-01-26T04:26:27.243Z",
+    "updatedAt": "2024-02-02T06:02:01.374Z",
+    "__v": 0
+  },
+  {
+    "likes": {
+      "likedBy": [],
+      "likeCount": 0
+    },
+    "dislikes": {
+      "dislikedBy": [],
+      "dislikeCount": 0
+    },
+    "createdBy": {
+      "userName": "Computer Application",
+      "userEmail": "applicationcomputer257@gmail.com",
+      "userBio": "",
+      "UserProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yYlpURUFFZkdKa2lrUlVaVHZxOFl2UVl2R2wifQ",
+      "userId": "user_2bZTECWQS9Gw98DlxoCqaSmZURg"
+    },
+
+    "mangaName": "Chainsaw Man",
+    "author": "\tTatsuki Fujimoto",
+    "backgroundImage": "65b3355b04c10112130a",
+    "coverImage": "65b3355dd5903c77ec12",
+    "tags": "#monster",
+    "status": "Ongoing",
+    "genre": "Others",
+    "description": "Chainsaw Man (Japanese: チェンソーマン, Hepburn: Chensō Man) is a Japanese manga series written and illustrated by Tatsuki Fujimoto. Its first arc was serialized in Shueisha's shōnen manga magazine Weekly Shōnen Jump from December 2018 to December 2020; its second arc began serialization in Shueisha's Shōnen Jump+ online magazine in July 2022. Its chapters have been collected in 16 tankōbon volumes as of December 2023.",
+    "views": { "count": 0, "viewedBy": [] },
+    "reviews": [],
+    "comments": [],
+    "chapters": [],
+    "createdAt": "2024-01-26T04:30:22.443Z",
+    "updatedAt": "2024-02-02T06:02:01.374Z",
+    "__v": 0
+  },
+  {
+    "likes": {
+      "likedBy": [],
+      "likeCount": 0
+    },
+    "dislikes": {
+      "dislikedBy": [],
+      "dislikeCount": 0
+    },
+    "createdBy": {
+      "userName": "Computer Application",
+      "userEmail": "applicationcomputer257@gmail.com",
+      "userBio": "",
+      "UserProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yYlpURUFFZkdKa2lrUlVaVHZxOFl2UVl2R2wifQ",
+      "userId": "user_2bZTECWQS9Gw98DlxoCqaSmZURg"
+    },
+    "_id": "65b336f0d31e6a11e98f059a",
+    "mangaName": "One punch man",
+    "author": "one",
+    "backgroundImage": "65b336ec1a460b924cff",
+    "coverImage": "65b4d8c0dfb282175da5",
+    "tags": "",
+    "status": "Ongoing",
+    "genre": "Others",
+    "description": "One-Punch Man (Japanese: ワンパンマン, Hepburn: Wanpanman) is a Japanese superhero manga series created by One. It tells the story of Saitama, a superhero who, because he can defeat any opponent with a single punch, grows bored from a lack of challenge. One wrote the original webcomic manga version in early 2009.\nOne-Punch Man (Japanese: ワンパンマン, Hepburn: Wanpanman) is a lenge. One wrote the original webcomic manga version in early 2009.",
+    "views": { "count": 0, "viewedBy": [] },
+    "reviews": [],
+    "comments": [],
+    "chapters": [],
+    "createdAt": "2024-01-26T04:37:04.718Z",
+    "updatedAt": "2024-02-02T06:02:01.374Z",
+    "__v": 0
+  },
+  {
+    "likes": {
+      "likedBy": [],
+      "likeCount": 0
+    },
+    "dislikes": {
+      "dislikedBy": [],
+      "dislikeCount": 0
+    },
+    "createdBy": {
+      "userName": "Computer Application",
+      "userEmail": "applicationcomputer257@gmail.com",
+      "userBio": "",
+      "UserProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yYlpURUFFZkdKa2lrUlVaVHZxOFl2UVl2R2wifQ",
+      "userId": "user_2bZTECWQS9Gw98DlxoCqaSmZURg"
+    },
+
+    "mangaName": "Spy × Family",
+    "author": "Tatsuya Endo",
+    "backgroundImage": "65b337b0bd0949848f89",
+    "coverImage": "65b4d800d0e01be5a9b0",
+    "tags": "#spy #child #family #agent #comedy",
+    "status": "Ongoing",
+    "genre": "Others",
+    "description": "Spy × Family (stylized as SPY×FAMILY and pronounced \"spy family\")[2][3][4] is a Japanese manga series written and illustrated by Tatsuya Endo. The story follows a spy who has to \"build a family\" to execute a mission, not realizing that his adopted daughter is a telepath, and the woman he agrees to marry is a skilled assassin.\nSpy × Family (stylized as SPY×FAMILY and pronounced \"spy family\")[2][3][4] is a Jater is a telepath, and the woman he agrees to marry is a skilled assassin.",
+    "views": { "count": 0, "viewedBy": [] },
+    "reviews": [],
+    "comments": [],
+    "chapters": [],
+    "createdAt": "2024-01-26T04:40:21.047Z",
+    "updatedAt": "2024-02-02T06:02:01.374Z",
+    "__v": 0
+  },
+  {
+    "likes": {
+      "likedBy": [],
+      "likeCount": 0
+    },
+    "dislikes": {
+      "dislikedBy": [],
+      "dislikeCount": 0
+    },
+    "createdBy": {
+      "userName": "Computer Application",
+      "userEmail": "applicationcomputer257@gmail.com",
+      "userBio": "",
+      "UserProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yYlpURUFFZkdKa2lrUlVaVHZxOFl2UVl2R2wifQ",
+      "userId": "user_2bZTECWQS9Gw98DlxoCqaSmZURg"
+    },
+
+    "mangaName": "Jujutsu Kaisen",
+    "author": "Gege Akutami",
+    "backgroundImage": "65b338b1880d6d2b656a",
+    "coverImage": "65b338b44ac67a038ed3",
+    "tags": "#shonen #highschool",
+    "status": "Ongoing",
+    "genre": "Others",
+    "description": "Jujutsu Kaisen 0[a] is a Japanese manga series written and illustrated by Gege Akutami. The manga, which was originally titled Tokyo Metropolitan Curse Technical School,[b] was serialized in Shueisha's magazine Jump Giga from April to July 2017. After Akutami launched Jujutsu Kaisen in 2018, the series was retitled Jujutsu Kaisen 0—making it a prologue—and released in a single tankōbon volume in December 2018. It was licensed for English release in North America by Viz Media",
+    "views": { "count": 0, "viewedBy": [] },
+    "reviews": [],
+    "comments": [],
+    "chapters": [],
+    "createdAt": "2024-01-26T04:44:37.005Z",
+    "updatedAt": "2024-02-02T06:02:01.374Z",
+    "__v": 0
+  },
+  {
+    "likes": {
+      "likedBy": [],
+      "likeCount": 0
+    },
+    "dislikes": {
+      "dislikedBy": [],
+      "dislikeCount": 0
+    },
+    "createdBy": {
+      "userName": "Computer Application",
+      "userEmail": "applicationcomputer257@gmail.com",
+      "userBio": "",
+      "UserProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yYlpURUFFZkdKa2lrUlVaVHZxOFl2UVl2R2wifQ",
+      "userId": "user_2bZTECWQS9Gw98DlxoCqaSmZURg"
+    },
+    "mangaName": "Classroom of the Elite",
+    "author": "Shōgo Kinugasa",
+    "backgroundImage": "65b339bba3ca763f4193",
+    "coverImage": "65b4d7a60642eb4623b7",
+    "tags": "#highschool #onemanstading #planner",
+    "status": "Ongoing",
+    "genre": "Others",
+    "description": "Classroom of the Elite (Japanese: ようこそ実力至上主義の教室へ, Hepburn: Yōkoso Jitsuryoku Shijōshugi no Kyōshitsu e, lit. 'Welcome to the Classroom of Real Ability Supremacism') is a Japanese light novel series written by Shōgo Kinugasa, with illustrated by Shunsaku Tomose. The novel published from May 2015 to September 2019 under Media Factory's MF Bunko J imprint, a sequel Classroom of the Elite: Year 2 (ようこそ実力至上主義の教室へ 2年生編, ",
+    "views": { "count": 0, "viewedBy": [] },
+    "reviews": [],
+    "comments": [],
+    "chapters": [],
+    "createdAt": "2024-01-26T04:49:07.922Z",
+    "updatedAt": "2024-02-02T06:02:01.374Z",
+    "__v": 0
+  },
+  {
+    "likes": {
+      "likedBy": [],
+      "likeCount": 0
+    },
+    "dislikes": {
+      "dislikedBy": [],
+      "dislikeCount": 0
+    },
+    "createdBy": {
+      "userName": "Computer Application",
+      "userEmail": "applicationcomputer257@gmail.com",
+      "userBio": "",
+      "UserProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yYlpURUFFZkdKa2lrUlVaVHZxOFl2UVl2R2wifQ",
+      "userId": "user_2bZTECWQS9Gw98DlxoCqaSmZURg"
+    },
+
+    "mangaName": "Bleach",
+    "author": "Masashi Sogo",
+    "backgroundImage": "65b33b141b562105d838",
+    "coverImage": "65b4d719637febe784ad",
+    "tags": "",
+    "status": "Ongoing",
+    "genre": "Others",
+    "description": "Bleach (stylized in all caps) is a Japanese anime television series based on Tite Kubo's original manga series of the same name. It was produced by Studio Pierrot and directed by Noriyuki Abe. The series aired on TV Tokyo from October 2004 to March 2012, spanning 366 episodes. The story follows the adventures of Ichigo Kurosaki after he obtains the powers of a Soul Reaper—a death personification similar to the Grim Reaper—from another Soul Reaper, Rukia Kuchiki.",
+    "views": { "count": 0, "viewedBy": [] },
+    "reviews": [],
+    "comments": [],
+    "chapters": [],
+    "createdAt": "2024-01-26T04:54:48.735Z",
+    "updatedAt": "2024-02-02T06:02:01.374Z",
+    "__v": 0
+  },
+  {
+    "likes": {
+      "likedBy": [],
+      "likeCount": 0
+    },
+    "dislikes": {
+      "dislikedBy": [],
+      "dislikeCount": 0
+    },
+    "createdBy": {
+      "userName": "Computer Application",
+      "userEmail": "applicationcomputer257@gmail.com",
+      "userBio": "",
+      "UserProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yYlpURUFFZkdKa2lrUlVaVHZxOFl2UVl2R2wifQ",
+      "userId": "user_2bZTECWQS9Gw98DlxoCqaSmZURg"
+    },
+
+    "mangaName": "Black Clover",
+    "author": "Yūki Tabata",
+    "backgroundImage": "65b33be6686fd843a278",
+    "coverImage": "65b33be81115c031fe94",
+    "tags": "",
+    "status": "Ongoing",
+    "genre": "Others",
+    "description": "Black Clover (Japanese: ブラッククローバー, Hepburn: Burakku Kurōbā) is a Japanese manga series written and illustrated by Yūki Tabata. It started in Shueisha's shōnen manga magazine Weekly Shōnen Jump in February 2015. The series ran in the magazine until August 2023, and moved to Jump Giga in December of the same year. Its chapters have been collected in 35 tankōbon volumes as of June 2023.\n\n Its chapters have been collected in 35 tankōbon volumes as of June 2023.\n",
+    "views": { "count": 0, "viewedBy": [] },
+    "reviews": [],
+    "comments": [],
+    "chapters": [],
+    "createdAt": "2024-01-26T04:58:20.083Z",
+    "updatedAt": "2024-02-02T06:02:01.374Z",
+    "__v": 0
+  },
+  {
+    "likes": {
+      "likedBy": [],
+      "likeCount": 0
+    },
+    "dislikes": {
+      "dislikedBy": [],
+      "dislikeCount": 0
+    },
+    "createdBy": {
+      "userName": "Computer Application",
+      "userEmail": "applicationcomputer257@gmail.com",
+      "userBio": "",
+      "UserProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yYlpURUFFZkdKa2lrUlVaVHZxOFl2UVl2R2wifQ",
+      "userId": "user_2bZTECWQS9Gw98DlxoCqaSmZURg"
+    },
+
+    "mangaName": "Berserk",
+    "author": "\t Kentaro Miura ",
+    "backgroundImage": "65b33d6654208d032cfd",
+    "coverImage": "65b33d67cc8cfd962f35",
+    "tags": "",
+    "status": "Ongoing",
+    "genre": "Others",
+    "description": "Berserk (Japanese: ベルセルク, Hepburn: Beruseruku) is a Japanese manga series written and illustrated by Kentaro Miura. Set in a medieval Europe-inspired dark fantasy world, the story centers on the characters of Guts, a lone swordsman, and Griffith, the leader of a mercenary band called the \"Band of the Hawk\". The series follows Guts' journey seeking revenge on Griffith, who betrayed him and sacrificed his comrades to become a powerful demonic being. Miura premiered a prototype of Berserk in 1988. ",
+    "views": { "count": 0, "viewedBy": [] },
+    "reviews": [],
+    "comments": [],
+    "chapters": [],
+    "createdAt": "2024-01-26T05:04:40.442Z",
+    "updatedAt": "2024-02-02T06:02:01.374Z",
+    "__v": 0
+  },
+  {
+    "likes": {
+      "likedBy": [],
+      "likeCount": 0
+    },
+    "dislikes": {
+      "dislikedBy": [],
+      "dislikeCount": 0
+    },
+    "createdBy": {
+      "userName": "Computer Application",
+      "userEmail": "applicationcomputer257@gmail.com",
+      "userBio": "",
+      "UserProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yYlpURUFFZkdKa2lrUlVaVHZxOFl2UVl2R2wifQ",
+      "userId": "user_2bZTECWQS9Gw98DlxoCqaSmZURg"
+    },
+
+    "mangaName": "Dr Stone",
+    "author": " Takeshi Obata.",
+    "backgroundImage": "65b6104259d90d95d987",
+    "coverImage": "65b61045dcf9562ab030",
+    "tags": "#shonen #new-world",
+    "status": "Ongoing",
+    "genre": "Others",
+    "description": "Dr. Stone (stylized as Dr.STONE) is a Japanese manga series written by Riichiro Inagaki and illustrated by the South Korean artist Boichi. It was serialized in Shueisha's Weekly Shōnen Jump from March 2017 to March 2022, with its chapters collected in 26 tankōbon volumes. The story follows Senku Ishigami, a scientific genius who plans to rebuild civilization after humanity was mysteriously petrified for 3,700 years.\n\nIn North America, the manga was licensed by Viz Media. Shueisha began to simulpublish the series in English on the website and app Manga Plus in January 2019",
+    "views": { "count": 0, "viewedBy": [] },
+    "reviews": [],
+    "comments": [],
+    "chapters": [],
+    "createdAt": "2024-01-28T08:28:59.304Z",
+    "updatedAt": "2024-02-02T06:02:01.374Z",
+    "__v": 0
+  },
+  {
+    "likes": {
+      "likedBy": [],
+      "likeCount": 0
+    },
+    "dislikes": {
+      "dislikedBy": [],
+      "dislikeCount": 0
+    },
+    "createdBy": {
+      "userName": "Computer Application",
+      "userEmail": "applicationcomputer257@gmail.com",
+      "userBio": "",
+      "UserProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yYlpURUFFZkdKa2lrUlVaVHZxOFl2UVl2R2wifQ",
+      "userId": "user_2bZTECWQS9Gw98DlxoCqaSmZURg"
+    },
+
+    "mangaName": "Kagurabachi",
+    "author": "gowda",
+    "backgroundImage": "65b612ce4cddab16e003",
+    "coverImage": "65b612ce4cddab16e003",
+    "tags": "#sword",
+    "status": "Ongoing",
+    "genre": "Others",
+    "description": "Kagurabachi (カグラバチ) is a Japanese manga series written and illustrated by Takeru Hokazono. It has been serialized in Shueisha's Weekly Shōnen Jump magazine since September 2023.\n\nPlot\nChihiro Rokuhira, the son of a renowned blacksmith who forged six enchanted swords, seeks a bloody revenge against a gang of sorcerers with the help of a seventh enchanted sword forged by his father before he was assassinated.",
+    "views": { "count": 0, "viewedBy": [] },
+    "reviews": [],
+    "comments": [],
+    "chapters": [],
+    "createdAt": "2024-01-28T08:39:45.852Z",
+    "updatedAt": "2024-02-02T06:02:01.374Z",
+    "__v": 0
+  },
+  {
+    "likes": {
+      "likedBy": [],
+      "likeCount": 0
+    },
+    "dislikes": {
+      "dislikedBy": [],
+      "dislikeCount": 0
+    },
+    "createdBy": {
+      "userName": "Computer Application",
+      "userEmail": "applicationcomputer257@gmail.com",
+      "userBio": "",
+      "UserProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yYlpURUFFZkdKa2lrUlVaVHZxOFl2UVl2R2wifQ",
+      "userId": "user_2bZTECWQS9Gw98DlxoCqaSmZURg"
+    },
+
+    "mangaName": "doraemon",
+    "author": "Makoto Yukimura",
+    "backgroundImage": "65b9e886acdc8d3caaad",
+    "coverImage": "65b9e8883b2eac37ec30",
+    "tags": "#gadget #robot #nobita",
+    "status": "Ongoing",
+    "description": "Doraemon (ドラえもん) is a Japanese manga series written and illustrated by Fujiko F. Fujio. The manga was first serialized in December 1969. Its chapters were collected in 45 tankōbon volumes published by Shogakukan from 1974 to 1996. The story revolves around an earless robotic cat named Doraemon, who travels back in time from the 22nd century to aid a boy named Nobita Nobi.\n\nThe manga spawned a media franchise. Three anime TV series have been adapted in 1973, 1979, and 2005.",
+    "views": { "count": 0, "viewedBy": [] },
+    "reviews": [],
+    "comments": [],
+    "chapters": [],
+    "createdAt": "2024-01-31T06:28:26.041Z",
+    "updatedAt": "2024-02-02T06:02:01.374Z",
+    "__v": 0
+  },
+  {
+    "likes": {
+      "likedBy": [],
+      "likeCount": 0
+    },
+    "dislikes": {
+      "dislikedBy": [],
+      "dislikeCount": 0
+    },
+    "createdBy": {
+      "userName": "Computer Application",
+      "userEmail": "applicationcomputer257@gmail.com",
+      "userBio": "",
+      "UserProfileImage": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yYlpURUFFZkdKa2lrUlVaVHZxOFl2UVl2R2wifQ",
+      "userId": "user_2bZTECWQS9Gw98DlxoCqaSmZURg"
+    },
+
+    "mangaName": "Haikyuu",
+    "author": "Haruichi Furudate",
+    "backgroundImage": "65bf7fc6838e7680a70e",
+    "coverImage": "65bf7fc79aa3b0052031",
+    "tags": "sports, shonen",
+    "status": "Ongoing",
+    "description": "Haikyuu!! follows the journey of the Karasuno High School volleyball team as they aim for nationals.\nHaikyuu!! follows the journey of the Karasuno High School volleyball team as they aim for nationals.\nHaikyuu!! follows the journey of the Karasuno High School volleyball team as they aim for nationals.\nHaikyuu!! follows the journey of the Karasuno High School volleyball team as they aim for nationals.",
+    "views": {
+      "count": 2,
+      "viewedBy": [
+        "user_2bZTECWQS9Gw98DlxoCqaSmZURg",
+        "user_2bZJZt5dWwKaDehXPcJztNetfVt"
+      ]
+    },
+    "reviews": [],
+    "comments": [],
+    "chapters": [],
+    "createdAt": "2024-02-04T12:15:05.708Z",
+    "updatedAt": "2024-02-04T13:34:44.073Z",
+    "__v": 0
+  }
+]

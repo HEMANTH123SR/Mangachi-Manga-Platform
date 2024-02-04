@@ -1,21 +1,15 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
+import { useUser } from "@clerk/nextjs";
 import { MangaType, Chapter } from "@/lib/types";
 import { useRouter } from "next/navigation";
 import { MangaPageSkeleton } from "@/components/Skelton";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-
-import {
-  MessageCircleIcon,
-  MoreVerticalIcon,
-  StarIcon,
-  HeartIcon,
-  GlobeIcon,
-  UsersIcon,
-} from "@/lib/Icons";
+import { HeartIcon, UsersIcon } from "@/lib/Icons";
 function Page({ params }: { params: { id: string } }) {
+  const { user } = useUser();
   const router = useRouter();
   const [manga, setManga] = useState<MangaType>();
   const [somethingWentWrong, setSomethingWentFrong] = useState<boolean>(false);
@@ -32,9 +26,32 @@ function Page({ params }: { params: { id: string } }) {
       setManga(data.data);
       setIsLoading(false);
     })();
-  }, []);
-  console.log("manga :: ", manga);
-  console.log("somethingWentWrong :: ", somethingWentWrong);
+  }, [manga, params]);
+  useEffect(() => {
+    (async () => {
+      let currentUserId = await user?.id;
+
+      if (currentUserId && manga) {
+        for (let id of manga?.views.viewedBy) {
+          if (id === currentUserId) {
+            return;
+          }
+        }
+        await fetch(`/api/manga/${params.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            views: {
+              count: manga.views.count + 1,
+              viewedBy: [...manga.views.viewedBy, currentUserId],
+            },
+          }),
+        });
+      }
+    })();
+  }, [user, manga, params]);
 
   if (somethingWentWrong) {
     return (
@@ -116,33 +133,25 @@ function Page({ params }: { params: { id: string } }) {
               0,
               10
             )}, ${manga?.status.toUpperCase()}`}</Badge>
-            <div className="flex items-center space-x-1">
-              <StarIcon className={"text-[#E11D48] w-5 h-5"} />
-              <span className={"text-lg font-semibold"}>9.25</span>
-            </div>
+
             <div className="flex items-center space-x-1">
               <UsersIcon className={"text-gray-600 w-5 h-5"} />
-              <span className={"text-lg"}>{`${manga?.views}`}</span>
+              <span className={"text-lg"}>{`${manga?.views.count}`}</span>
             </div>
             <div className="flex items-center space-x-1">
               <HeartIcon className={"text-[#E11D48] w-5 h-5"} />
               <span className={"text-lg"}>{`${manga?.likes.likeCount}`}</span>
             </div>
-            <div className="flex items-center space-x-1">
-              <GlobeIcon className={"text-gray-600 w-5 h-5"} />
-              <span className={"text-lg"}>N/A</span>
-            </div>
           </div>
           <p className="text-gray-700 mb-4">{manga?.description}</p>
-          <p className="text-gray-700">{manga?.description}</p>
         </div>
       </div>
       <div className="my-5"></div>
       <ScrollArea>
-        <div className="flex flex-col space-y-6 px-4 lg:px-8 h-96">
+        <div className="flex flex-col space-y-6  px-4 lg:px-8 h-96">
           {manga?.chapters.map((chapter: Chapter) => (
             <div
-              className="flex items-center gap-4 cursor-pointer"
+              className="flex items-center space-x-8 cursor-pointer"
               key={chapter._id}
               onClick={() =>
                 router.push(`${manga?._id}/chapter/${chapter._id}`)
@@ -164,11 +173,6 @@ function Page({ params }: { params: { id: string } }) {
                 <h2 className=" font-semibold font-sans">{`Chapter ${chapter.chapterNumber}: ${chapter.chapterName}`}</h2>
                 <span className="text-xs text-gray-500 font-mono ">{`${chapter.chapterPublishedDate}`}</span>
               </div>
-              <div className="ml-auto">
-                <MoreVerticalIcon className="text-gray-500" />
-              </div>
-              <span className="text-sm font-medium">342</span>
-              <MessageCircleIcon className="text-gray-500" />
             </div>
           ))}
           <ScrollBar orientation="vertical" />

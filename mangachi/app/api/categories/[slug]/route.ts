@@ -56,7 +56,7 @@ export async function GET(req: NextRequest) {
         { status: 200 }
       );
     } else if (id == "most-readed") {
-      const res = await Manga.find().sort({ views: -1 }).limit(10);
+      const res = await Manga.find().sort({ "views.count": -1 }).limit(10);
       const mangas: MangaType[] = res;
       const filtredMangas = mangas.map((manga) => {
         let coverImage = manga.coverImage;

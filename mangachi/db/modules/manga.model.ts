@@ -108,13 +108,16 @@ const MangaSchema = new mongoose.Schema(
       userId: {
         type: String,
         required: true,
-        unique: true,
       },
     },
     views: {
-      type: Number,
-      default: 0,
+      count: {
+        type: Number,
+        default: 0,
+      },
+      viewedBy: [String],
     },
+    isAdmin: { type: Boolean, required: true, default: false },
   },
 
   { timestamps: true }
