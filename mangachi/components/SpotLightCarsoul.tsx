@@ -195,13 +195,3 @@ const getFormatedDate = ({ date }: { date: string }) => {
   }
   return `${month}-${filter[2]}`;
 };
-{
-  /* <div className="hidden lg:flex items-center justify-between w-1/2">
-              <Button
-                className="inline-flex h-9 items-center justify-center rounded-md border  bg-white px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50  text-black"
-                onClick={() => router.push(`/manga/${mangaId}`)}
-              >
-                Read Now
-              </Button>
-            </div> */
-}

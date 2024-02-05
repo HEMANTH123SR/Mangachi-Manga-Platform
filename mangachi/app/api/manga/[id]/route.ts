@@ -36,20 +36,20 @@ export async function PUT(req: NextRequest) {
   }
 }
 
-export async function DELETE(req: NextRequest) {
-  try {
-    await connectDB();
-    const url = new URL(req.url);
-    const id = url.pathname.split("/")[3];
-    await Manga.findByIdAndDelete(id);
-    return NextResponse.json({ status: 204 });
-  } catch (err: any) {
-    return NextResponse.json(
-      {
-        status: "unsuccess",
-        message: err?.message || err.message || "internal server error",
-      },
-      { status: 500 }
-    );
-  }
-}
+// export async function DELETE(req: NextRequest) {
+//   try {
+//     await connectDB();
+//     const url = new URL(req.url);
+//     const id = url.pathname.split("/")[3];
+//     await Manga.findByIdAndDelete(id);
+//     return NextResponse.json({ status: 204 });
+//   } catch (err: any) {
+//     return NextResponse.json(
+//       {
+//         status: "unsuccess",
+//         message: err?.message || err.message || "internal server error",
+//       },
+//       { status: 500 }
+//     );
+//   }
+// }

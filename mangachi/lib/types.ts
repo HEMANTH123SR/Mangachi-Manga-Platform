@@ -35,10 +35,6 @@ export interface MangaType {
     count: number;
     viewedBy: string[];
   };
-  rating: {
-    rating: number;
-    ratingBy: string[];
-  };
   reviews: {
     review: number;
     reviewBy: string;
