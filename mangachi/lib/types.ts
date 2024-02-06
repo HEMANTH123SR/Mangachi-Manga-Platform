@@ -19,10 +19,6 @@ export interface MangaType {
     likedBy: string[];
     likeCount: number;
   };
-  dislikes: {
-    dislikedBy: string[];
-    dislikeCount: number;
-  };
   _id: string;
   mangaName: string;
   author: string;

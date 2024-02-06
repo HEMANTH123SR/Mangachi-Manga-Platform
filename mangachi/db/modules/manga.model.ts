@@ -28,25 +28,8 @@ const MangaSchema = new mongoose.Schema(
     },
 
     likes: {
-      likedBy: [
-        {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "User",
-        },
-      ],
+      likedBy: [String],
       likeCount: {
-        type: Number,
-        default: 0,
-      },
-    },
-    dislikes: {
-      dislikedBy: [
-        {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "User",
-        },
-      ],
-      dislikeCount: {
         type: Number,
         default: 0,
       },
@@ -115,7 +98,12 @@ const MangaSchema = new mongoose.Schema(
         type: Number,
         default: 0,
       },
-      viewedBy: [String],
+      viewedBy: [
+        {
+          type: String,
+          unique: true,
+        },
+      ],
     },
     isAdmin: { type: Boolean, required: true, default: false },
   },
@@ -125,3 +113,4 @@ const MangaSchema = new mongoose.Schema(
 
 export const Manga =
   mongoose.models.Manga || mongoose.model("Manga", MangaSchema);
+//

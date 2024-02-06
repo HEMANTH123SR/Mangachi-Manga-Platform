@@ -26,13 +26,23 @@ export async function PUT(req: NextRequest) {
     await connectDB();
     const id = req.nextUrl.pathname.split("/")[3];
     const data = await req.json();
+    console.log("data :: ", data);
+    const test = {
+      likes: { likedBy: ["user_2bZTECWQS9Gw98DlxoCqaSmZsg"], likeCount: 1 },
+    };
+    console.log(typeof data);
+    console.log(typeof test);
     const manga = await Manga.findByIdAndUpdate(id, data);
+    console.log("manga :: ", manga);
     return NextResponse.json(
       { status: "success", data: manga },
       { status: 201 }
     );
   } catch (err: any) {
-    return NextResponse.json({}, { status: 500 });
+    return NextResponse.json(
+      { err: err.message || "internal server error" },
+      { status: 500 }
+    );
   }
 }
 

@@ -2,23 +2,28 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useUser } from "@clerk/nextjs";
-import { MangaType, Chapter } from "@/lib/types";
 import { useRouter } from "next/navigation";
+import { MangaType, Chapter } from "@/lib/types";
 import { MangaPageSkeleton } from "@/components/Skelton";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { HeartIcon, UsersIcon } from "@/lib/Icons";
+import { set } from "zod";
 function Page({ params }: { params: { id: string } }) {
   const { user } = useUser();
   const router = useRouter();
   const [manga, setManga] = useState<MangaType>();
   const [somethingWentWrong, setSomethingWentFrong] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isClick, setClick] = useState(false);
+  const [runUseEffect, setRunUseEffect] = useState(0);
   useEffect(() => {
+    console.log("useEffect 1");
     (async () => {
       const res = await fetch(`/api/manga/${params.id}`);
       const data = await res.json();
+      console.log("data :: ", data);
       if (data.status !== "success") {
         setSomethingWentFrong(true);
 
@@ -27,10 +32,19 @@ function Page({ params }: { params: { id: string } }) {
       setManga(data.data);
       setIsLoading(false);
     })();
-  }, [manga, params]);
+  }, [runUseEffect]);
   useEffect(() => {
+    console.log("useEffect 2");
     (async () => {
       let currentUserId = await user?.id;
+
+      if (manga?.likes.likedBy) {
+        for (let id of manga?.likes.likedBy) {
+          if (id === currentUserId) {
+            setClick(true);
+          }
+        }
+      }
 
       if (currentUserId && manga) {
         for (let id of manga?.views.viewedBy) {
@@ -53,6 +67,58 @@ function Page({ params }: { params: { id: string } }) {
       }
     })();
   }, [user, manga, params]);
+
+  const handleLike = async () => {
+    console.log("clicked isClick value :: ", isClick);
+    try {
+      let currentUserId = await user?.id;
+      let isLiked = await isClick;
+      console.log(
+        `current user id :: ${currentUserId} , manga :: ${manga} , isClick :: ${isLiked}`
+      );
+      if (currentUserId && manga && isLiked) {
+        const currentLikedBy = [
+          ...manga.likes.likedBy.filter((id) => id !== user?.id),
+        ];
+        await fetch(`/api/manga/${params.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            likes: {
+              likedBy: currentLikedBy,
+              likeCount: currentLikedBy.length,
+            },
+          }),
+        });
+        setRunUseEffect(runUseEffect + 1);
+      }
+      if (currentUserId && manga && !isLiked) {
+        for (let id of manga?.likes.likedBy) {
+          if (id === currentUserId) {
+            return;
+          }
+        }
+
+        await fetch(`/api/manga/${params.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            likes: {
+              likedBy: [...manga.likes.likedBy, user?.id],
+              likeCount: manga?.likes.likeCount + 1,
+            },
+          }),
+        });
+        setRunUseEffect(runUseEffect + 1);
+      }
+    } catch (err: any) {
+      console.log(err);
+    }
+  };
 
   if (somethingWentWrong) {
     return (
@@ -130,13 +196,21 @@ function Page({ params }: { params: { id: string } }) {
                     {manga?.status}
                   </Badge>
                 </div>
-                <div className="flex items-center space-x-10 sm:space-x-12 mx-5">
+                <div className="flex items-center space-x-6">
                   <div className="flex items-center space-x-1">
                     <UsersIcon className={"text-gray-600 w-5 h-5"} />
                     <span className={"text-lg"}>{`${manga?.views.count}`}</span>
                   </div>
                   <div className="flex items-center space-x-1">
-                    <HeartIcon className={"text-[#E11D48] w-5 h-5"} />
+                    <HeartIcon
+                      onClick={() => {
+                        console.log("click ::", isClick);
+                        setClick(!isClick);
+                        handleLike();
+                      }}
+                      className={`${isClick ? "text-red-600" : "text-slate-300"
+                        } w-5 h-5`}
+                    />
                     <span
                       className={"text-lg"}
                     >{`${manga?.likes.likeCount}`}</span>
@@ -200,7 +274,7 @@ function Page({ params }: { params: { id: string } }) {
               </div>
             </div>
           ))}
-          <ScrollBar orientation="vertical" />
+          <ScrollBar orientation="vertical" className="hidden" />
         </div>
       </ScrollArea>
       <div className="my-10"></div>
