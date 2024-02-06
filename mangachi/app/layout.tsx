@@ -37,7 +37,13 @@ export default function RootLayout({
               </SheetTrigger>
             </NavBar>
             {children}
-            <Fotter />
+            <div className="w-full mt-24">
+              <div className="border-t border-gray-700  py-6 border-primary">
+                <p className="text-center text-sm">
+                  © 2024 Mangachi All Rights Reserved.
+                </p>
+              </div>
+            </div>
             <SideMenu />
           </Sheet>
           <Analytics />
