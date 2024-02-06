@@ -9,7 +9,9 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { HeartIcon, UsersIcon } from "@/lib/Icons";
-import { set } from "zod";
+import { FaHeart } from "react-icons/fa6";
+
+
 function Page({ params }: { params: { id: string } }) {
   const { user } = useUser();
   const router = useRouter();
@@ -19,7 +21,7 @@ function Page({ params }: { params: { id: string } }) {
   const [isClick, setClick] = useState(false);
   const [runUseEffect, setRunUseEffect] = useState(0);
   useEffect(() => {
-    console.log("useEffect 1");
+ 
     (async () => {
       const res = await fetch(`/api/manga/${params.id}`);
       const data = await res.json();
@@ -34,7 +36,7 @@ function Page({ params }: { params: { id: string } }) {
     })();
   }, [runUseEffect]);
   useEffect(() => {
-    console.log("useEffect 2");
+   
     (async () => {
       let currentUserId = await user?.id;
 
@@ -69,7 +71,7 @@ function Page({ params }: { params: { id: string } }) {
   }, [user, manga, params]);
 
   const handleLike = async () => {
-    console.log("clicked isClick value :: ", isClick);
+   
     try {
       let currentUserId = await user?.id;
       let isLiked = await isClick;
@@ -202,13 +204,13 @@ function Page({ params }: { params: { id: string } }) {
                     <span className={"text-lg"}>{`${manga?.views.count}`}</span>
                   </div>
                   <div className="flex items-center space-x-1">
-                    <HeartIcon
+                    <FaHeart
                       onClick={() => {
-                        console.log("click ::", isClick);
+                       
                         setClick(!isClick);
                         handleLike();
                       }}
-                      className={`${isClick ? "text-red-600" : "text-slate-300"
+                      className={`${isClick ? "text-primary" : "text-slate-300"
                         } w-5 h-5`}
                     />
                     <span

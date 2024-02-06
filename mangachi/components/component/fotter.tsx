@@ -7,13 +7,13 @@ export function Fotter() {
         <div className="container mx-auto px-4 py-4 pb-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
-              <h5 className="font-header  text-lg sm:text-xl lg:text-1xl font-semibold font-sans my-3 underline">
+              <h5 className="font-header   font-semibold font-sans my-3 ">
                 MangaChi
               </h5>
               <ul className="space-y-1 sm:space-y-2">
                 <li>
                   <Link className="hover:text-gray-300" href="#">
-                    <span className="font-semibold text-foreground text-xs ">
+                    <span className="font-semibold font-sans text-xs ">
                       About Us
                     </span>
                   </Link>
@@ -21,14 +21,14 @@ export function Fotter() {
 
                 <li>
                   <Link className="hover:text-gray-300" href="#">
-                    <span className="font-semibold text-foreground text-xs ">
+                    <span className="font-semibold font-sans text-xs ">
                       Terms of Service
                     </span>
                   </Link>
                 </li>
                 <li>
                   <Link className="hover:text-gray-300" href="#">
-                    <span className="font-semibold text-foreground text-xs  ">
+                    <span className="font-semibold font-sans text-xs  ">
                       Privacy Policy
                     </span>
                   </Link>
@@ -36,20 +36,20 @@ export function Fotter() {
               </ul>
             </div>
             <div>
-              <h5 className="font-header  text-lg sm:text-xl lg:text-1xl font-semibold font-sans my-3 underline">
+              <h5 className="font-header   font-semibold font-sans my-3 ">
                 Explore
               </h5>
               <ul className="space-y-1 sm:space-y-2">
                 <li>
                   <Link className="hover:text-gray-300" href="#">
-                    <span className="font-semibold text-foreground text-xs  ">
+                    <span className="font-semibold font-sans text-xs ">
                       Latest Releases
                     </span>
                   </Link>
                 </li>
                 <li>
                   <Link className="hover:text-gray-300" href="#">
-                    <span className="font-semibold text-foreground text-xs  ">
+                    <span className="font-semibold font-sans text-xs">
                       Popular Manga
                     </span>
                   </Link>
@@ -57,7 +57,7 @@ export function Fotter() {
 
                 <li>
                   <Link className="hover:text-gray-300" href="#">
-                    <span className="font-semibold text-foreground text-xs ">
+                    <span className="font-semibold font-sans text-xs">
                       Manga Genres
                     </span>
                   </Link>
@@ -65,13 +65,13 @@ export function Fotter() {
               </ul>
             </div>
             <div>
-              <h5 className="font-header  text-lg sm:text-xl lg:text-1xl font-semibold font-sans my-3 underline">
+              <h5 className="font-header   font-semibold font-sans my-3 ">
                 Community
               </h5>
               <ul className="space-y-1 sm:space-y-2">
                 <li>
                   <Link className="hover:text-gray-300" href="#">
-                    <span className="font-semibold text-foreground text-xs  ">
+                    <span className="font-semibold font-sans text-xs  ">
                       Forums
                     </span>
                   </Link>
@@ -79,14 +79,14 @@ export function Fotter() {
 
                 <li>
                   <Link className="hover:text-gray-300" href="#">
-                    <span className="font-semibold text-foreground text-xs ">
+                    <span className="font-semibold font-sans text-xs">
                       User Guide
                     </span>
                   </Link>
                 </li>
                 <li>
                   <Link className="hover:text-gray-300" href="#">
-                    <span className="font-semibold text-foreground text-xs  ">
+                    <span className="font-semibold font-sans text-xs  ">
                       Support
                     </span>
                   </Link>
@@ -94,7 +94,7 @@ export function Fotter() {
               </ul>
             </div>
             <div>
-              <h5 className="font-header  text-lg sm:text-xl lg:text-1xl font-semibold font-sans my-3 underline">
+              <h5 className="font-header font-semibold font-sans my-3 ">
                 Follow Us
               </h5>
               <div className="flex space-x-4">
