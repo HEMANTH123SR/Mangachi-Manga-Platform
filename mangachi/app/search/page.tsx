@@ -35,7 +35,8 @@ const SearchPage = () => {
                 style={{ color: "black" }}
             />
             <div className="w-10/12 h-0.5 bg-primary "></div>
-            <div className="w-10/12 min-h-[70vh] flex flex-col gap-4 mt-8">
+            <div className="min-h-4"></div>
+            <div className="w-10/12 min-h-[70vh] flex flex-col gap-4">
                 {
                     mangas?.map((manga) => (<div
                         key={manga._id}
