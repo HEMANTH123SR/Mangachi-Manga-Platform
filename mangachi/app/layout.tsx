@@ -1,6 +1,6 @@
 import React from "react";
-import { ClerkProvider } from '@clerk/nextjs'
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { ClerkProvider } from "@clerk/nextjs";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -9,8 +9,9 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import { NavBar } from "@/components/NavBar";
 import { SideMenu } from "@/components/SideMenu";
-import { Toaster } from "@/components/ui/sonner"
+import { Toaster } from "@/components/ui/sonner";
 import { GiHamburgerMenu } from "react-icons/gi";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -36,6 +37,7 @@ export default function RootLayout({
               </SheetTrigger>
             </NavBar>
             {children}
+        
             <div className="w-full mt-24">
               <div className="border-t border-gray-700  py-6 border-primary">
                 <p className="text-center text-sm">

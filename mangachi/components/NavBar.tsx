@@ -2,11 +2,11 @@
 import React from "react";
 import { UserButton, useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
+
 import { FaRandom, FaBookmark } from "react-icons/fa";
 import { IoMdChatbubbles } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";
-// import MangaChiLogo from "@/public/Screenshot 2024-02-07 173253.png";
-import MangaChiLogo from "@/public/Mangachi-logos_black.png";
+
 export const NavBar = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const { user, isLoaded } = useUser();
@@ -15,12 +15,11 @@ export const NavBar = ({ children }: { children: React.ReactNode }) => {
       <div className="flex w-1/2 md:w-1/3  items-center space-x-3 sm:space-x-6 justify-start">
         {children}
         <h1
-          className="font-mono font-bold text-primary text-2xl cursor-pointer transition duration-300 ease-in-out transform hover:scale-105  tracking-tighter"
+          className="font-mono font-bold text-primary text-2xl cursor-pointer transition duration-300 ease-in-out transform hover:scale-105 tracking-narrower"
           onClick={() => router.push("/")}
         >
           MANGACHI
         </h1>
-
       </div>
       <div className="hidden  md:w-1/3 md:flex md:justify-center md:items-center md:space-x-12">
         <div className="flex flex-col  justify-center items-center space-y-1">
