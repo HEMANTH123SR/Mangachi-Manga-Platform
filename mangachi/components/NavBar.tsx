@@ -36,7 +36,10 @@ export const NavBar = ({ children }: { children: React.ReactNode }) => {
         </div>
       </div>
       <div className="flex w-1/2 md:w-1/3 justify-end items-center space-x-3 sm:space-x-6 ">
-        <IoSearch className="text-2xl sm:text-3xl text-text" />
+        <IoSearch
+          className="text-2xl sm:text-3xl text-text cursor-pointer"
+          onClick={() => router.push("/search")}
+        />
 
         {isLoaded && user && (
           <UserButton afterMultiSessionSingleSignOutUrl="/" />

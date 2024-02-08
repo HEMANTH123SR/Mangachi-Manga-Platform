@@ -147,13 +147,15 @@ export const SideMenu = () => {
           </a>
           <a
             className="flex items-center text-gray-700 hover:text-gray-500"
-            href="#"
+            href="https://twitter.com/iam_Hemanth_sr"
+            target="_blank"
           >
             <TwitterIcon className="h-5 w-5" />
           </a>
           <a
             className="flex items-center text-gray-700 hover:text-gray-500"
-            href="#"
+            href="https://www.instagram.com/_hemanth_sr_?igsh=MTczM3l1enFwMHZzaw=="
+            target="_blank"
           >
             <InstagramIcon className="h-5 w-5" />
           </a>
