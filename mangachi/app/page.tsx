@@ -1,6 +1,7 @@
-import { SpotLightCarsoul } from "@/components/SpotLightCarsoul";
-import { HomePageShonenContent } from "@/components/HomePageShonenContent";
-import { ScrollAreaHorizontalDemo } from "@/components/HorizontalScrool";
+import { SpotLightCarsoul } from "@/components/component/SpotLightCarsoul";
+import { HomePageShonenContent } from "@/components/component/HomePageShonenContent";
+
+import { ScrollAreaHorizontalDemo } from "@/components/component/HorizontalScrool"
 export default function Home() {
   return (
     <main className="w-full h-full">

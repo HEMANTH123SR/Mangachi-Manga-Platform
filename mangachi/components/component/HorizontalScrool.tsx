@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { HorizontalScrollComponentSkelton } from "@/components/Skelton";
+import { HorizontalScrollComponentSkelton } from "@/components/component/Skelton";
 export function ScrollAreaHorizontalDemo({
   title,
   routeSegment,

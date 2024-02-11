@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { MangaType } from "@/lib/types";
-import { HomePageShonenContentSkelton } from "@/components/Skelton";
+import { HomePageShonenContentSkelton } from "@/components/component/Skelton";
 export const HomePageShonenContent = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState<boolean>(true);

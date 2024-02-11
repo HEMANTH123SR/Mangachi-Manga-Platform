@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { DropZone } from "@/components/DropZone";
+import { DropZone } from "@/components/component/DropZone";
 import { UserType } from "@/lib/types";
 type FormValues = z.infer<typeof MangaDetailsSchema>;
 

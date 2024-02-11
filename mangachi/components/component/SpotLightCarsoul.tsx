@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { MangaType } from "@/lib/types";
-import { SpotLightCarsoulSkelton } from "@/components/Skelton"
+import { SpotLightCarsoulSkelton } from "@/components/component/Skelton"
 
 import {
   Carousel,

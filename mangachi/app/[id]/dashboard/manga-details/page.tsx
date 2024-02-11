@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { MangaDetailsSchema } from "@/lib/ZodSchemas";
 import { createImage } from "@/lib/appwrite"
-import { DropZone } from "@/components/DropZone"
+import { DropZone } from "@/components/component/DropZone"
 import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import {

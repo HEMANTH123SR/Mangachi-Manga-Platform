@@ -19,13 +19,10 @@ import {
   UserIcon,
   Clock10Icon,
   ListIcon,
-  SettingsIcon,
   ShareIcon,
-  SignalIcon,
-  AddIcon
 } from "@/lib/Icons";
-import { PlusCircle, LayoutDashboard } from "lucide-react"
-import Link from "next/link"
+import { PlusCircle, LayoutDashboard, Bell } from "lucide-react";
+import Link from "next/link";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 export const SideMenu = () => {
   return (
@@ -46,100 +43,61 @@ export const SideMenu = () => {
       </SheetHeader>
       <ScrollArea>
         <nav className="flex flex-col mt-4 space-y-4 ">
-          <Link href={"/create-manga"} className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100">
+          <Link
+            href={"/create-manga"}
+            className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
+          >
             <PlusCircle className="h-5 w-5 text-gray-500" />
             <span className="ml-2">Create Manga</span>
           </Link>
-          <Link href={"/dashboard"} className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100">
+          <Link
+            href={"/dashboard"}
+            className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
+          >
             <LayoutDashboard className="h-5 w-5 text-gray-500" />
             <span className="ml-2">Dashboard</span>
           </Link>
+          <Link
+            className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
+            href={"/notifications"}
+          >
+            <Bell className="h-5 w-5 text-gray-500" />
 
-          <Link
-            className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
-            href="#"
-          >
-            <UserIcon className="h-5 w-5 text-gray-500" />
-            <span className="ml-2">Community </span>
-          </Link>
-          <Link
-            className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
-            href="#"
-          >
-            <FanIcon className="h-5 w-5 text-gray-500" />
-            <span className="ml-2">Most Popular</span>
-          </Link>
-          <Link
-            className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
-            href="#"
-          >
-            <RecycleIcon className="h-5 w-5 text-gray-500" />
-            <span className="ml-2">Recents</span>
-          </Link>
-          <Link
-            className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
-            href="#"
-          >
-            <Clock10Icon className="h-5 w-5 text-gray-500" />
-            <span className="ml-2">Top 10</span>
-          </Link>
-
-          <Link
-            className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
-            href="#"
-          >
-            <ShareIcon className="h-5 w-5 text-gray-500" />
-            <span className="ml-2">My Publish</span>
-          </Link>
-          <Link
-            className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
-            href="#"
-          >
-            <SignalIcon className="h-5 w-5 text-gray-500" />
             <span className="ml-2">Notifications</span>
           </Link>
           <Link
             className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
-            href="#"
+            href={"/community"}
+          >
+            <UserIcon className="h-5 w-5 text-gray-500" />
+            <span className="ml-2">Community</span>
+          </Link>
+          <Link
+            className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
+            href={"/most-popular"}
+          >
+            <FanIcon className="h-5 w-5 text-gray-500" />
+            <span className="ml-2">Most Popular</span>
+          </Link>
+
+          <Link
+            className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
+            href={"/recents"}
           >
             <ListIcon className="h-5 w-5 text-gray-500" />
             <span className="ml-2">Recently Added</span>
           </Link>
+
+
           <Link
             className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
-            href="#"
-          >
-            <ThumbsUpIcon className="h-5 w-5 text-gray-500" />
-            <span className="ml-2">Liked</span>
-          </Link>
-          <Link
-            className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
-            href="#"
-          >
-            <UserIcon className="h-5 w-5 text-gray-500" />
-            <span className="ml-2">Profile</span>
-          </Link>
-          <Link
-            className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
-            href="#"
+            href={"/about-us"}
           >
             <InfoIcon className="h-5 w-5 text-gray-500" />
             <span className="ml-2">About Us</span>
           </Link>
-          <Link
-            className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
-            href="#"
-          >
-            <BadgeAlertIcon className="h-5 w-5 text-gray-500" />
-            <span className="ml-2">Announcements</span>
-          </Link>
-          <Link
-            className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
-            href="#"
-          >
-            <RulerIcon className="h-5 w-5 text-gray-500" />
-            <span className="ml-2">Site Rules</span>
-          </Link>
+
+
         </nav>
         <ScrollBar orientation="vertical" />
       </ScrollArea>
@@ -167,6 +125,6 @@ export const SideMenu = () => {
           </a>
         </div>
       </SheetFooter>
-    </SheetContent >
+    </SheetContent>
   );
 };

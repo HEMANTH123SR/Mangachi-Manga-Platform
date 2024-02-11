@@ -61,7 +61,7 @@ const DashBoardPage = () => {
                     Create New Manga
                 </Button>
             </div>
-            <div className=" grid grid-cols-1 lg:grid-cols-2 gap-6 mx-12 bg-white">
+            <div className="min-h-[70vh] grid grid-cols-1 lg:grid-cols-2 gap-6 mx-12 bg-white">
                 {mangas.map((manga: MangaType) => (
                     <div
                         key={manga._id}

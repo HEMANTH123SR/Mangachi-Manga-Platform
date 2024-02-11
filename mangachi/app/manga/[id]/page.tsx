@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { MangaType, Chapter } from "@/lib/types";
-import { MangaPageSkeleton } from "@/components/Skelton";
+import { MangaPageSkeleton } from "@/components/component/Skelton";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";

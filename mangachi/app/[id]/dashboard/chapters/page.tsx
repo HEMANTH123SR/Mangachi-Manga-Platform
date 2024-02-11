@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/drawer";
 
 import { Input } from "@/components/ui/input";
-import { DropZone } from "@/components/DropZone";
+import { DropZone } from "@/components/component/DropZone";
 
 export default function ChapterPage() {
 

@@ -7,8 +7,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetTrigger } from "@/components/ui/sheet";
-import { NavBar } from "@/components/NavBar";
-import { SideMenu } from "@/components/SideMenu";
+import { NavBar } from "@/components/component/NavBar";
+import { SideMenu } from "@/components/component/SideMenu";
 import { Toaster } from "@/components/ui/sonner";
 import { GiHamburgerMenu } from "react-icons/gi";
 
