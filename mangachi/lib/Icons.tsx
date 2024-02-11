@@ -1,5 +1,5 @@
 
-export function BadgeAlertIcon(props:any) {
+export function BadgeAlertIcon(props: any) {
   return (
     <svg
       {...props}
@@ -21,7 +21,7 @@ export function BadgeAlertIcon(props:any) {
 }
 
 
-export function Clock10Icon(props:any) {
+export function Clock10Icon(props: any) {
   return (
     <svg
       {...props}
@@ -42,7 +42,7 @@ export function Clock10Icon(props:any) {
 }
 
 
-export function FanIcon(props:any) {
+export function FanIcon(props: any) {
   return (
     <svg
       {...props}
@@ -63,7 +63,7 @@ export function FanIcon(props:any) {
 }
 
 
-export function InfoIcon(props:any) {
+export function InfoIcon(props: any) {
   return (
     <svg
       {...props}
@@ -85,7 +85,7 @@ export function InfoIcon(props:any) {
 }
 
 
-export function InstagramIcon(props:any) {
+export function InstagramIcon(props: any) {
   return (
     <svg
       {...props}
@@ -107,7 +107,7 @@ export function InstagramIcon(props:any) {
 }
 
 
-export function ListIcon(props:any) {
+export function ListIcon(props: any) {
   return (
     <svg
       {...props}
@@ -132,7 +132,7 @@ export function ListIcon(props:any) {
 }
 
 
-export function MailIcon(props:any) {
+export function MailIcon(props: any) {
   return (
     <svg
       {...props}
@@ -153,7 +153,7 @@ export function MailIcon(props:any) {
 }
 
 
-export function PanelTopCloseIcon(props:any) {
+export function PanelTopCloseIcon(props: any) {
   return (
     <svg
       {...props}
@@ -175,7 +175,7 @@ export function PanelTopCloseIcon(props:any) {
 }
 
 
-export function RecycleIcon(props:any) {
+export function RecycleIcon(props: any) {
   return (
     <svg
       {...props}
@@ -200,7 +200,7 @@ export function RecycleIcon(props:any) {
 }
 
 
-export function RulerIcon(props:any) {
+export function RulerIcon(props: any) {
   return (
     <svg
       {...props}
@@ -224,7 +224,7 @@ export function RulerIcon(props:any) {
 }
 
 
-export function SettingsIcon(props:any) {
+export function SettingsIcon(props: any) {
   return (
     <svg
       {...props}
@@ -245,7 +245,7 @@ export function SettingsIcon(props:any) {
 }
 
 
-export function ShareIcon(props:any) {
+export function ShareIcon(props: any) {
   return (
     <svg
       {...props}
@@ -267,7 +267,7 @@ export function ShareIcon(props:any) {
 }
 
 
-export function SignalIcon(props:any) {
+export function SignalIcon(props: any) {
   return (
     <svg
       {...props}
@@ -291,7 +291,7 @@ export function SignalIcon(props:any) {
 }
 
 
-export function ThumbsUpIcon(props:any) {
+export function ThumbsUpIcon(props: any) {
   return (
     <svg
       {...props}
@@ -312,7 +312,7 @@ export function ThumbsUpIcon(props:any) {
 }
 
 
-export function TwitterIcon(props:any) {
+export function TwitterIcon(props: any) {
   return (
     <svg
       {...props}
@@ -332,7 +332,7 @@ export function TwitterIcon(props:any) {
 }
 
 
-export function UserIcon(props:any) {
+export function UserIcon(props: any) {
   return (
     <svg
       {...props}
@@ -474,3 +474,12 @@ export function MessageCircleIcon(props: any) {
     </svg>
   );
 }
+
+
+export function AddIcon(props: any) {
+  <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 10v6" />
+    <path d="M9 13h6" />
+    <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" />
+  </svg>
+}
+
