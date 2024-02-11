@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { FaRandom, FaBookmark } from "react-icons/fa";
 import { IoMdChatbubbles } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";
+import Link from "next/link";
 
 export const NavBar = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
@@ -22,18 +23,21 @@ export const NavBar = ({ children }: { children: React.ReactNode }) => {
         </h1>
       </div>
       <div className="hidden  md:w-1/3 md:flex md:justify-center md:items-center md:space-x-12">
-        <div className="flex flex-col  justify-center items-center space-y-1">
+        <Link
+          href={"/api/get-random-manga"}
+          className="flex flex-col  justify-center items-center space-y-1"
+        >
           <FaRandom className=" text-primary text-1xl" />
           <span className="text-text font-mono text-sm">Random</span>
-        </div>
-        <div className="flex flex-col  justify-center items-center space-y-1">
+        </Link>
+        <Link href="/" className="flex flex-col  justify-center items-center space-y-1">
           <FaBookmark className=" text-primary text-1xl" />
           <span className="text-text font-mono text-sm">Bookmark</span>
-        </div>
-        <div className="flex flex-col  justify-center items-center space-y-1">
+        </Link>
+        <Link href={"/community"} className="flex flex-col  justify-center items-center space-y-1">
           <IoMdChatbubbles className=" text-primary text-1xl" />
           <span className="text-text font-mono text-sm">Community</span>
-        </div>
+        </Link>
       </div>
       <div className="flex w-1/2 md:w-1/3 justify-end items-center space-x-3 sm:space-x-6 ">
         <IoSearch
