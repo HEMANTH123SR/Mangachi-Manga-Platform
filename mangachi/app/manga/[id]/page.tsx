@@ -8,7 +8,7 @@ import { MangaPageSkeleton } from "@/components/component/Skelton";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { HeartIcon, UsersIcon } from "@/lib/Icons";
+import { UsersIcon } from "@/lib/Icons";
 import { FaHeart } from "react-icons/fa6";
 
 
@@ -21,22 +21,21 @@ function Page({ params }: { params: { id: string } }) {
   const [isClick, setClick] = useState(false);
   const [runUseEffect, setRunUseEffect] = useState(0);
   useEffect(() => {
- 
     (async () => {
       const res = await fetch(`/api/manga/${params.id}`);
       const data = await res.json();
       console.log("data :: ", data);
       if (data.status !== "success") {
         setSomethingWentFrong(true);
-
         return;
       }
       setManga(data.data);
       setIsLoading(false);
     })();
   }, [runUseEffect]);
+
   useEffect(() => {
-   
+
     (async () => {
       let currentUserId = await user?.id;
 
@@ -71,7 +70,6 @@ function Page({ params }: { params: { id: string } }) {
   }, [user, manga, params]);
 
   const handleLike = async () => {
-   
     try {
       let currentUserId = await user?.id;
       let isLiked = await isClick;
@@ -102,7 +100,6 @@ function Page({ params }: { params: { id: string } }) {
             return;
           }
         }
-
         await fetch(`/api/manga/${params.id}`, {
           method: "PUT",
           headers: {
@@ -132,6 +129,7 @@ function Page({ params }: { params: { id: string } }) {
       </div>
     );
   }
+
   if (isLoading) {
     return <MangaPageSkeleton />;
   }
@@ -206,7 +204,7 @@ function Page({ params }: { params: { id: string } }) {
                   <div className="flex items-center space-x-1">
                     <FaHeart
                       onClick={() => {
-                       
+
                         setClick(!isClick);
                         handleLike();
                       }}
