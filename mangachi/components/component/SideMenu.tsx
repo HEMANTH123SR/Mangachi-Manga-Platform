@@ -6,22 +6,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import {
-  BadgeAlertIcon,
-  FanIcon,
-  InfoIcon,
-  InstagramIcon,
-  MailIcon,
-  RecycleIcon,
-  RulerIcon,
-  ThumbsUpIcon,
-  TwitterIcon,
-  UserIcon,
-  Clock10Icon,
-  ListIcon,
-  ShareIcon,
-} from "@/lib/Icons";
-import { PlusCircle, LayoutDashboard, Bell } from "lucide-react";
+import { PlusCircle, LayoutDashboard, Bell, UsersRound, PieChart, Fan, AlertCircle, Twitter, Instagram, Mail } from "lucide-react";
 import Link from "next/link";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 export const SideMenu = () => {
@@ -69,14 +54,15 @@ export const SideMenu = () => {
             className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
             href={"/community"}
           >
-            <UserIcon className="h-5 w-5 text-gray-500" />
+            <UsersRound className="h-5 w-5 text-gray-500" />
+
             <span className="ml-2">Community</span>
           </Link>
           <Link
             className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
             href={"/most-popular"}
           >
-            <FanIcon className="h-5 w-5 text-gray-500" />
+            <Fan className="h-5 w-5 text-gray-500" />
             <span className="ml-2">Most Popular</span>
           </Link>
 
@@ -84,7 +70,7 @@ export const SideMenu = () => {
             className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
             href={"/recents"}
           >
-            <ListIcon className="h-5 w-5 text-gray-500" />
+            <PieChart className="h-5 w-5 text-gray-500" />
             <span className="ml-2">Recently Added</span>
           </Link>
 
@@ -93,7 +79,7 @@ export const SideMenu = () => {
             className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
             href={"/about-us"}
           >
-            <InfoIcon className="h-5 w-5 text-gray-500" />
+            <AlertCircle className="h-5 w-5 text-gray-500" />
             <span className="ml-2">About Us</span>
           </Link>
 
@@ -107,21 +93,21 @@ export const SideMenu = () => {
             className="flex items-center text-gray-700 hover:text-gray-500"
             href="#"
           >
-            <MailIcon className="h-5 w-5" />
+            <Mail className="h-5 w-5" />
           </a>
           <a
             className="flex items-center text-gray-700 hover:text-gray-500"
             href="https://twitter.com/iam_Hemanth_sr"
             target="_blank"
           >
-            <TwitterIcon className="h-5 w-5" />
+            <Twitter className="h-5 w-5" />
           </a>
           <a
             className="flex items-center text-gray-700 hover:text-gray-500"
             href="https://www.instagram.com/_hemanth_sr_?igsh=MTczM3l1enFwMHZzaw=="
             target="_blank"
           >
-            <InstagramIcon className="h-5 w-5" />
+            <Instagram className="h-5 w-5" />
           </a>
         </div>
       </SheetFooter>
