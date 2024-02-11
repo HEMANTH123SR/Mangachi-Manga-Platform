@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Chapter } from "@/lib/types";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { GrCaretNext } from "react-icons/gr";
-import { GrCaretPrevious } from "react-icons/gr";
+import { SkipBack, SkipForward } from 'lucide-react';
+
 import { toast } from "sonner";
 const ChapterPage = ({
   params,
@@ -71,11 +71,12 @@ const ChapterPage = ({
               });
             }}
           >
-            <GrCaretPrevious className="text-white" />
+            <SkipBack className="text-white" />
             <span className="text-sm font-sans text-white text-center pb-1">
-              prev
+              Page
             </span>
           </div>
+          <span className="rounded-full text-primary bg-white h-6 w-6 text-center">{chapterState?.chapterNumber}</span>
           <div
             className="flex space-x-1 items-center justify-center cursor-pointer"
             onClick={() => {
@@ -92,10 +93,11 @@ const ChapterPage = ({
               });
             }}
           >
-            <GrCaretNext className="text-white" />
             <span className="text-sm font-sans text-white text-center pb-1">
-              next
+              Page
             </span>
+            <SkipForward className="text-white" />
+
           </div>
         </div>
       </div>

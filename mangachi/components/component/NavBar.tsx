@@ -30,7 +30,7 @@ export const NavBar = ({ children }: { children: React.ReactNode }) => {
           <FaRandom className=" text-primary text-1xl" />
           <span className="text-text font-mono text-sm">Random</span>
         </Link>
-        <Link href="/" className="flex flex-col  justify-center items-center space-y-1">
+        <Link href={"/bookmarks"} className="flex flex-col  justify-center items-center space-y-1">
           <FaBookmark className=" text-primary text-1xl" />
           <span className="text-text font-mono text-sm">Bookmark</span>
         </Link>
