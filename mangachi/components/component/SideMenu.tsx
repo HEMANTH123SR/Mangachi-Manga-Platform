@@ -6,7 +6,22 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { PlusCircle, LayoutDashboard, Bell, UsersRound, PieChart, Fan, AlertCircle, Twitter, Instagram, Mail } from "lucide-react";
+import {
+  PlusCircle,
+  LayoutDashboard,
+  Bell,
+  UsersRound,
+  PieChart,
+  Fan,
+  AlertCircle,
+  Twitter,
+  Instagram,
+  Mail,
+  Dice5,
+  Dna,
+  BookmarkCheck,
+  Search
+} from "lucide-react";
 import Link from "next/link";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 export const SideMenu = () => {
@@ -27,7 +42,7 @@ export const SideMenu = () => {
         </SheetDescription>
       </SheetHeader>
       <ScrollArea>
-        <nav className="flex flex-col mt-4 space-y-4 ">
+        <nav className="flex flex-col mt-4 space-y-6 sm:space-y-5  ">
           <Link
             href={"/create-manga"}
             className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
@@ -52,12 +67,27 @@ export const SideMenu = () => {
           </Link>
           <Link
             className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
-            href={"/community"}
+            href={"/search"}
           >
-            <UsersRound className="h-5 w-5 text-gray-500" />
+            <Search className="h-5 w-5 text-gray-500" />
 
-            <span className="ml-2">Community</span>
+            <span className="ml-2">Search</span>
           </Link>
+          <Link
+            className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
+            href={"/api/get-random-manga"}
+          >
+            <Dice5 className="h-5 w-5 text-gray-500" />
+            <span className="ml-2">Random</span>
+          </Link>
+          <Link
+            className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
+            href={"/bookmarks"}
+          >
+            <BookmarkCheck className="h-5 w-5 text-gray-500" />
+            <span className="ml-2">Bookmarks</span>
+          </Link>
+
           <Link
             className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
             href={"/most-popular"}
@@ -65,7 +95,6 @@ export const SideMenu = () => {
             <Fan className="h-5 w-5 text-gray-500" />
             <span className="ml-2">Most Popular</span>
           </Link>
-
           <Link
             className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
             href={"/recents"}
@@ -73,8 +102,20 @@ export const SideMenu = () => {
             <PieChart className="h-5 w-5 text-gray-500" />
             <span className="ml-2">Recently Added</span>
           </Link>
-
-
+          <Link
+            href={"/genre"}
+            className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
+          >
+            <Dna className="h-5 w-5 text-gray-500" />
+            <span className="ml-2">Genre</span>
+          </Link>
+          <Link
+            className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
+            href={"/community"}
+          >
+            <UsersRound className="h-5 w-5 text-gray-500" />
+            <span className="ml-2">Community</span>
+          </Link>
           <Link
             className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
             href={"/about-us"}
@@ -82,8 +123,6 @@ export const SideMenu = () => {
             <AlertCircle className="h-5 w-5 text-gray-500" />
             <span className="ml-2">About Us</span>
           </Link>
-
-
         </nav>
         <ScrollBar orientation="vertical" />
       </ScrollArea>
