@@ -88,10 +88,9 @@ const Page = () => {
           body: JSON.stringify({ ...res.value, createdBy: UserInfo }),
         });
         const responseData = await response.json();
-
         if (response.status === 201) {
           console.log("responseId : ", responseData.data);
-          router.push("/");
+          router.push(`/${responseData.data._id}/dashboard/manga-details`);
         } else if (response.status > 500) {
           setApiError("Something went wrong with the server, please try again");
         } else {

@@ -5,8 +5,8 @@ import { Chapter } from "@/lib/types";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { MangaChapterSkeleton } from "@/components/component/Skelton";
 import { SkipBack, SkipForward } from 'lucide-react';
-
 import { toast } from "sonner";
+
 const ChapterPage = ({
   params
 }: {

@@ -118,7 +118,7 @@ function CarouselCard({
                 ))}
             </div>
             <div>
-              <p className="hidden sm:block text-sm">
+              <p className="hidden sm:block text-sm w-11/12">
                 {`${description.slice(0, 400)}...`}
               </p>
               <p className="sm:hidden text-xs">
