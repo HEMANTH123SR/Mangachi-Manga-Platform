@@ -46,6 +46,8 @@ export async function GET(req: NextRequest) {
           _id: manga._id,
           title: manga.mangaName,
           coverImage,
+          author: manga.author,
+          time: manga.createdAt,
         };
       });
       return NextResponse.json(
@@ -70,6 +72,8 @@ export async function GET(req: NextRequest) {
           _id: manga._id,
           title: manga.mangaName,
           coverImage,
+          author: manga.author,
+          time: manga.createdAt,
         };
       });
       return NextResponse.json(
@@ -94,6 +98,8 @@ export async function GET(req: NextRequest) {
           _id: manga._id,
           title: manga.mangaName,
           coverImage,
+          author: manga.author,
+          time: manga.createdAt,
         };
       });
       return NextResponse.json(
