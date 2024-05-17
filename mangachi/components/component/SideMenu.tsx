@@ -18,7 +18,6 @@ import {
   Instagram,
   Mail,
   Dice5,
-  Dna,
   BookmarkCheck,
   Search
 } from "lucide-react";
@@ -102,13 +101,7 @@ export const SideMenu = () => {
             <PieChart className="h-5 w-5 text-gray-500" />
             <span className="ml-2">Recently Added</span>
           </Link>
-          <Link
-            href={"/genre"}
-            className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
-          >
-            <Dna className="h-5 w-5 text-gray-500" />
-            <span className="ml-2">Genre</span>
-          </Link>
+
           <Link
             className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
             href={"/community"}

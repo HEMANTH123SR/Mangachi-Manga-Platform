@@ -56,7 +56,7 @@ const DashBoardPage = () => {
                 <Button
                     variant="outline"
                     className="bg-primary text-white "
-                    onClick={() => router.push("/create-manga")}
+                    onClick={() => router.push(`/create-manga`)}
                 >
                     Create New Manga
                 </Button>
@@ -66,7 +66,7 @@ const DashBoardPage = () => {
                     <div
                         key={manga._id}
                         className="flex items-center gap-4 cursor-pointer"
-                        onClick={() => router.push(`/manga/${manga._id}`)}
+                        onClick={() => router.push(`/${manga._id}/dashboard/manga-details`)}
                     >
                         <img
                             alt={`${manga.mangaName} manga image`}
