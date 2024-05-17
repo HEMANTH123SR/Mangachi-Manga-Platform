@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { UsersIcon } from "@/lib/Icons";
-import { FaHeart } from "react-icons/fa6";
+import { FaHeart, FaBookmark } from "react-icons/fa6";
 
 
 function Page({ params }: { params: { id: string } }) {
@@ -19,6 +19,7 @@ function Page({ params }: { params: { id: string } }) {
   const [somethingWentWrong, setSomethingWentFrong] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isClick, setClick] = useState(false);
+  const [bookmarkClicked, setBookMarkCliked] = useState(false)
   const [runUseEffect, setRunUseEffect] = useState(0);
   useEffect(() => {
     (async () => {
@@ -47,6 +48,14 @@ function Page({ params }: { params: { id: string } }) {
         }
       }
 
+      if (manga?.savedBy) {
+        for (let id of manga?.savedBy) {
+          if (id === currentUserId) {
+            setBookMarkCliked(true);
+          }
+        }
+      }
+
       if (currentUserId && manga) {
         for (let id of manga?.views.viewedBy) {
           if (id === currentUserId) {
@@ -69,6 +78,51 @@ function Page({ params }: { params: { id: string } }) {
     })();
   }, [user, manga, params]);
 
+
+  const handleBookMark = async () => {
+    try {
+      let currentUserId = await user?.id;
+      let isBookmarkSaved = await bookmarkClicked;
+      console.log(`current user id :: ${currentUserId} , manga :: ${manga} , isBookmarkSaved :: ${isBookmarkSaved}`)
+
+      if (currentUserId && manga && isBookmarkSaved) {
+        const currentMangaSaves = [
+          ...manga.savedBy.filter((id) => id !== user?.id),
+        ];
+        await fetch(`/api/manga/${params.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            savedBy: currentMangaSaves
+          }),
+        });
+        setRunUseEffect(runUseEffect + 1);
+      }
+      if (currentUserId && manga && !isBookmarkSaved) {
+        for (let id of manga?.savedBy) {
+          if (id === currentUserId) {
+            return;
+          }
+        }
+
+        await fetch(`/api/manga/${params.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            savedBy: [...manga.savedBy, currentUserId]
+          }),
+        });
+        setRunUseEffect(runUseEffect + 1);
+      }
+    } catch (err: any) {
+      console.log(`err something went wrong with bookmark feature :: ${err}`)
+    }
+  }
+
   const handleLike = async () => {
     try {
       let currentUserId = await user?.id;
@@ -76,10 +130,12 @@ function Page({ params }: { params: { id: string } }) {
       console.log(
         `current user id :: ${currentUserId} , manga :: ${manga} , isClick :: ${isLiked}`
       );
+
       if (currentUserId && manga && isLiked) {
         const currentLikedBy = [
           ...manga.likes.likedBy.filter((id) => id !== user?.id),
         ];
+
         await fetch(`/api/manga/${params.id}`, {
           method: "PUT",
           headers: {
@@ -118,6 +174,8 @@ function Page({ params }: { params: { id: string } }) {
       console.log(err);
     }
   };
+
+
 
   if (somethingWentWrong) {
     return (
@@ -201,6 +259,7 @@ function Page({ params }: { params: { id: string } }) {
                     <UsersIcon className={"text-gray-600 w-5 h-5"} />
                     <span className={"text-lg"}>{`${manga?.views.count}`}</span>
                   </div>
+
                   <div className="flex items-center space-x-1">
                     <FaHeart
                       onClick={() => {
@@ -209,11 +268,20 @@ function Page({ params }: { params: { id: string } }) {
                         handleLike();
                       }}
                       className={`${isClick ? "text-primary" : "text-slate-300"
-                        } w-5 h-5`}
+                        } w-5 h-5 cursor-pointer`}
                     />
                     <span
                       className={"text-lg"}
                     >{`${manga?.likes.likeCount}`}</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    {/* bookmark */}
+                    <FaBookmark className={`${bookmarkClicked ? "text-primary" : "text-slate-300"}   w-6 h-5 cursor-pointer`}
+                      onClick={() => {
+                        setBookMarkCliked(prev => !prev);
+                        handleBookMark()
+                      }}
+                    />
                   </div>
                 </div>
               </div>
@@ -281,6 +349,8 @@ function Page({ params }: { params: { id: string } }) {
     </div>
   );
 }
+
+
 
 const getFormatedDate = ({ date }: { date: string }) => {
   const filter = date.slice(0, 10).split("-");

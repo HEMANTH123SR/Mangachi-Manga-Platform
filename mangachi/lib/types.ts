@@ -40,6 +40,8 @@ export interface MangaType {
     commentBy: string;
     createdAt: Date;
   }[];
+  thanksReceives: [{ userId: String; amount: number }];
+  savedBy: string[];
   chapters: Chapter[];
   createdAt: string;
   updatedAt: string;

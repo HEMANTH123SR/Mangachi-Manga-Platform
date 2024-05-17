@@ -85,7 +85,7 @@ const Page = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ ...res.value, createdBy: UserInfo }),
+          body: JSON.stringify({ ...res.value, createdBy: UserInfo, savedBy: [], thanksRecives: [] }),
         });
         const responseData = await response.json();
         if (response.status === 201) {

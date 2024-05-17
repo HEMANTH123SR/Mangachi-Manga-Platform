@@ -1,24 +1,23 @@
-import { NextResponse } from "next/server";
 import { connectDB } from "@/db/index";
 import { Manga } from "@/db/modules/manga.model";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET() {
   try {
     await connectDB();
-    const mangas = await Manga.findById("65bfadb0a870d6fe0bbbdd1a", {
-      "likes.likedBy": 1,
-    });
-    return NextResponse.json(
-      { status: "success", data: mangas },
-      { status: 200 }
-    );
-  } catch (err: any) {
-    return NextResponse.json(
+    const result = await Manga.updateMany(
+      {},
       {
-        status: "unsucess",
-        message: err?.message || err._message || "Internal server error",
-      },
-      { status: 500 }
+        $set: {
+          thanksReceives: [],
+          savedBy: [],
+        },
+      }
     );
+    console.log(`${result} documents updated successfully`);
+    return NextResponse.json({ status: "success" }, { status: 200 });
+  } catch (err: any) {
+    console.error("Error updating documents:", err);
+    return NextResponse.json({ status: "unsuccess" }, { status: 500 });
   }
 }

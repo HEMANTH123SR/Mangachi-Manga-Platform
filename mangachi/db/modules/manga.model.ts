@@ -58,6 +58,13 @@ const MangaSchema = new mongoose.Schema(
         createdAt: { type: Date, default: Date.now },
       },
     ],
+    thanksReceives: [
+      {
+        userId: { type: String },
+        amount: { type: Number },
+      },
+    ],
+    savedBy: [{ type: String }],
     description: {
       type: String,
       required: true,
