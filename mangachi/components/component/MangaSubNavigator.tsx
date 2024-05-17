@@ -39,29 +39,8 @@ export function MangaSubNavigator({ children }: { children: React.ReactNode }) {
                         >
                             Chapters
                         </Button>
-                        <Button
-                            className={`mb-4 block  py-2 px-4 text-left text-sm font-medium text-gray-700
-            
-                ${pathname === `/${id}/dashboard/preview`
-                                    ? "bg-primary text-white hover:bg-primary "
-                                    : "bg-white hover:bg-slate-100 hover:text-black"
-                                } `}
-                            onClick={() => router.push(`/${id}/dashboard/preview`)}
-                        >
-                            Preview
-                        </Button>
 
-                        <Button
-                            className={`mb-4 block  py-2 px-4 text-left text-sm font-medium text-gray-700
-           
-                ${pathname === `/${id}/dashboard/comments`
-                                    ? "bg-primary text-white hover:bg-primary "
-                                    : "bg-white hover:bg-slate-100 hover:text-black"
-                                } `}
-                            onClick={() => router.push(`/${id}/dashboard/comments`)}
-                        >
-                            Comments
-                        </Button>
+
                         <Button
                             className={`mb-4 block  py-2 px-4 text-left text-sm font-medium text-gray-700
             
