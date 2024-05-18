@@ -1,4 +1,3 @@
-"use client";
 import Logo from "@/public/Manga-Wallpaper-Free-Download.jpg";
 const AboutUs = () => {
   return (

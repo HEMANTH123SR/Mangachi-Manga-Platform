@@ -1,5 +1,4 @@
 import { Client, Storage, ID } from "appwrite";
-import { Cat } from "lucide-react";
 
 const client = new Client()
   .setEndpoint("https://cloud.appwrite.io/v1")
