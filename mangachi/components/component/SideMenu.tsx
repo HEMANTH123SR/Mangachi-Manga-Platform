@@ -129,14 +129,14 @@ export const SideMenu = () => {
           </a>
           <a
             className="flex items-center text-gray-700 hover:text-gray-500"
-            href="https://twitter.com/iam_Hemanth_sr"
+            href="https://twitter.com
             target="_blank"
           >
             <Twitter className="h-5 w-5" />
           </a>
           <a
             className="flex items-center text-gray-700 hover:text-gray-500"
-            href="https://www.instagram.com/_hemanth_sr_?igsh=MTczM3l1enFwMHZzaw=="
+            href="https://www.instagram.com"
             target="_blank"
           >
             <Instagram className="h-5 w-5" />

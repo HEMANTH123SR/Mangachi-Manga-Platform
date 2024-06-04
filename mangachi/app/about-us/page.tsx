@@ -19,7 +19,7 @@ const AboutUs = () => {
             </p>
             <div>
               <p className="text-gray-700 mb-6">
-                Mangachi, situated in the heart of India, Bangalore, goes beyond
+                Mangachi, situated in India, goes beyond
                 being just a manga platform. It is a space driven by a passion
                 for storytelling and a commitment to copyright ethics. Our
                 platform envisions empowering creators to showcase their

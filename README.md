@@ -32,11 +32,11 @@ To get started with Mangachi, simply visit [https://mangachi.vercel.app/](https:
 
 We welcome contributions from the community to help improve Mangachi. Whether you're a developer, designer, or have valuable feedback, feel free to open an issue or submit a pull request on our GitHub repository.
 
-GitHub Repository: [https://github.com/HEMANTH123SR/Mangachi-Manga-Platform](https://github.com/HEMANTH123SR/Mangachi-Manga-Platform)
+
 
 ## Feedback and Support
 
-If you have any questions, feedback, or need assistance, please reach out to us through the GitHub repository or contact us via email at hemanthsrdev@gmail.com
+If you have any questions, feedback, or need assistance, please reach out to us through the GitHub repository or contact us via email 
 
 ## License
 
