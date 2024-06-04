@@ -82,10 +82,10 @@ const DashBoardPage = () => {
                         <div className="flex flex-col justify-start items-start">
                             <span className="text-lg font-mono text-[#E11D48]">{`${manga.mangaName}`}</span>
                             <h2 className=" font-semibold font-sans">{`${manga.author}`}</h2>
-                            <span className="text-xs text-gray-500 font-mono ">{`${manga.createdAt.slice(
+                            {/* <span className="text-xs text-gray-500 font-mono ">{`${manga.createdAt.slice(
                                 0,
                                 10
-                            )}`}</span>
+                            )}`}</span> */}
                         </div>
                     </div>
                 ))}

@@ -247,9 +247,9 @@ function Page({ params }: { params: { id: string } }) {
               <div className="flex flex-col space-y-3 justify-start  my-4">
                 <div className="flex items-center space-x-6">
                   <Badge variant="secondary">{`CH: ${manga?.chapters.length}`}</Badge>
-                  <Badge variant="secondary">
+                  {/* <Badge variant="secondary">
                     {getFormatedDate({ date: manga?.createdAt as string })}
-                  </Badge>
+                  </Badge> */}
                   <Badge variant="secondary" className="hidden sm:block">
                     {manga?.status}
                   </Badge>
@@ -338,7 +338,7 @@ function Page({ params }: { params: { id: string } }) {
               <div className="flex flex-col justify-start items-start">
                 <span className="text-lg font-mono text-[#E11D48]">{`#0${chapter.chapterNumber}`}</span>
                 <h2 className=" font-semibold font-sans">{`Chapter ${chapter.chapterNumber}: ${chapter.chapterName}`}</h2>
-                <span className="text-xs text-gray-500 font-mono ">{`${chapter.chapterPublishedDate}`}</span>
+                {/* <span className="text-xs text-gray-500 font-mono ">{`${chapter.chapterPublishedDate}`}</span> */}
               </div>
             </div>
           ))}

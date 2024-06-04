@@ -129,7 +129,7 @@ export const SideMenu = () => {
           </a>
           <a
             className="flex items-center text-gray-700 hover:text-gray-500"
-            href="https://twitter.com
+            href="https://twitter.com"
             target="_blank"
           >
             <Twitter className="h-5 w-5" />

@@ -44,10 +44,10 @@ export const HomePageShonenContent = () => {
               <div className="flex flex-col justify-start items-start">
                 <span className="text-base font-sans font-bold line-clamp-1 break-all">{`${manga.mangaName}`}</span>
                 <span className="font-sans text-sm">{`${manga.author}`}</span>
-                <span className="text-xs text-gray-500 font-mono ">{`${manga.createdAt.slice(
+                {/* <span className="text-xs text-gray-500 font-mono ">{`${manga.createdAt.slice(
                   0,
                   10
-                )}`}</span>
+                )}`}</span> */}
               </div>
             </div>
           ))}
@@ -71,10 +71,10 @@ export const HomePageShonenContent = () => {
               <div className="flex flex-col justify-start items-start">
                 <span className="text-base font-sans  font-bold line-clamp-1 break-all">{`${manga.mangaName}`}</span>
                 <span className="font-sans text-sm">{`${manga.author}`}</span>
-                <span className="text-xs text-gray-500 font-mono ">{`${manga.createdAt.slice(
+                {/* <span className="text-xs text-gray-500 font-mono ">{`${manga.createdAt.slice(
                   0,
                   10
-                )}`}</span>
+                )}`}</span> */}
               </div>
             </div>
           ))}

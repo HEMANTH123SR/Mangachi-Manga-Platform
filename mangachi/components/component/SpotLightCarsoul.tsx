@@ -131,12 +131,12 @@ function CarouselCard({
                 <Badge variant="secondary">{`CH: ${totalChapter}`}</Badge>
               </div>
               <div className=" space-x-4 h-6 mt-2 mx-4 sm:hidden md:flex">
-                <Badge
+                {/* <Badge
                   className={`hidden sm:flex justify-center items-center`}
                   variant="secondary"
                 >
                   {getFormatedDate({ date })}
-                </Badge>
+                </Badge> */}
                 <Badge
                   className={`hidden sm:flex justify-center items-center`}
                   variant="secondary"
